@@ -1,10 +1,10 @@
-# pi-desenvolvimento-web
+# keeperCtrl
 
 Projeto para a disciplina de Desenvolvimento de Sistemas Web do curso de Engenharia de Computação, PUC-Campinas.
 
 ## Descrição
 
-\[NOME\] é uma plataforma para pais e responsáveis discutirem e avaliarem jogos voltados a menores de idade, a fim de decidirem se determinado título pode ser prejudicial para a formação de seus filhos.
+keeperCtrl é uma plataforma para pais e responsáveis discutirem e avaliarem jogos voltados a menores de idade, a fim de decidirem se determinado título pode ser prejudicial para a formação de seus filhos.
 
 - [x] ODS 3 - Saúde e bem-estar
 - [x] ODS 9 - Indústria, inovação e infraestrutura
@@ -27,13 +27,15 @@ Projeto para a disciplina de Desenvolvimento de Sistemas Web do curso de Engenha
 
 ## Protótipo
 
+[![Figma][Figma]][Figma-url]
+
 ## Equipe
 
-- Cauan Kazuhiro Matsuse
-- Davi Vieira Miranda
-- Gabriel Augusto Bramuci Ross Matheus
-- Lucas Nogami Tung
-- Phabio Diniz Rezende
+- Cauan Kazuhiro Matsuse — Controle de Relatórios
+- Davi Vieira Miranda — Gerenciamento do Kanban
+- Gabriel Augusto Bramuci Ross Matheus — Gerenciamento do Scrum
+- Lucas Nogami Tung — Gerenciamento do GitHub
+- Phabio Diniz Rezende — Identidade Visual
 
 ## Status do Projeto
 
@@ -47,3 +49,6 @@ Em andamento
 
 [JavaScript]: https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=000000
 [JavaScript-url]: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+
+[Figma]: https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white
+[Figma-url]: https://www.figma.com/
