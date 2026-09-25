@@ -1,0 +1,369 @@
+#overlay:not(.hidden) {
+  background-color: rgba(0, 0, 0, 50%);
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+
+#overlay:not(.hidden) {
+  transition: 0.2s;
+}
+
+.modal {
+  background-color: var(--clr-contrast);
+  width: clamp(250px, 95vw, 800px);
+  overflow: auto;
+}
+
+.modal h2, .modal h3 {
+  font-size: 1.3rem;
+}
+
+.modal__header {
+  display: flex;
+  background-color: var(--clr-main);
+  color: var(--clr-contrast);
+  padding: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#close-btn {
+  padding: 0.5rem;
+  width: 2.5rem;
+  flex: 0 0 auto;
+  aspect-ratio: 1 / 1;
+  font-size: 1.25rem;
+}
+
+#close-btn span {
+  display: block;
+  transform: translate(0.05rem, -0.1rem);
+}
+
+.modal__body {
+  padding: 0 1rem;
+}
+
+.modal__game-id {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--clr-surface);
+  border-bottom: 1px solid var(--clr-shadow);
+  padding: 1rem;
+}
+
+.modal__game-name {
+  display: flex;
+  gap: 0.5rem;
+  align-items: start;
+}
+
+.modal__game-thumb {
+  background-color: red;
+  width: clamp(20px, 1rem, 30px);
+  aspect-ratio: 3 / 4;
+}
+
+.modal__game-name h3 {
+  order: 1;
+  margin: 0;
+  align-self: end;
+}
+
+.modal__game-studio {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.modal fieldset {
+  border: none;
+}
+
+.modal__body > article {
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.t-score {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+criteria {
+  display: grid;
+}
+
+.criterion {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.criterion-id p {
+  font-weight: 700;
+}
+
+.rate {
+  --val-gap: 0.25rem;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: var(--val-gap);
+}
+
+.t-rate {
+  --val-gap: 0.5rem;
+}
+
+.rate {
+  --clr-low-bg: var(--clr-warning);
+  --clr-low-display: var(--clr-contrast);
+  --clr-low-bg-hover: var(--clr-warning-bg);
+  --clr-low-display-hover: var(--clr-warning);
+
+  --clr-medium-bg: var(--clr-mid);
+  --clr-medium-display: var(--clr-contrast);
+  --clr-medium-bg-hover: var(--clr-mid-bg);
+  --clr-medium-display-hover: var(--clr-mid);
+
+  --clr-high-bg: var(--clr-check);
+  --clr-high-display: var(--clr-contrast);
+  --clr-high-bg-hover: var(--clr-check-bg);
+  --clr-high-display-hover: var(--clr-check);
+}
+
+.t-rate {
+  --clr-low-bg: var(--clr-warning-bg);
+  --clr-low-display: var(--clr-warning);
+  --clr-low-bg-hover: var(--clr-warning);
+  --clr-low-display-hover: var(--clr-contrast);
+
+  --clr-medium-bg: var(--clr-mid-bg);
+  --clr-medium-display: var(--clr-mid);
+  --clr-medium-bg-hover: var(--clr-mid);
+  --clr-medium-display-hover: var(--clr-contrast);
+
+  --clr-high-bg: var(--clr-check-bg);
+  --clr-high-display: var(--clr-check);
+  --clr-high-bg-hover: var(--clr-check);
+  --clr-high-display-hover: var(--clr-contrast);
+}
+
+.rate > input {
+  display: none;
+}
+
+.rate > label {
+  width: 1.55rem;
+  height: 1.4rem;
+  font-size: 0.85rem;
+  position: relative;
+  cursor: pointer;
+  color: var(--clr-text);
+  border: 1px solid var(--clr-shadow);
+  text-align: center;
+  display: block;
+}
+
+.t-rate > label {
+  width: 2.25rem;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  flex: 0 0 auto;
+  padding: 0.25rem;
+  display: flex;
+  align-content: center;
+}
+
+.t-rate > label svg {
+  max-width: 1.75rem;
+}
+
+.rate > label:not(:first-of-type)::after {
+  position: absolute;
+  content: "";
+  inset: -1px;
+  right: calc((-1) * (var(--val-gap)) - 1px);
+}
+
+/* Display da nota geral */
+.t-score:not(:has(input:checked)) .t-score__display,
+.t-score:has(input[value="1"]:checked) .t-score__display,
+.t-score:has(input[value="2"]:checked) .t-score__display {
+  color: var(--clr-warning);
+}
+
+.t-score:has(input[value="3"]:checked) .t-score__display {
+  color: var(--clr-mid);
+}
+
+.t-score:has(input[value="4"]:checked) .t-score__display,
+.t-score:has(input[value="5"]:checked) .t-score__display {
+  color: var(--clr-check);
+}
+
+.t-score:not(:has(input:checked)) .t-score__display::before {
+  content: "0";
+}
+
+.t-score:has(input[value="1"]:checked) .t-score__display::before {
+  content: "1";
+}
+
+.t-score:has(input[value="2"]:checked) .t-score__display::before {
+  content: "2";
+}
+
+.t-score:has(input[value="3"]:checked) .t-score__display::before {
+  content: "3";
+}
+
+.t-score:has(input[value="4"]:checked) .t-score__display::before {
+  content: "4";
+}
+
+.t-score:has(input[value="5"]:checked) .t-score__display::before {
+  content: "5";
+}
+
+/* Nota alta */
+.rate > input:checked:nth-last-of-type(n + 4):nth-last-of-type(-n + 5) ~ label {
+  color: var(--clr-high-display);
+  background-color: var(--clr-high-bg);
+  border-color: var(--clr-check);
+}
+
+.rate > label:hover:nth-last-of-type(n + 4):nth-last-of-type(-n + 5),
+.rate > label:hover:nth-last-of-type(n + 4):nth-last-of-type(-n + 5) ~ label {
+  color: var(--clr-high-display-hover);
+  background-color: var(--clr-high-bg-hover);
+  border-color: var(--clr-check);
+}
+
+.rate > input:checked + label:hover:nth-last-of-type(n + 4):nth-last-of-type(-n + 5),
+.rate > input:checked + label:hover:nth-last-of-type(n + 4):nth-last-of-type(-n + 5) ~ label,
+.rate > input:checked ~ label:hover:nth-last-of-type(n + 4):nth-last-of-type(-n + 5),
+.rate > input:checked ~ label:hover:nth-last-of-type(n + 4):nth-last-of-type(-n + 5) ~ label,
+.rate > label:hover:nth-last-of-type(n + 4):nth-last-of-type(-n + 5) ~ input:checked ~ label {
+  color: var(--clr-high-display-hover);
+  background-color: var(--clr-high-bg-hover);
+  border-color: var(--clr-check);
+}
+
+/* Nota média */
+.rate > input:checked:nth-last-of-type(3) ~ label {
+  color: var(--clr-medium-display);
+  background-color: var(--clr-medium-bg);
+  border-color: var(--clr-mid);
+}
+
+.rate > label:hover:nth-last-of-type(3),
+.rate > label:hover:nth-last-of-type(3) ~ label {
+  color: var(--clr-medium-display-hover);
+  background-color: var(--clr-medium-bg-hover);
+  border-color: var(--clr-mid);
+}
+
+.rate > input:checked + label:hover:nth-last-of-type(3),
+.rate > input:checked + label:hover:nth-last-of-type(3) ~ label,
+.rate > input:checked ~ label:hover:nth-last-of-type(3),
+.rate > input:checked ~ label:hover:nth-last-of-type(3) ~ label,
+.rate > label:hover:nth-last-of-type(3) ~ input:checked ~ label {
+  color: var(--clr-medium-display-hover);
+  background-color: var(--clr-medium-bg-hover);
+  border-color: var(--clr-mid);
+}
+
+/* Nota baixa */
+.rate > input:checked:nth-last-of-type(-n + 2) ~ label {
+  color: var(--clr-low-display);
+  background-color: var(--clr-low-bg);
+  border-color: var(--clr-warning);
+}
+
+.rate > label:hover:nth-last-of-type(-n + 2),
+.rate > label:hover:nth-last-of-type(-n + 2) ~ label {
+  color: var(--clr-low-display-hover);
+  background-color: var(--clr-low-bg-hover);
+  border-color: var(--clr-warning);
+}
+
+.rate > input:checked + label:hover:nth-last-of-type(-n + 2),
+.rate > input:checked + label:hover:nth-last-of-type(-n + 2) ~ label,
+.rate > input:checked ~ label:hover:nth-last-of-type(-n + 2),
+.rate > input:checked ~ label:hover:nth-last-of-type(-n + 2) ~ label,
+.rate > label:hover:nth-last-of-type(-n + 2) ~ input:checked ~ label {
+  color: var(--clr-low-display-hover);
+  background-color: var(--clr-low-bg-hover);
+  border-color: var(--clr-warning);
+}
+
+#comment {
+  border: 1px solid var(--clr-shadow);
+  font-size: 0.8rem;
+  border-radius: 0;
+  resize: vertical;
+  padding: 0.5rem;
+  background-color: var(--clr-surface);
+  color: var(--clr-text);
+  min-height: 5rem;
+}
+
+#comment::placeholder {
+  color: var(--clr-shadow);
+}
+
+#submit-btn {
+  width: 100%;
+}
+
+.modal footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  gap: 0.75rem;
+  background-color: var(--clr-surface);
+  border-top: 1px solid var(--clr-shadow);
+}
+
+.disclaimer {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.disclaimer svg {
+  width: 1rem;
+  color: var(--clr-text);
+}
+
+.disclaimer p {
+  font-size: 0.75rem;
+}
+
+.criterion-id p {
+  font-size: 0.8rem;
+}
+
+.criterion-id small {
+  font-size: 0.7rem;
+}
+
+@media (min-width: 960px) {
+  .criteria {
+    --max: 350px;
+  }
+}
