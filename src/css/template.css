@@ -1,0 +1,13 @@
+main {
+  background-color: var(--clr-surface);
+  flex-grow: 1;
+}
+
+@media (min-width: 960px) {
+  main {
+    width: clamp(700px, 60vw, 1024px);
+    border-left: 1px solid var(--clr-shadow);
+    border-right: 1px solid var(--clr-shadow);
+  }
+}
+
