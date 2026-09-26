@@ -6,7 +6,6 @@ header.page-band {
 
 #search-bar {
   display: flex;
-  margin: auto;
   gap: 0.5rem;
   width: 100%;
   border: 2px solid var(--clr-main);
@@ -56,16 +55,10 @@ header.page-band {
 }
 
 @media(min-width: 960px) {
-  header.page-band {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .logo__link {
-    justify-content: flex-start;
-  }
-
   #search-bar {
-    width: 50%;
+    width: clamp(300px, 50%, 600px);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

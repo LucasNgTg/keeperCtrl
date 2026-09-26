@@ -1,7 +1,3 @@
-main {
-  background-color: var(--clr-surface);
-}
-
 h3 {
   font-size: 0.95rem;
   margin-bottom: 0.5rem;
@@ -348,12 +344,6 @@ hr {
 }
 
 @media (min-width: 960px) {
-  main {
-    width: clamp(700px, 60vw, 1024px);
-    border-left: 1px solid var(--clr-shadow);
-    border-right: 1px solid var(--clr-shadow);
-  }
-
   .game-id {
     align-self: end;
   }
