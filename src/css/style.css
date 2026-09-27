@@ -47,6 +47,39 @@ body,
   font-family: "Montserrat", system-ui, sans-serif;
 }
 
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: var(--clr-shadow);
+  width: 1.15rem;
+  height: 1.15rem;
+  border: 1px solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+
+input[type="checkbox"]:checked:focus {
+  outline-color: var(--clr-hl);
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.65rem;
+  height: 0.65rem;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--clr-hl);
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
 .font-display {
   font-family: "Digits";
   line-height: 1.25em;
@@ -101,6 +134,10 @@ body,
 
 button:not(:disabled):hover {
   cursor: pointer;
+}
+
+button:disabled {
+  opacity: 50%;
 }
 
 .hidden,
