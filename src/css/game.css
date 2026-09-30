@@ -257,6 +257,16 @@ hr {
   border-color: var(--clr-check);
 }
 
+.badge-neutral {
+  color: var(--clr-neutral);
+  background-color: var(--clr-neutral-bg);
+  border-color: var(--clr-neutral);
+}
+
+.badge-neutral .badge-name {
+  color: var(--clr-neutral);
+}
+
 .badge-positive .badge-name {
   color: var(--clr-check);
 }
