@@ -32,8 +32,7 @@ keeperCtrl é uma plataforma para pais e responsáveis discutirem e avaliarem jo
 ## Equipe
 
 - Cauan Kazuhiro Matsuse — Controle de Relatórios
-- Davi Vieira Miranda — Gerenciamento do Kanban
-- Gabriel Augusto Bramuci Ross Matheus — Gerenciamento do Scrum
+- Davi Vieira Miranda — Gerenciamento do Jira
 - Lucas Nogami Tung — Gerenciamento do GitHub
 - Phabio Diniz Rezende — Identidade Visual
 
