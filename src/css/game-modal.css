@@ -272,33 +272,6 @@ label:hover {
   font-size: 0.8rem;
 }
 
-.hint button {
-  background: none;
-  border: none;
-  height: min-content;
-  display: flex;
-  align-items: center;
-}
-
-.hint button:hover svg,
-.hint button:focus {
-  color: var(--clr-hl);
-  outline: none;
-}
-
-.hint-content {
-  position: fixed;
-  position-anchor: implicit;
-  position-area: top;
-  z-index: 10;
-  color: var(--clr-contrast);
-  width: 12rem;
-  padding: 0.5rem;
-  background-color: var(--clr-main);
-  font-size: 0.5rem;
-  border: none;
-}
-
 .rate {
   --val-gap: 0.4rem;
   display: flex;

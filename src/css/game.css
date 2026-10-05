@@ -118,7 +118,7 @@ hr {
   gap: 1rem;
 }
 
-.game-info article {
+.game-info > article {
   padding: 0.75rem 1rem;
 }
 
@@ -178,6 +178,108 @@ hr {
   gap: 1rem;
 }
 
+.stat-display {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+  padding-bottom: 8px;
+  padding-right: 8px;
+  border-bottom: 1px solid transparent;
+  transition: 0.2s;
+}
+
+input.stat-check {
+  display: none;
+}
+
+.stat-caret {
+  width: 1.5rem;
+  aspect-ratio: 1 / 1;
+  background: none;
+  border: 1px solid var(--clr-shadow);
+  display: flex;
+  justify-content: center;
+  transition: 0.2s;
+}
+
+.stat-display:hover .stat-caret {
+  background-color: var(--clr-fill);
+}
+
+.stat-caret svg {
+  width: 0.5rem;
+  margin: 0 auto;
+  color: var(--clr-text);
+  transform: rotate(-90deg);
+  transition: 0.2s ease-in-out;
+}
+
+.stat-accordion {
+  overflow: hidden;
+  max-height: 0;
+  transition: 0.25s ease-in-out;
+  background-color: var(--clr-surface);
+}
+
+.stat-accordion__item {
+  padding: 8px;
+}
+
+.stat-accordion__item__title {
+  display: flex;
+  gap: 4px;
+}
+
+.hint svg {
+  width: 1rem;
+  aspect-ratio: 1 / 1;
+  color: var(--clr-hl);
+}
+
+.hint button {
+  background: none;
+  border: none;
+  height: min-content;
+  display: flex;
+  align-items: center;
+}
+
+.hint button:hover svg,
+.hint button:focus {
+  color: var(--clr-hl);
+  outline: none;
+}
+
+.hint-content {
+  position: fixed;
+  position-anchor: implicit;
+  position-area: top;
+  z-index: 10;
+  color: var(--clr-contrast);
+  width: 12rem;
+  padding: 0.5rem;
+  background-color: var(--clr-main);
+  font-size: 0.8rem;
+  border: none;
+}
+
+.stat-display:has(.stat-check:checked) {
+  border-color: var(--clr-shadow);
+}
+
+.stat-display:has(.stat-check:checked) .stat-caret svg {
+  transform: rotate(90deg);
+}
+
+.stat-display:has(.stat-check:checked) ~ .stat-accordion {
+  max-height: 10rem;
+}
+
+.stat-inner {
+  flex: 1 0 auto;
+}
+
 .stat-average {
   color: var(--clr-hl);
   font-size: 0.8rem;
@@ -214,12 +316,16 @@ hr {
 }
 
 /* Teste stat-bar */
-#stat-ads .stat-bar::after {
-  width: calc(100% * (1.9 / 5));
-}
-
 #stat-content .stat-bar::after {
   width: calc(100% * (3.8 / 5));
+}
+
+#stat-content__violence .stat-bar::after {
+  width: calc(100% * (3.8 / 5));
+}
+
+#stat-ads .stat-bar::after {
+  width: calc(100% * (1.9 / 5));
 }
 
 #stat-mod .stat-bar::after {

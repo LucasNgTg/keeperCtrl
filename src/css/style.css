@@ -53,8 +53,6 @@ input[type="checkbox"] {
   -webkit-appearance: none;
   appearance: none;
   background-color: #fff;
-  margin: 0;
-  font: inherit;
   color: var(--clr-shadow);
   width: 1.15rem;
   height: 1.15rem;
@@ -67,6 +65,10 @@ input[type="checkbox"] {
 
 input[type="checkbox"]:checked:focus {
   outline-color: var(--clr-hl);
+}
+
+input[type="checkbox"]:checked {
+  border-color: var(--clr-hl);
 }
 
 input[type="checkbox"]::before {

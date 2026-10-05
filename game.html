@@ -91,12 +91,132 @@
 
       <article class="stats">
         <ul class="stats__list">
-          <li id="stat-content">
-            <div class="stat-header">
-              <p class="stat-label font-display">Conteúdo</p>
-              <p class="stat-score"><span class="stat-average">3.8</span> / 5</p>
-            </div>
-            <div class="stat-bar"></div>
+          <li>
+            <label class="stat-display" for="stat-content__check" id="stat-content">
+              <input type="checkbox" id="stat-content__check" class="stat-check">
+              <div class="stat-caret">
+                <svg viewBox="0 0 640 640">
+                  <use href="assets/icons.svg#caret"></use>
+                </svg>
+              </div>
+              <div class="stat-inner">
+                <div class="stat-header">
+                  <p class="stat-label font-display">Conteúdo</p>
+                  <p class="stat-score"><span class="stat-average">3.8</span> / 5</p>
+                </div>
+                <div class="stat-bar"></div>
+              </div>
+            </label>
+            <ul class="stat-accordion">
+              <li>
+                <article class="stat-accordion__item" id="stat-content__violence">
+                  <div class="stat-header">
+                    <div class="stat-accordion__item__title">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre violência" popovertarget="acc-hint__violence">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="acc-hint__violence" popover>
+                          Exposição a atos violentos, lutas, armas ou agressões corporais.
+                          <br><br>
+                          1 = Violência explícita e pesada
+                          <br>
+                          5 = Não contém violência
+                        </p>
+                      </div>
+
+                      <p class="stat-label font-display hl-text">Violência</p>
+                    </div>
+                    <p class="stat-score"><span class="stat-average">3.8</span> / 5</p>
+                  </div>
+                  <div class="stat-bar"></div>
+                </article>
+              </li>
+              <li>
+                <article class="stat-accordion__item" id="stat-content__sex">
+                  <div class="stat-header">
+                    <div class="stat-accordion__item__title">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre conteúdo sexual" popovertarget="acc-hint__sex">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="acc-hint__sex" popover>
+                          Exposição a nudez, insinuações, conteúdo sexual ou relacionamentos íntimos.
+                          <br><br>
+                          1 = Cenas explícitas
+                          <br>
+                          5 = Não contém conteúdo sexual
+                        </p>
+                      </div>
+
+                      <p class="stat-label font-display hl-text">Conteúdo Sexual</p>
+                    </div>
+                    <p class="stat-score"><span class="stat-average">3.8</span> / 5</p>
+                  </div>
+                  <div class="stat-bar"></div>
+                </article>
+              </li>
+              <li>
+                <article class="stat-accordion__item" id="stat-content__language">
+                  <div class="stat-header">
+                    <div class="stat-accordion__item__title">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre linguagem" popovertarget="acc-hint__language">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="acc-hint__language" popover>
+                          Presença de palavrões, xingamentos, insultos ou linguagem ofensiva.
+                          <br><br>
+                          1 = Ofensas frequentes
+                          <br>
+                          5 = Não contém linguagem ofensiva
+                        </p>
+                      </div>
+
+                      <p class="stat-label font-display hl-text">Linguagem</p>
+                    </div>
+                    <p class="stat-score"><span class="stat-average">3.8</span> / 5</p>
+                  </div>
+                  <div class="stat-bar"></div>
+                </article>
+              </li>
+              <li>
+                <article class="stat-accordion__item" id="stat-content__sensitive">
+                  <div class="stat-header">
+                    <div class="stat-accordion__item__title">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre temas sensíveis" popovertarget="acc-hint__sensitive">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="acc-hint__sensitive" popover>
+                          Abordagem de morte, luto, trauma, abuso, doenças ou outros temas delicados.
+                          <br><br>
+                          1 = Lida com temas pesados explicitamente
+                          <br>
+                          5 = Não contém temas sensíveis
+                        </p>
+                      </div>
+
+                      <p class="stat-label font-display hl-text">Linguagem</p>
+                    </div>
+                    <p class="stat-score"><span class="stat-average">3.8</span> / 5</p>
+                  </div>
+                  <div class="stat-bar"></div>
+                </article>
+              </li>
+            </ul>
           </li>
 
           <li id="stat-interact">
@@ -295,6 +415,10 @@
 
                         <p class="hint-content" id="hint-violence" popover>
                           Exposição a atos violentos, lutas, armas ou agressões corporais.
+                          <br><br>
+                          1 = Violência explícita e pesada
+                          <br>
+                          5 = Não contém violência
                         </p>
                       </div>
                       <legend class="clr-main">Violência</legend>
@@ -338,6 +462,10 @@
 
                         <p class="hint-content" id="hint-sex" popover>
                           Exposição a nudez, insinuações, conteúdo sexual ou relacionamentos íntimos.
+                          <br><br>
+                          1 = Cenas explícitas
+                          <br>
+                          5 = Não contém conteúdo sexual
                         </p>
                       </div>
 
