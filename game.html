@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+
+  <!-- Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="src/css/style.css">
+  <link rel="stylesheet" href="src/css/template.css">
+  <link rel="stylesheet" href="src/css/header.css">
+  <link rel="stylesheet" href="src/css/game.css">
+  <link rel="stylesheet" href="src/css/game-modal.css">
+</head>
+
+<body>
+  <header id="main-header" class="page-band">
+    <a href="index.html" class="logo__link">
+      <h1 class="font-display logo"><span class="clr-main">keeper</span><span class="hl-text emph">Ctrl</span></h1>
+    </a>
+    <form action="" id="search-bar">
+      <textarea name="pesquisa" id="searchbox" class="clr-text" rows="1"
+        placeholder="Pesquise pelo nome do jogo..."></textarea>
+      <button id="search-btn" type="submit">
+        <svg viewBox="0 0 640 640">
+          <use href="assets/icons.svg#search"></use>
+        </svg>
+      </button>
+    </form>
+  </header>
+
+  <main>
+    <section class="game-hero">
+      <div class="game-cover">
+        <img src="" alt="">
+      </div>
+
+      <div class="game-id">
+        <h2 class="game-name font-display">NOME DO JOGO</h2>
+
+        <ul class="game-platforms">
+          <li>PC</li>
+          <li>MOBILE</li>
+          <li>CONSOLE</li>
+        </ul>
+        <p class="game-release">
+          <span class="year">YYYY</span> • <span class="studio">Empresa</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="game-info">
+      <article class="description">
+        <h3 class="font-display hl-text">DESCRIÇÃO</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat.
+        </p>
+      </article>
+
+      <article class="gen-stat">
+        <div class="gen-stat-id">
+          <p class="gen-stat-label clr-main">Nota geral</p>
+
+          <svg viewBox="0 0 640 640">
+            <use href="assets/icons.svg#star"></use>
+          </svg>
+        </div>
+
+        <span class="gen-stat-num font-display hl-text">4.0</span>
+      </article>
+
+      <article class="gen-stat">
+        <div class="gen-stat-id">
+          <p class="gen-stat-label clr-main">Avaliações</p>
+
+          <svg viewBox="0 0 640 640">
+            <use href="assets/icons.svg#check-circle"></use>
+          </svg>
+        </div>
+
+        <span class="gen-stat-num font-display hl-text">1.6K</span>
+      </article>
+
+      <article class="stats">
+        <ul class="stats__list">
+          <li id="stat-content">
+            <div class="stat-header">
+              <p class="stat-label font-display">Conteúdo</p>
+              <p class="stat-score"><span class="stat-average">3.8</span> / 5</p>
+            </div>
+            <div class="stat-bar"></div>
+          </li>
+
+          <li id="stat-interact">
+            <div class="stat-header">
+              <p class="stat-label font-display">Interação entre Jogadores</p>
+              <p class="stat-score"><span class="stat-average">4.2</span> / 5</p>
+            </div>
+            <div class="stat-bar"></div>
+          </li>
+
+          <li id="stat-mod">
+            <div class="stat-header">
+              <p class="stat-label font-display">Moderação</p>
+              <p class="stat-score"><span class="stat-average">4.5</span> / 5</p>
+            </div>
+            <div class="stat-bar"></div>
+          </li>
+
+          <li id="stat-transact">
+            <div class="stat-header">
+              <p class="stat-label font-display">Estímulos ao Consumo</p>
+              <p class="stat-score"><span class="stat-average">2.1</span> / 5</p>
+            </div>
+            <div class="stat-bar"></div>
+          </li>
+
+        </ul>
+      </article>
+    </section>
+
+    <section class="badges font-display">
+      <h3 class="clr-text">SELOS DE APROVAÇÃO KEEPERCTRL</h3>
+
+      <article class="badge__items">
+        <div class="badge badge-neutral">
+          <svg class="badge-icon" viewBox="0 0 640 640">
+            <use href="assets/icons.svg#wand"></use>
+          </svg>
+          <p class="badge-name">VIOLÊNCIA FANTÁSTICA</p>
+        </div>
+
+        <div class="badge badge-negative">
+          <svg class="badge-icon" viewBox="0 0 640 640">
+            <use href="assets/icons.svg#rectangle-ad"></use>
+          </svg>
+          <p class="badge-name">OFERTAS FREQUENTES</p>
+        </div>
+
+        <div class="badge badge-positive">
+          <svg class="badge-icon" viewBox="0 0 640 640">
+            <use href="assets/icons.svg#filter"></use>
+          </svg>
+          <p class="badge-name">FILTROS DE COMUNICAÇÃO</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="discussion">
+      <h3 class="font-display clr-text">DISCUSSÃO <span id="discussion-num">(2)</span></h3>
+      <article class="discussion-cta">
+        <div class="discussion-cta__p">
+          <h3 class="font-display">SUA OPINIÃO <span class="hl-text">IMPORTA</span></h3>
+          <p>
+            Sem contas. Sem spam. Deixe sua avaliação anônima para ajudar outros responsáveis.
+          </p>
+        </div>
+        <button id="rate-btn" class="font-display">DEIXAR AVALIAÇÃO ANÔNIMA</button>
+      </article>
+
+      <div class="posts__wrapper">
+        <article id="posts">
+          <article class="post">
+            <p class="post__comment">
+              A moderação de chat funciona muito bem. Meu filho joga há 3 meses e nunca vi interações ofensivas
+              expostas.
+              Recomendo bloquear as compras no nível do sistema operacional.
+            </p>
+            <span class="post__time">Há 2 horas</span>
+          </article>
+
+          <article class="post">
+            <p class="post__comment">
+              Alerta sobre a publicidade! O jogo exibe pop-ups piscantes toda vez que abre o inventário. Muito agressivo
+              para crianças menores.
+            </p>
+            <span class="post__time">Ontem</span>
+          </article>
+        </article>
+
+        <button id="show-more-btn" class="font-display" disabled>VER MAIS</button>
+      </div>
+    </section>
+  </main>
+
+  <section id="overlay" class="hidden">
+    <article class="modal">
+      <header class="modal__header font-display">
+        <h2>AVALIAR JOGO</h2>
+        <button id="close-btn" class="font-display"><span>X</span></button>
+      </header>
+
+      <div class="modal__game-id">
+        <div class="modal__game-name">
+          <h3 class="font-display">NOME DO JOGO</h3>
+          <div class="modal__game-thumb">
+            <img src="" alt="">
+          </div>
+        </div>
+        <p class="modal__game-studio">Empresa</p>
+      </div>
+
+      <form action="">
+        <div class="modal__body">
+          <nav>
+            <fieldset class="font-display">
+              <input type="radio" name="category" id="category-content" checked>
+
+              <label for="category-content">
+                <span>1.</span> CONTEÚDO
+              </label>
+
+
+              <input type="radio" name="category" id="category-interaction">
+
+              <label for="category-interaction">
+                <span>2.</span> INTERAÇÃO
+              </label>
+
+
+              <input type="radio" name="category" id="category-moderation">
+
+              <label for="category-moderation">
+                <span>3.</span> MODERAÇÃO
+              </label>
+
+
+              <input type="radio" name="category" id="category-purchase">
+
+              <label for="category-purchase" aria-current="step">
+                <span>4.</span> CONSUMO
+              </label>
+
+
+              <input type="radio" name="category" id="category-badges">
+
+              <label for="category-badges">
+                <span>5.</span> SELOS
+              </label>
+
+
+              <input type="radio" name="category" id="category-comment">
+
+              <label for="category-comment">
+                <span>6.</span> COMENTÁRIO
+              </label>
+            </fieldset>
+          </nav>
+
+          <div class="rating__wrapper">
+            <article class="rating-info rating">
+              <div class="rating-info-header">
+                <h3 class="font-display hl-text">PONTUAÇÃO</h3>
+                <p><b>Como avaliar?</b> Dê uma nota de 1 a 5 para a adequação:</p>
+              </div>
+
+              <div class="rating-info-system">
+                <div class="rating-info-item rating-info__low">
+                  <strong class="font-display">1</strong>
+                  <p>Inadequado</p>
+                </div>
+                <div class="rating-info-item rating-info__medium">
+                  <strong class="font-display">3</strong>
+                  <p>Neutro</p>
+                </div>
+                <div class="rating-info-item rating-info__high">
+                  <strong class="font-display">5</strong>
+                  <p>Seguro</p>
+                </div>
+              </div>
+
+              <p>Ou deixe em branco se não tiver certeza.</p>
+            </article>
+
+            <article id="criteria-content" class="criteria rating">
+              <p>Adequação dos conteúdos apresentados no jogo</p>
+              <div class="criterion__wrapper">
+                <fieldset class="criterion">
+                  <div class="criterion-header">
+                    <div class="criterion-id">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre violência" popovertarget="hint-violence">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="hint-violence" popover>
+                          Exposição a atos violentos, lutas, armas ou agressões corporais.
+                        </p>
+                      </div>
+                      <legend class="clr-main">Violência</legend>
+
+                    </div>
+                    <label for="violence-empty" title="Limpar" class="clear-btn">
+                      <svg viewBox="0 0 640 640">
+                        <use href="assets/icons.svg#eraser"></use>
+                      </svg>
+                    </label>
+                  </div>
+
+                  <div class="rate font-display">
+                    <input type="radio" name="violence-score" id="violence-empty" value="">
+
+                    <input type="radio" name="violence-score" id="violence-score-5" value="5">
+                    <label for="violence-score-5" title="5">5</label>
+
+                    <input type="radio" name="violence-score" id="violence-score-4" value="4">
+                    <label for="violence-score-4" title="4">4</label>
+
+                    <input type="radio" name="violence-score" id="violence-score-3" value="3">
+                    <label for="violence-score-3" title="3">3</label>
+
+                    <input type="radio" name="violence-score" id="violence-score-2" value="2">
+                    <label for="violence-score-2" title="2">2</label>
+
+                    <input type="radio" name="violence-score" id="violence-score-1" value="1">
+                    <label for="violence-score-1" title="1">1</label>
+                  </div>
+                </fieldset>
+                <fieldset class="criterion">
+                  <div class="criterion-header">
+                    <div class="criterion-id">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre conteúdo sexual" popovertarget="hint-sex">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="hint-sex" popover>
+                          Exposição a nudez, insinuações, conteúdo sexual ou relacionamentos íntimos.
+                        </p>
+                      </div>
+
+                      <legend class="clr-main">Conteúdo sexual</legend>
+                    </div>
+
+                    <label for="sex-empty" title="Limpar" class="clear-btn">
+                      <svg viewBox="0 0 640 640">
+                        <use href="assets/icons.svg#eraser"></use>
+                      </svg>
+                    </label>
+                  </div>
+
+                  <div class="rate font-display">
+                    <input type="radio" name="sex-score" id="sex-empty" value="">
+
+                    <input type="radio" name="sex-score" id="sex-score-5" value="5">
+                    <label for="sex-score-5" title="5">5</label>
+
+                    <input type="radio" name="sex-score" id="sex-score-4" value="4">
+                    <label for="sex-score-4" title="4">4</label>
+
+                    <input type="radio" name="sex-score" id="sex-score-3" value="3">
+                    <label for="sex-score-3" title="3">3</label>
+
+                    <input type="radio" name="sex-score" id="sex-score-2" value="2">
+                    <label for="sex-score-2" title="2">2</label>
+
+                    <input type="radio" name="sex-score" id="sex-score-1" value="1">
+                    <label for="sex-score-1" title="1">1</label>
+                  </div>
+                </fieldset>
+                <fieldset class="criterion">
+                  <div class="criterion-header">
+                    <div class="criterion-id">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre linguagem" popovertarget="hint-language">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="hint-language" popover>
+                          Presença de palavrões, xingamentos, insultos ou linguagem ofensiva.
+                        </p>
+                      </div>
+
+                      <legend class="clr-main">Linguagem</legend>
+                    </div>
+
+                    <label for="language-empty" title="Limpar" class="clear-btn">
+                      <svg viewBox="0 0 640 640">
+                        <use href="assets/icons.svg#eraser"></use>
+                      </svg>
+                    </label>
+                  </div>
+
+                  <div class="rate font-display">
+                    <input type="radio" name="language-score" id="language-empty" value="">
+
+                    <input type="radio" name="language-score" id="language-score-5" value="5">
+                    <label for="language-score-5" title="5">5</label>
+
+                    <input type="radio" name="language-score" id="language-score-4" value="4">
+                    <label for="language-score-4" title="4">4</label>
+
+                    <input type="radio" name="language-score" id="language-score-3" value="3">
+                    <label for="language-score-3" title="3">3</label>
+
+                    <input type="radio" name="language-score" id="language-score-2" value="2">
+                    <label for="language-score-2" title="2">2</label>
+
+                    <input type="radio" name="language-score" id="language-score-1" value="1">
+                    <label for="language-score-1" title="1">1</label>
+                  </div>
+                </fieldset>
+                <fieldset class="criterion">
+                  <div class="criterion-header">
+                    <div class="criterion-id">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre temas sensíveis" popovertarget="hint-sensitive">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="hint-sensitive" popover>
+                          Abordagem de morte, luto, trauma, abuso, doenças ou outros temas delicados.
+                        </p>
+                      </div>
+
+                      <legend class="clr-main">Temas sensíveis</legend>
+                    </div>
+                    <label for="sensitive-empty" title="Limpar" class="clear-btn">
+                      <svg viewBox="0 0 640 640">
+                        <use href="assets/icons.svg#eraser"></use>
+                      </svg>
+                    </label>
+                  </div>
+
+                  <div class="rate font-display">
+                    <input type="radio" name="sensitive-score" id="sensitive-empty" value="">
+
+                    <input type="radio" name="sensitive-score" id="sensitive-score-5" value="5">
+                    <label for="sensitive-score-5" title="5">5</label>
+
+                    <input type="radio" name="sensitive-score" id="sensitive-score-4" value="4">
+                    <label for="sensitive-score-4" title="4">4</label>
+
+                    <input type="radio" name="sensitive-score" id="sensitive-score-3" value="3">
+                    <label for="sensitive-score-3" title="3">3</label>
+
+                    <input type="radio" name="sensitive-score" id="sensitive-score-2" value="2">
+                    <label for="sensitive-score-2" title="2">2</label>
+
+                    <input type="radio" name="sensitive-score" id="sensitive-score-1" value="1">
+                    <label for="sensitive-score-1" title="1">1</label>
+                  </div>
+                </fieldset>
+              </div>
+            </article>
+
+            <article id="criteria-interaction" class="criteria rating">
+              <p>Segurança das interações sociais e multiplayer online.</p>
+              <div class="criterion__wrapper">
+                <fieldset class="criterion">
+                  <div class="criterion-header">
+                    <div class="criterion-id">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre comunicação" popovertarget="hint-communication">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="hint-communication" popover>
+                          Conversas, mensagens e compartilhamento de conteúdo com outros jogadores.
+                        </p>
+                      </div>
+                      <legend class="clr-main">Comunicação</legend>
+
+                    </div>
+                    <label for="communication-empty" title="Limpar" class="clear-btn">
+                      <svg viewBox="0 0 640 640">
+                        <use href="assets/icons.svg#eraser"></use>
+                      </svg>
+                    </label>
+                  </div>
+
+                  <div class="rate font-display">
+                    <input type="radio" name="communication-score" id="communication-empty" value="">
+
+                    <input type="radio" name="communication-score" id="communication-score-5" value="5">
+                    <label for="communication-score-5" title="5">5</label>
+
+                    <input type="radio" name="communication-score" id="communication-score-4" value="4">
+                    <label for="communication-score-4" title="4">4</label>
+
+                    <input type="radio" name="communication-score" id="communication-score-3" value="3">
+                    <label for="communication-score-3" title="3">3</label>
+
+                    <input type="radio" name="communication-score" id="communication-score-2" value="2">
+                    <label for="communication-score-2" title="2">2</label>
+
+                    <input type="radio" name="communication-score" id="communication-score-1" value="1">
+                    <label for="communication-score-1" title="1">1</label>
+                  </div>
+                </fieldset>
+                <fieldset class="criterion">
+                  <div class="criterion-header">
+                    <div class="criterion-id">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre desconhecidos" popovertarget="hint-stranger">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="hint-stranger" popover>
+                          Encontros e interações com pessoas totalmente estranhas.
+                        </p>
+                      </div>
+
+                      <legend class="clr-main">Desconhecidos</legend>
+                    </div>
+
+                    <label for="stranger-empty" title="Limpar" class="clear-btn">
+                      <svg viewBox="0 0 640 640">
+                        <use href="assets/icons.svg#eraser"></use>
+                      </svg>
+                    </label>
+                  </div>
+
+                  <div class="rate font-display">
+                    <input type="radio" name="stranger-score" id="stranger-empty" value="">
+
+                    <input type="radio" name="stranger-score" id="stranger-score-5" value="5">
+                    <label for="stranger-score-5" title="5">5</label>
+
+                    <input type="radio" name="stranger-score" id="stranger-score-4" value="4">
+                    <label for="stranger-score-4" title="4">4</label>
+
+                    <input type="radio" name="stranger-score" id="stranger-score-3" value="3">
+                    <label for="stranger-score-3" title="3">3</label>
+
+                    <input type="radio" name="stranger-score" id="stranger-score-2" value="2">
+                    <label for="stranger-score-2" title="2">2</label>
+
+                    <input type="radio" name="stranger-score" id="stranger-score-1" value="1">
+                    <label for="stranger-score-1" title="1">1</label>
+                  </div>
+                </fieldset>
+                <fieldset class="criterion">
+                  <div class="criterion-header">
+                    <div class="criterion-id">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre comunidade" popovertarget="hint-community">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="hint-community" popover>
+                          Segurança e qualidade das relações, considerando cooperação, acolhimento, bullying e
+                          toxicidade.
+                        </p>
+                      </div>
+
+                      <legend class="clr-main">Comunidade</legend>
+                    </div>
+
+                    <label for="community-empty" title="Limpar" class="clear-btn">
+                      <svg viewBox="0 0 640 640">
+                        <use href="assets/icons.svg#eraser"></use>
+                      </svg>
+                    </label>
+                  </div>
+
+                  <div class="rate font-display">
+                    <input type="radio" name="community-score" id="community-empty" value="">
+
+                    <input type="radio" name="community-score" id="community-score-5" value="5">
+                    <label for="community-score-5" title="5">5</label>
+
+                    <input type="radio" name="community-score" id="community-score-4" value="4">
+                    <label for="community-score-4" title="4">4</label>
+
+                    <input type="radio" name="community-score" id="community-score-3" value="3">
+                    <label for="community-score-3" title="3">3</label>
+
+                    <input type="radio" name="community-score" id="community-score-2" value="2">
+                    <label for="community-score-2" title="2">2</label>
+
+                    <input type="radio" name="community-score" id="community-score-1" value="1">
+                    <label for="community-score-1" title="1">1</label>
+                  </div>
+                </fieldset>
+                <fieldset class="criterion">
+                  <div class="criterion-header">
+                    <div class="criterion-id">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre competição" popovertarget="hint-competition">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="hint-competition" popover>
+                          Rivalidades, estresse, frustração e pressão entre jogadores.
+                        </p>
+                      </div>
+
+                      <legend class="clr-main">Temas sensíveis</legend>
+                    </div>
+                    <label for="competition-empty" title="Limpar" class="clear-btn">
+                      <svg viewBox="0 0 640 640">
+                        <use href="assets/icons.svg#eraser"></use>
+                      </svg>
+                    </label>
+                  </div>
+
+                  <div class="rate font-display">
+                    <input type="radio" name="competition-score" id="competition-empty" value="">
+
+                    <input type="radio" name="competition-score" id="competition-score-5" value="5">
+                    <label for="competition-score-5" title="5">5</label>
+
+                    <input type="radio" name="competition-score" id="competition-score-4" value="4">
+                    <label for="competition-score-4" title="4">4</label>
+
+                    <input type="radio" name="competition-score" id="competition-score-3" value="3">
+                    <label for="competition-score-3" title="3">3</label>
+
+                    <input type="radio" name="competition-score" id="competition-score-2" value="2">
+                    <label for="competition-score-2" title="2">2</label>
+
+                    <input type="radio" name="competition-score" id="competition-score-1" value="1">
+                    <label for="competition-score-1" title="1">1</label>
+                  </div>
+                </fieldset>
+              </div>
+            </article>
+
+            <article id="criteria-moderation" class="criteria rating">
+              <p>Recursos para lidar com comportamentos inadequados.</p>
+              <div class="criterion__wrapper">
+                <fieldset class="criterion">
+                  <div class="criterion-header">
+                    <div class="criterion-id">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre denúncias" popovertarget="hint-report">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="hint-report" popover>
+                          Facilidade de denunciar jogadores infratores ou conteúdos impróprios.
+                        </p>
+                      </div>
+                      <legend class="clr-main">Denúncias</legend>
+
+                    </div>
+                    <label for="report-empty" title="Limpar" class="clear-btn">
+                      <svg viewBox="0 0 640 640">
+                        <use href="assets/icons.svg#eraser"></use>
+                      </svg>
+                    </label>
+                  </div>
+
+                  <div class="rate font-display">
+                    <input type="radio" name="report-score" id="report-empty" value="">
+
+                    <input type="radio" name="report-score" id="report-score-5" value="5">
+                    <label for="report-score-5" title="5">5</label>
+
+                    <input type="radio" name="report-score" id="report-score-4" value="4">
+                    <label for="report-score-4" title="4">4</label>
+
+                    <input type="radio" name="report-score" id="report-score-3" value="3">
+                    <label for="report-score-3" title="3">3</label>
+
+                    <input type="radio" name="report-score" id="report-score-2" value="2">
+                    <label for="report-score-2" title="2">2</label>
+
+                    <input type="radio" name="report-score" id="report-score-1" value="1">
+                    <label for="report-score-1" title="1">1</label>
+                  </div>
+                </fieldset>
+                <fieldset class="criterion">
+                  <div class="criterion-header">
+                    <div class="criterion-id">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre bloqueios" popovertarget="hint-block">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="hint-block" popover>
+                          Facilidade e eficácia dos recursos para impedir interações indesejadas.
+                        </p>
+                      </div>
+
+                      <legend class="clr-main">Bloqueios</legend>
+                    </div>
+
+                    <label for="block-empty" title="Limpar" class="clear-btn">
+                      <svg viewBox="0 0 640 640">
+                        <use href="assets/icons.svg#eraser"></use>
+                      </svg>
+                    </label>
+                  </div>
+
+                  <div class="rate font-display">
+                    <input type="radio" name="block-score" id="block-empty" value="">
+
+                    <input type="radio" name="block-score" id="block-score-5" value="5">
+                    <label for="block-score-5" title="5">5</label>
+
+                    <input type="radio" name="block-score" id="block-score-4" value="4">
+                    <label for="block-score-4" title="4">4</label>
+
+                    <input type="radio" name="block-score" id="block-score-3" value="3">
+                    <label for="block-score-3" title="3">3</label>
+
+                    <input type="radio" name="block-score" id="block-score-2" value="2">
+                    <label for="block-score-2" title="2">2</label>
+
+                    <input type="radio" name="block-score" id="block-score-1" value="1">
+                    <label for="block-score-1" title="1">1</label>
+                  </div>
+                </fieldset>
+                <fieldset class="criterion">
+                  <div class="criterion-header">
+                    <div class="criterion-id">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre filtros" popovertarget="hint-filter">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="hint-filter" popover>
+                          Recursos para filtrar, ocultar ou impedir mensagens e conteúdos inadequados.
+                        </p>
+                      </div>
+
+                      <legend class="clr-main">Filtros</legend>
+                    </div>
+
+                    <label for="filter-empty" title="Limpar" class="clear-btn">
+                      <svg viewBox="0 0 640 640">
+                        <use href="assets/icons.svg#eraser"></use>
+                      </svg>
+                    </label>
+                  </div>
+
+                  <div class="rate font-display">
+                    <input type="radio" name="filter-score" id="filter-empty" value="">
+
+                    <input type="radio" name="filter-score" id="filter-score-5" value="5">
+                    <label for="filter-score-5" title="5">5</label>
+
+                    <input type="radio" name="filter-score" id="filter-score-4" value="4">
+                    <label for="filter-score-4" title="4">4</label>
+
+                    <input type="radio" name="filter-score" id="filter-score-3" value="3">
+                    <label for="filter-score-3" title="3">3</label>
+
+                    <input type="radio" name="filter-score" id="filter-score-2" value="2">
+                    <label for="filter-score-2" title="2">2</label>
+
+                    <input type="radio" name="filter-score" id="filter-score-1" value="1">
+                    <label for="filter-score-1" title="1">1</label>
+                  </div>
+                </fieldset>
+                <fieldset class="criterion">
+                  <div class="criterion-header">
+                    <div class="criterion-id">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre controle parental" popovertarget="hint-parental">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="hint-parental" popover>
+                          Recursos para limitar, supervisionar ou controlar o acesso ao jogo.
+                        </p>
+                      </div>
+
+                      <legend class="clr-main">Controle parental</legend>
+                    </div>
+                    <label for="parental-empty" title="Limpar" class="clear-btn">
+                      <svg viewBox="0 0 640 640">
+                        <use href="assets/icons.svg#eraser"></use>
+                      </svg>
+                    </label>
+                  </div>
+
+                  <div class="rate font-display">
+                    <input type="radio" name="parental-score" id="parental-empty" value="">
+
+                    <input type="radio" name="parental-score" id="parental-score-5" value="5">
+                    <label for="parental-score-5" title="5">5</label>
+
+                    <input type="radio" name="parental-score" id="parental-score-4" value="4">
+                    <label for="parental-score-4" title="4">4</label>
+
+                    <input type="radio" name="parental-score" id="parental-score-3" value="3">
+                    <label for="parental-score-3" title="3">3</label>
+
+                    <input type="radio" name="parental-score" id="parental-score-2" value="2">
+                    <label for="parental-score-2" title="2">2</label>
+
+                    <input type="radio" name="parental-score" id="parental-score-1" value="1">
+                    <label for="parental-score-1" title="1">1</label>
+                  </div>
+                </fieldset>
+              </div>
+            </article>
+
+            <article id="criteria-purchase" class="criteria rating">
+              <p>Controle de anúncios e compras no jogo.</p>
+              <div class="criterion__wrapper">
+                <fieldset class="criterion">
+                  <div class="criterion-header">
+                    <div class="criterion-id">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre microtransações"
+                          popovertarget="hint-microtransaction">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="hint-microtransaction" popover>
+                          Venda de itens virtuais, roupas (skins) ou moedas do jogo com dinheiro real.
+                        </p>
+                      </div>
+                      <legend class="clr-main">Microtransações</legend>
+
+                    </div>
+                    <label for="microtransaction-empty" title="Limpar" class="clear-btn">
+                      <svg viewBox="0 0 640 640">
+                        <use href="assets/icons.svg#eraser"></use>
+                      </svg>
+                    </label>
+                  </div>
+
+                  <div class="rate font-display">
+                    <input type="radio" name="microtransaction-score" id="microtransaction-empty" value="">
+
+                    <input type="radio" name="microtransaction-score" id="microtransaction-score-5" value="5">
+                    <label for="microtransaction-score-5" title="5">5</label>
+
+                    <input type="radio" name="microtransaction-score" id="microtransaction-score-4" value="4">
+                    <label for="microtransaction-score-4" title="4">4</label>
+
+                    <input type="radio" name="microtransaction-score" id="microtransaction-score-3" value="3">
+                    <label for="microtransaction-score-3" title="3">3</label>
+
+                    <input type="radio" name="microtransaction-score" id="microtransaction-score-2" value="2">
+                    <label for="microtransaction-score-2" title="2">2</label>
+
+                    <input type="radio" name="microtransaction-score" id="microtransaction-score-1" value="1">
+                    <label for="microtransaction-score-1" title="1">1</label>
+                  </div>
+                </fieldset>
+                <fieldset class="criterion">
+                  <div class="criterion-header">
+                    <div class="criterion-id">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre pressão" popovertarget="hint-pressure">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="hint-pressure" popover>
+                          Avisos insistentes ou desvantagens no jogo para quem não gasta dinheiro
+                        </p>
+                      </div>
+
+                      <legend class="clr-main">Pressão</legend>
+                    </div>
+
+                    <label for="pressure-empty" title="Limpar" class="clear-btn">
+                      <svg viewBox="0 0 640 640">
+                        <use href="assets/icons.svg#eraser"></use>
+                      </svg>
+                    </label>
+                  </div>
+
+                  <div class="rate font-display">
+                    <input type="radio" name="pressure-score" id="pressure-empty" value="">
+
+                    <input type="radio" name="pressure-score" id="pressure-score-5" value="5">
+                    <label for="pressure-score-5" title="5">5</label>
+
+                    <input type="radio" name="pressure-score" id="pressure-score-4" value="4">
+                    <label for="pressure-score-4" title="4">4</label>
+
+                    <input type="radio" name="pressure-score" id="pressure-score-3" value="3">
+                    <label for="pressure-score-3" title="3">3</label>
+
+                    <input type="radio" name="pressure-score" id="pressure-score-2" value="2">
+                    <label for="pressure-score-2" title="2">2</label>
+
+                    <input type="radio" name="pressure-score" id="pressure-score-1" value="1">
+                    <label for="pressure-score-1" title="1">1</label>
+                  </div>
+                </fieldset>
+                <fieldset class="criterion">
+                  <div class="criterion-header">
+                    <div class="criterion-id">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre lootboxes" popovertarget="hint-lootboxes">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="hint-lootboxes" popover>
+                          Caixas ou pacotes pagos que oferecem recompensas de conteúdo aleatório.
+                        </p>
+                      </div>
+
+                      <legend class="clr-main">Lootboxes</legend>
+                    </div>
+
+                    <label for="lootboxes-empty" title="Limpar" class="clear-btn">
+                      <svg viewBox="0 0 640 640">
+                        <use href="assets/icons.svg#eraser"></use>
+                      </svg>
+                    </label>
+                  </div>
+
+                  <div class="rate font-display">
+                    <input type="radio" name="lootboxes-score" id="lootboxes-empty" value="">
+
+                    <input type="radio" name="lootboxes-score" id="lootboxes-score-5" value="5">
+                    <label for="lootboxes-score-5" title="5">5</label>
+
+                    <input type="radio" name="lootboxes-score" id="lootboxes-score-4" value="4">
+                    <label for="lootboxes-score-4" title="4">4</label>
+
+                    <input type="radio" name="lootboxes-score" id="lootboxes-score-3" value="3">
+                    <label for="lootboxes-score-3" title="3">3</label>
+
+                    <input type="radio" name="lootboxes-score" id="lootboxes-score-2" value="2">
+                    <label for="lootboxes-score-2" title="2">2</label>
+
+                    <input type="radio" name="lootboxes-score" id="lootboxes-score-1" value="1">
+                    <label for="lootboxes-score-1" title="1">1</label>
+                  </div>
+                </fieldset>
+                <fieldset class="criterion">
+                  <div class="criterion-header">
+                    <div class="criterion-id">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre anúncios" popovertarget="hint-ads">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="hint-ads" popover>
+                          Anúncios de vídeo obrigatórios, pop-ups invasivos ou promoções constantes.
+                        </p>
+                      </div>
+
+                      <legend class="clr-main">Anúncios</legend>
+                    </div>
+                    <label for="ads-empty" title="Limpar" class="clear-btn">
+                      <svg viewBox="0 0 640 640">
+                        <use href="assets/icons.svg#eraser"></use>
+                      </svg>
+                    </label>
+                  </div>
+
+                  <div class="rate font-display">
+                    <input type="radio" name="ads-score" id="ads-empty" value="">
+
+                    <input type="radio" name="ads-score" id="ads-score-5" value="5">
+                    <label for="ads-score-5" title="5">5</label>
+
+                    <input type="radio" name="ads-score" id="ads-score-4" value="4">
+                    <label for="ads-score-4" title="4">4</label>
+
+                    <input type="radio" name="ads-score" id="ads-score-3" value="3">
+                    <label for="ads-score-3" title="3">3</label>
+
+                    <input type="radio" name="ads-score" id="ads-score-2" value="2">
+                    <label for="ads-score-2" title="2">2</label>
+
+                    <input type="radio" name="ads-score" id="ads-score-1" value="1">
+                    <label for="ads-score-1" title="1">1</label>
+                  </div>
+                </fieldset>
+              </div>
+            </article>
+          </div>
+
+          <article id="badge-selection">
+            <p class="clr-text">Selecione os selos que descrevem características marcantes encontradas neste jogo.</p>
+            <fieldset>
+              <label class="modal-badge">
+                <div class="modal-badge__id">
+                  <div class="modal-badge__icon" aria-hidden="true">
+                    <svg viewBox="0 0 640 640">
+                      <use href="assets/icons.svg#wand"></use>
+                    </svg>
+                  </div>
+
+                  <div class="modal-badge__info">
+                    <strong class="modal-badge__name clr-main">Violência Fantástica</strong>
+                    <p class="modal-badge__description clr-text">
+                      Lutas irrealistas com monstros ou magias
+                    </p>
+                  </div>
+                </div>
+
+                <input type="checkbox" name="badges" value="fantasy-violence">
+              </label>
+
+              <label class="modal-badge">
+                <div class="modal-badge__id">
+                  <div class="modal-badge__icon" aria-hidden="true">
+                    <svg viewBox="0 0 640 640">
+                      <use href="assets/icons.svg#gun"></use>
+                    </svg>
+                  </div>
+
+                  <div class="modal-badge__info">
+                    <strong class="modal-badge__name clr-main">Violência Realista</strong>
+                    <p class="modal-badge__description clr-text">
+                      Cenas violentas próximas da vida real
+                    </p>
+                  </div>
+                </div>
+
+                <input type="checkbox" name="badges" value="realistic-violence">
+              </label>
+
+              <label class="modal-badge">
+                <div class="modal-badge__id">
+                  <div class="modal-badge__icon" aria-hidden="true">
+                    <svg viewBox="0 0 640 640">
+                      <use href="assets/icons.svg#skull"></use>
+                    </svg>
+                  </div>
+
+                  <div class="modal-badge__info">
+                    <strong class="modal-badge__name clr-main">Violência Gráfica</strong>
+                    <p class="modal-badge__description clr-text">
+                      Sangue, cortes ou visões chocantes
+                    </p>
+                  </div>
+                </div>
+
+                <input type="checkbox" name="badges" value="graphic-violence">
+              </label>
+
+              <label class="modal-badge">
+                <div class="modal-badge__id">
+                  <div class="modal-badge__icon" aria-hidden="true">
+                    <svg viewBox="0 0 640 640">
+                      <use href="assets/icons.svg#slash"></use>
+                    </svg>
+                  </div>
+
+                  <div class="modal-badge__info">
+                    <strong class="modal-badge__name clr-main">Linguagem Imprópria</strong>
+                    <p class="modal-badge__description clr-text">
+                      Frequência de palavrões ou ofensas
+                    </p>
+                  </div>
+                </div>
+
+                <input type="checkbox" name="badges" value="inappropriate-language">
+              </label>
+
+              <label class="modal-badge">
+                <div class="modal-badge__id">
+                  <div class="modal-badge__icon" aria-hidden="true">
+                    <svg viewBox="0 0 640 640">
+                      <use href="assets/icons.svg#globe"></use>
+                    </svg>
+                  </div>
+
+                  <div class="modal-badge__info">
+                    <strong class="modal-badge__name clr-main">Multiplayer Online</strong>
+                    <p class="modal-badge__description clr-text">
+                      Conectado em rede com outros participantes
+                    </p>
+                  </div>
+                </div>
+
+                <input type="checkbox" name="badges" value="multiplayer-online">
+              </label>
+
+              <label class="modal-badge">
+                <div class="modal-badge__id">
+                  <div class="modal-badge__icon" aria-hidden="true">
+                    <svg viewBox="0 0 640 640">
+                      <use href="assets/icons.svg#users-slash"></use>
+                    </svg>
+                  </div>
+
+                  <div class="modal-badge__info">
+                    <strong class="modal-badge__name clr-main">Jogadores Desconhecidos</strong>
+                    <p class="modal-badge__description clr-text">
+                      Contato com estranhos sem restrição
+                    </p>
+                  </div>
+                </div>
+
+                <input type="checkbox" name="badges" value="unknown-players">
+              </label>
+
+              <label class="modal-badge">
+                <div class="modal-badge__id">
+                  <div class="modal-badge__icon" aria-hidden="true">
+                    <svg viewBox="0 0 640 640">
+                      <use href="assets/icons.svg#chat"></use>
+                    </svg>
+                  </div>
+
+                  <div class="modal-badge__info">
+                    <strong class="modal-badge__name clr-main">Chat de Texto</strong>
+                    <p class="modal-badge__description clr-text">
+                      Opção para mandar mensagens digitadas
+                    </p>
+                  </div>
+                </div>
+
+                <input type="checkbox" name="badges" value="text-chat">
+              </label>
+
+              <label class="modal-badge">
+                <div class="modal-badge__id">
+                  <div class="modal-badge__icon" aria-hidden="true">
+                    <svg viewBox="0 0 640 640">
+                      <use href="assets/icons.svg#microphone"></use>
+                    </svg>
+                  </div>
+
+                  <div class="modal-badge__info">
+                    <strong class="modal-badge__name clr-main">Chat de Voz</strong>
+                    <p class="modal-badge__description clr-text">
+                      Comunicação ao vivo por microfone
+                    </p>
+                  </div>
+                </div>
+
+                <input type="checkbox" name="badges" value="voice-chat">
+              </label>
+
+              <label class="modal-badge">
+                <div class="modal-badge__id">
+                  <div class="modal-badge__icon" aria-hidden="true">
+                    <svg viewBox="0 0 640 640">
+                      <use href="assets/icons.svg#flag"></use>
+                    </svg>
+                  </div>
+
+                  <div class="modal-badge__info">
+                    <strong class="modal-badge__name clr-main">Sistema de Denúncias</strong>
+                    <p class="modal-badge__description clr-text">
+                      Permite denunciar maus comportamentos
+                    </p>
+                  </div>
+                </div>
+
+                <input type="checkbox" name="badges" value="report-system">
+              </label>
+
+              <label class="modal-badge">
+                <div class="modal-badge__id">
+                  <div class="modal-badge__icon" aria-hidden="true">
+                    <svg viewBox="0 0 640 640">
+                      <use href="assets/icons.svg#user-lock"></use>
+                    </svg>
+                  </div>
+
+                  <div class="modal-badge__info">
+                    <strong class="modal-badge__name clr-main">Bloqueio de Jogadores</strong>
+                    <p class="modal-badge__description clr-text">
+                      Possibilidade de bloquear/silenciar pessoas
+                    </p>
+                  </div>
+                </div>
+
+                <input type="checkbox" name="badges" value="player-block">
+              </label>
+
+              <label class="modal-badge">
+                <div class="modal-badge__id">
+                  <div class="modal-badge__icon" aria-hidden="true">
+                    <svg viewBox="0 0 640 640">
+                      <use href="assets/icons.svg#filter"></use>
+                    </svg>
+                  </div>
+
+                  <div class="modal-badge__info">
+                    <strong class="modal-badge__name clr-main">Filtros de Comunicação</strong>
+                    <p class="modal-badge__description clr-text">
+                      Esconde palavras ofensivas automaticamente
+                    </p>
+                  </div>
+                </div>
+
+                <input type="checkbox" name="badges" value="communication-filters">
+              </label>
+
+              <label class="modal-badge">
+                <div class="modal-badge__id">
+                  <div class="modal-badge__icon" aria-hidden="true">
+                    <svg viewBox="0 0 640 640">
+                      <use href="assets/icons.svg#sliders"></use>
+                    </svg>
+                  </div>
+
+                  <div class="modal-badge__info">
+                    <strong class="modal-badge__name clr-main">Controle parental</strong>
+                    <p class="modal-badge__description clr-text">
+                      Ferramentas para pais gerenciarem limites
+                    </p>
+                  </div>
+                </div>
+
+                <input type="checkbox" name="badges" value="parental-control">
+              </label>
+
+              <label class="modal-badge">
+                <div class="modal-badge__id">
+                  <div class="modal-badge__icon" aria-hidden="true">
+                    <svg viewBox="0 0 640 640">
+                      <use href="assets/icons.svg#trophy"></use>
+                    </svg>
+                  </div>
+
+                  <div class="modal-badge__info">
+                    <strong class="modal-badge__name clr-main">Pay to Win</strong>
+                    <p class="modal-badge__description clr-text">
+                      Quem paga mais tem muito mais vantagem
+                    </p>
+                  </div>
+                </div>
+
+                <input type="checkbox" name="badges" value="pay2win">
+              </label>
+
+              <label class="modal-badge">
+                <div class="modal-badge__id">
+                  <div class="modal-badge__icon" aria-hidden="true">
+                    <svg viewBox="0 0 640 640">
+                      <use href="assets/icons.svg#rectangle-ad"></use>
+                    </svg>
+                  </div>
+
+                  <div class="modal-badge__info">
+                    <strong class="modal-badge__name clr-main">Ofertas Frequentes</strong>
+                    <p class="modal-badge__description clr-text">
+                      Avisos e promoções constantes de compra
+                    </p>
+                  </div>
+                </div>
+
+                <input type="checkbox" name="badges" value="frequent-ads">
+              </label>
+            </fieldset>
+          </article>
+
+          <article id="comment">
+            <p>
+              Deixe conselhos valiosos, alertas de atenção ou aspectos positivos para ajudar a comunidade de pais.
+            </p>
+            <textarea name="comment" id="comment-text" placeholder="Deixe seu comentário..."></textarea>
+          </article>
+
+          <article class="rating-info t-rating">
+            <div class="rating-info-header">
+              <h3 class="font-display hl-text">NOTA GERAL</h3>
+              <p>Gerada automaticamente com base nos critérios avaliados</p>
+            </div>
+            <div class="t-score">
+              <div class="t-score-stars">
+                <div class="t-score-stars__items t-score-stars-empty">
+                  <div class="t-score-star">
+                    <svg viewBox="0 0 640 640">
+                      <use href="assets/icons.svg#star"></use>
+                    </svg>
+                  </div>
+
+                  <div class="t-score-star">
+                    <svg viewBox="0 0 640 640">
+                      <use href="assets/icons.svg#star"></use>
+                    </svg>
+                  </div>
+
+                  <div class="t-score-star">
+                    <svg viewBox="0 0 640 640">
+                      <use href="assets/icons.svg#star"></use>
+                    </svg>
+                  </div>
+
+                  <div class="t-score-star">
+                    <svg viewBox="0 0 640 640">
+                      <use href="assets/icons.svg#star"></use>
+                    </svg>
+                  </div>
+
+                  <div class="t-score-star">
+                    <svg viewBox="0 0 640 640">
+                      <use href="assets/icons.svg#star"></use>
+                    </svg>
+                  </div>
+                </div>
+
+                <div data-lvl="low" class="t-score-stars__items t-score-stars-fill">
+                  <div class="t-score-star">
+                    <svg viewBox="0 0 640 640">
+                      <use href="assets/icons.svg#star"></use>
+                    </svg>
+                  </div>
+
+                  <div class="t-score-star">
+                    <svg viewBox="0 0 640 640">
+                      <use href="assets/icons.svg#star"></use>
+                    </svg>
+                  </div>
+
+                  <div class="t-score-star">
+                    <svg viewBox="0 0 640 640">
+                      <use href="assets/icons.svg#star"></use>
+                    </svg>
+                  </div>
+
+                  <div class="t-score-star">
+                    <svg viewBox="0 0 640 640">
+                      <use href="assets/icons.svg#star"></use>
+                    </svg>
+                  </div>
+
+                  <div class="t-score-star">
+                    <svg viewBox="0 0 640 640">
+                      <use href="assets/icons.svg#star"></use>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <p class="t-score__display font-display"> / 5</p>
+            </div>
+          </article>
+
+          <nav class="step-navigation" aria-label="Navegação da avaliação">
+            <button type="button" class="btn-previous font-display">
+              ANTERIOR
+            </button>
+
+            <button type="button" class="btn-next font-display">
+              PRÓXIMO
+            </button>
+          </nav>
+        </div>
+      </form>
+      <footer>
+        <div class="disclaimer">
+          <svg viewBox="0 0 640 640">
+            <use href="assets/icons.svg#safety"></use>
+          </svg>
+          <p>Sua avaliação será publicada de forma 100% anônima.</p>
+        </div>
+      </footer>
+    </article>
+  </section>
+
+  <script src="src/js/game.js" defer></script>
+</body>
+
+</html>
