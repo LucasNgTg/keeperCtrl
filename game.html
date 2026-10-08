@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="src/css/template.css">
   <link rel="stylesheet" href="src/css/header.css">
   <link rel="stylesheet" href="src/css/game.css">
+  <link rel="stylesheet" href="src/css/accordion.css">
   <link rel="stylesheet" href="src/css/game-modal.css">
 </head>
 
@@ -90,7 +91,7 @@
       </article>
 
       <article class="stats">
-        <ul class="stats__list">
+        <ul class="stats__list" id="stats">
           <li>
             <label class="stat-display" for="stat-content__check" id="stat-content">
               <input type="checkbox" id="stat-content__check" class="stat-check">
@@ -102,7 +103,7 @@
               <div class="stat-inner">
                 <div class="stat-header">
                   <p class="stat-label font-display">Conteúdo</p>
-                  <p class="stat-score"><span class="stat-average">3.8</span> / 5</p>
+                  <p class="stat-score"><span class="stat-average"></span> / 5</p>
                 </div>
                 <div class="stat-bar"></div>
               </div>
@@ -130,7 +131,7 @@
 
                       <p class="stat-label font-display hl-text">Violência</p>
                     </div>
-                    <p class="stat-score"><span class="stat-average">3.8</span> / 5</p>
+                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
                   </div>
                   <div class="stat-bar"></div>
                 </article>
@@ -157,7 +158,7 @@
 
                       <p class="stat-label font-display hl-text">Conteúdo Sexual</p>
                     </div>
-                    <p class="stat-score"><span class="stat-average">3.8</span> / 5</p>
+                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
                   </div>
                   <div class="stat-bar"></div>
                 </article>
@@ -184,7 +185,7 @@
 
                       <p class="stat-label font-display hl-text">Linguagem</p>
                     </div>
-                    <p class="stat-score"><span class="stat-average">3.8</span> / 5</p>
+                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
                   </div>
                   <div class="stat-bar"></div>
                 </article>
@@ -194,7 +195,8 @@
                   <div class="stat-header">
                     <div class="stat-accordion__item__title">
                       <div class="hint">
-                        <button type="button" aria-label="Ajuda sobre temas sensíveis" popovertarget="acc-hint__sensitive">
+                        <button type="button" aria-label="Ajuda sobre temas sensíveis"
+                          popovertarget="acc-hint__sensitive">
                           <svg viewBox="0 0 640 640">
                             <use href="assets/icons.svg#hint"></use>
                           </svg>
@@ -209,9 +211,9 @@
                         </p>
                       </div>
 
-                      <p class="stat-label font-display hl-text">Linguagem</p>
+                      <p class="stat-label font-display hl-text">Temas Sensíveis</p>
                     </div>
-                    <p class="stat-score"><span class="stat-average">3.8</span> / 5</p>
+                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
                   </div>
                   <div class="stat-bar"></div>
                 </article>
@@ -219,28 +221,392 @@
             </ul>
           </li>
 
-          <li id="stat-interact">
-            <div class="stat-header">
-              <p class="stat-label font-display">Interação entre Jogadores</p>
-              <p class="stat-score"><span class="stat-average">4.2</span> / 5</p>
-            </div>
-            <div class="stat-bar"></div>
+          <li>
+            <label class="stat-display" for="stat-interaction__check" id="stat-interaction">
+              <input type="checkbox" id="stat-interaction__check" class="stat-check">
+              <div class="stat-caret">
+                <svg viewBox="0 0 640 640">
+                  <use href="assets/icons.svg#caret"></use>
+                </svg>
+              </div>
+              <div class="stat-inner">
+                <div class="stat-header">
+                  <p class="stat-label font-display">Interação entre Jogadores</p>
+                  <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                </div>
+                <div class="stat-bar"></div>
+              </div>
+            </label>
+            <ul class="stat-accordion">
+              <li>
+                <article class="stat-accordion__item" id="stat-interaction__communication">
+                  <div class="stat-header">
+                    <div class="stat-accordion__item__title">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre comunicação"
+                          popovertarget="acc-hint__communication">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="acc-hint__communication" popover>
+                          Conversas, mensagens e compartilhamento de conteúdo com outros jogadores.
+                          <br><br>
+                          1 = Comunicação irrestrita e sem proteção
+                          <br>
+                          5 = Comunicação segura e protegida
+                        </p>
+                      </div>
+
+                      <p class="stat-label font-display hl-text">Comunicação</p>
+                    </div>
+                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                  </div>
+                  <div class="stat-bar"></div>
+                </article>
+              </li>
+              <li>
+                <article class="stat-accordion__item" id="stat-interaction__stranger">
+                  <div class="stat-header">
+                    <div class="stat-accordion__item__title">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre desconhecidos" popovertarget="acc-hint__stranger">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="acc-hint__stranger" popover>
+                          Encontros e interações com pessoas totalmente estranhas.
+                          <br><br>
+                          1 = Fácil contato com desconhecidos
+                          <br>
+                          5 = Contato com desconhecidos bloqueado ou protegido
+                        </p>
+                      </div>
+
+                      <p class="stat-label font-display hl-text">Desconhecidos</p>
+                    </div>
+                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                  </div>
+                  <div class="stat-bar"></div>
+                </article>
+              </li>
+              <li>
+                <article class="stat-accordion__item" id="stat-interaction__community">
+                  <div class="stat-header">
+                    <div class="stat-accordion__item__title">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre comunidade" popovertarget="acc-hint__community">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="acc-hint__community" popover>
+                          Segurança e qualidade das relações, considerando cooperação, acolhimento, bullying e
+                          toxicidade.
+                          <br><br>
+                          1 = Ambiente tóxico e hostil
+                          <br>
+                          5 = Comunidade respeitosa e acolhedora
+                        </p>
+                      </div>
+
+                      <p class="stat-label font-display hl-text">Comunidade</p>
+                    </div>
+                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                  </div>
+                  <div class="stat-bar"></div>
+                </article>
+              </li>
+              <li>
+                <article class="stat-accordion__item" id="stat-interaction__competition">
+                  <div class="stat-header">
+                    <div class="stat-accordion__item__title">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre competição" popovertarget="acc-hint__competition">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="acc-hint__competition" popover>
+                          Rivalidades, estresse, frustração e pressão entre jogadores.
+                          <br><br>
+                          1 = Competição excessivamente agressiva
+                          <br>
+                          5 = Competição equilibrada e saudável
+                        </p>
+                      </div>
+
+                      <p class="stat-label font-display hl-text">Competição</p>
+                    </div>
+                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                  </div>
+                  <div class="stat-bar"></div>
+                </article>
+              </li>
+            </ul>
           </li>
 
-          <li id="stat-mod">
-            <div class="stat-header">
-              <p class="stat-label font-display">Moderação</p>
-              <p class="stat-score"><span class="stat-average">4.5</span> / 5</p>
-            </div>
-            <div class="stat-bar"></div>
+          <li>
+            <label class="stat-display" for="stat-moderation__check" id="stat-moderation">
+              <input type="checkbox" id="stat-moderation__check" class="stat-check">
+              <div class="stat-caret">
+                <svg viewBox="0 0 640 640">
+                  <use href="assets/icons.svg#caret"></use>
+                </svg>
+              </div>
+              <div class="stat-inner">
+                <div class="stat-header">
+                  <p class="stat-label font-display">Moderação</p>
+                  <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                </div>
+                <div class="stat-bar"></div>
+              </div>
+            </label>
+            <ul class="stat-accordion">
+              <li>
+                <article class="stat-accordion__item" id="stat-moderation__report">
+                  <div class="stat-header">
+                    <div class="stat-accordion__item__title">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre denúncias" popovertarget="acc-hint__report">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="acc-hint__report" popover>
+                          Facilidade de denunciar jogadores infratores ou conteúdos impróprios.
+                          <br><br>
+                          1 = Denúncias inexistentes ou ineficazes
+                          <br>
+                          5 = Denúncias fáceis e eficazes
+                        </p>
+                      </div>
+
+                      <p class="stat-label font-display hl-text">Denúncias</p>
+                    </div>
+                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                  </div>
+                  <div class="stat-bar"></div>
+                </article>
+              </li>
+              <li>
+                <article class="stat-accordion__item" id="stat-moderation__block">
+                  <div class="stat-header">
+                    <div class="stat-accordion__item__title">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre bloqueios" popovertarget="acc-hint__block">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="acc-hint__block" popover>
+                          Facilidade e eficácia dos recursos para impedir interações indesejadas.
+                          <br><br>
+                          1 = Bloqueio inexistente ou ineficaz
+                          <br>
+                          5 = Bloqueio fácil e eficaz
+                        </p>
+                      </div>
+
+                      <p class="stat-label font-display hl-text">Bloqueios</p>
+                    </div>
+                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                  </div>
+                  <div class="stat-bar"></div>
+                </article>
+              </li>
+              <li>
+                <article class="stat-accordion__item" id="stat-moderation__filter">
+                  <div class="stat-header">
+                    <div class="stat-accordion__item__title">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre filtros" popovertarget="acc-hint__filter">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="acc-hint__filter" popover>
+                          Recursos para filtrar, ocultar ou impedir mensagens e conteúdos inadequados.
+                          <br><br>
+                          1 = Filtros inexistentes ou ineficazes
+                          <br>
+                          5 = Filtros intuitivos e eficazes
+                        </p>
+                      </div>
+
+                      <p class="stat-label font-display hl-text">Filtros</p>
+                    </div>
+                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                  </div>
+                  <div class="stat-bar"></div>
+                </article>
+              </li>
+              <li>
+                <article class="stat-accordion__item" id="stat-moderation__parental">
+                  <div class="stat-header">
+                    <div class="stat-accordion__item__title">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre controle parental"
+                          popovertarget="acc-hint__parental">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="acc-hint__parental" popover>
+                          Recursos para limitar, supervisionar ou controlar o acesso ao jogo.
+                          <br><br>
+                          1 = Pouco ou nenhum controle
+                          <br>
+                          5 = Controle parental amplo e eficaz
+                        </p>
+                      </div>
+
+                      <p class="stat-label font-display hl-text">Controle Parental</p>
+                    </div>
+                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                  </div>
+                  <div class="stat-bar"></div>
+                </article>
+              </li>
+            </ul>
           </li>
 
-          <li id="stat-transact">
-            <div class="stat-header">
-              <p class="stat-label font-display">Estímulos ao Consumo</p>
-              <p class="stat-score"><span class="stat-average">2.1</span> / 5</p>
-            </div>
-            <div class="stat-bar"></div>
+          <li>
+            <label class="stat-display" for="stat-purchase__check" id="stat-purchase">
+              <input type="checkbox" id="stat-purchase__check" class="stat-check">
+              <div class="stat-caret">
+                <svg viewBox="0 0 640 640">
+                  <use href="assets/icons.svg#caret"></use>
+                </svg>
+              </div>
+              <div class="stat-inner">
+                <div class="stat-header">
+                  <p class="stat-label font-display">Estímulos ao Consumo</p>
+                  <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                </div>
+                <div class="stat-bar"></div>
+              </div>
+            </label>
+            <ul class="stat-accordion">
+              <li>
+                <article class="stat-accordion__item" id="stat-purchase__microtransaction">
+                  <div class="stat-header">
+                    <div class="stat-accordion__item__title">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre microtransações"
+                          popovertarget="acc-hint__microtransaction">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="acc-hint__microtransaction" popover>
+                          Venda de itens virtuais, roupas (skins) ou moedas do jogo com dinheiro real.
+                          <br><br>
+                          1 = Muitas compras e estímulos ao consumo
+                          <br>
+                          5 = Poucas ou nenhuma compra
+                        </p>
+                      </div>
+
+                      <p class="stat-label font-display hl-text">Microtransações</p>
+                    </div>
+                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                  </div>
+                  <div class="stat-bar"></div>
+                </article>
+              </li>
+              <li>
+                <article class="stat-accordion__item" id="stat-purchase__pressure">
+                  <div class="stat-header">
+                    <div class="stat-accordion__item__title">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre pressão" popovertarget="acc-hint__pressure">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="acc-hint__pressure" popover>
+                          Avisos insistentes ou desvantagens no jogo para quem não gasta dinheiro
+                          <br><br>
+                          1 = Forte pressão para realizar compras
+                          <br>
+                          5 = Nenhuma pressão para realizar compras
+                        </p>
+                      </div>
+
+                      <p class="stat-label font-display hl-text">Pressão</p>
+                    </div>
+                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                  </div>
+                  <div class="stat-bar"></div>
+                </article>
+              </li>
+              <li>
+                <article class="stat-accordion__item" id="stat-purchase__lootboxes">
+                  <div class="stat-header">
+                    <div class="stat-accordion__item__title">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre lootboxes" popovertarget="acc-hint__lootboxes">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="acc-hint__lootboxes" popover>
+                          Caixas ou pacotes pagos que oferecem recompensas de conteúdo aleatório.
+                          <br><br>
+                          1 = Lootboxes frequentes e incentivadas
+                          <br>
+                          5 = Não contém lootboxes
+                        </p>
+                      </div>
+
+                      <p class="stat-label font-display hl-text">Lootboxes</p>
+                    </div>
+                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                  </div>
+                  <div class="stat-bar"></div>
+                </article>
+              </li>
+              <li>
+                <article class="stat-accordion__item" id="stat-purchase__ads">
+                  <div class="stat-header">
+                    <div class="stat-accordion__item__title">
+                      <div class="hint">
+                        <button type="button" aria-label="Ajuda sobre anúncios" popovertarget="acc-hint__ads">
+                          <svg viewBox="0 0 640 640">
+                            <use href="assets/icons.svg#hint"></use>
+                          </svg>
+                        </button>
+
+                        <p class="hint-content" id="acc-hint__ads" popover>
+                          Anúncios de vídeo obrigatórios, pop-ups invasivos ou promoções constantes.
+                          <br><br>
+                          1 = Publicidade frequente e intrusiva
+                          <br>
+                          5 = Não contém publicidade
+                        </p>
+                      </div>
+
+                      <p class="stat-label font-display hl-text">Publicidade</p>
+                    </div>
+                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                  </div>
+                  <div class="stat-bar"></div>
+                </article>
+              </li>
+            </ul>
           </li>
 
         </ul>
@@ -510,6 +876,10 @@
 
                         <p class="hint-content" id="hint-language" popover>
                           Presença de palavrões, xingamentos, insultos ou linguagem ofensiva.
+                          <br><br>
+                          1 = Ofensas frequentes
+                          <br>
+                          5 = Não contém linguagem ofensiva
                         </p>
                       </div>
 
@@ -554,6 +924,10 @@
 
                         <p class="hint-content" id="hint-sensitive" popover>
                           Abordagem de morte, luto, trauma, abuso, doenças ou outros temas delicados.
+                          <br><br>
+                          1 = Lida com temas pesados explicitamente
+                          <br>
+                          5 = Não contém temas sensíveis
                         </p>
                       </div>
 
@@ -603,6 +977,10 @@
 
                         <p class="hint-content" id="hint-communication" popover>
                           Conversas, mensagens e compartilhamento de conteúdo com outros jogadores.
+                          <br><br>
+                          1 = Comunicação irrestrita e sem proteção
+                          <br>
+                          5 = Comunicação segura e protegida
                         </p>
                       </div>
                       <legend class="clr-main">Comunicação</legend>
@@ -646,6 +1024,10 @@
 
                         <p class="hint-content" id="hint-stranger" popover>
                           Encontros e interações com pessoas totalmente estranhas.
+                          <br><br>
+                          1 = Fácil contato com desconhecidos
+                          <br>
+                          5 = Contato com desconhecidos bloqueado ou protegido
                         </p>
                       </div>
 
@@ -691,6 +1073,10 @@
                         <p class="hint-content" id="hint-community" popover>
                           Segurança e qualidade das relações, considerando cooperação, acolhimento, bullying e
                           toxicidade.
+                          <br><br>
+                          1 = Ambiente tóxico e hostil
+                          <br>
+                          5 = Comunidade respeitosa e acolhedora
                         </p>
                       </div>
 
@@ -735,10 +1121,14 @@
 
                         <p class="hint-content" id="hint-competition" popover>
                           Rivalidades, estresse, frustração e pressão entre jogadores.
+                          <br><br>
+                          1 = Competição excessivamente agressiva
+                          <br>
+                          5 = Competição equilibrada e saudável
                         </p>
                       </div>
 
-                      <legend class="clr-main">Temas sensíveis</legend>
+                      <legend class="clr-main">Competição</legend>
                     </div>
                     <label for="competition-empty" title="Limpar" class="clear-btn">
                       <svg viewBox="0 0 640 640">
@@ -784,6 +1174,10 @@
 
                         <p class="hint-content" id="hint-report" popover>
                           Facilidade de denunciar jogadores infratores ou conteúdos impróprios.
+                          <br><br>
+                          1 = Denúncias inexistentes ou ineficazes
+                          <br>
+                          5 = Denúncias fáceis e eficazes
                         </p>
                       </div>
                       <legend class="clr-main">Denúncias</legend>
@@ -827,6 +1221,10 @@
 
                         <p class="hint-content" id="hint-block" popover>
                           Facilidade e eficácia dos recursos para impedir interações indesejadas.
+                          <br><br>
+                          1 = Bloqueio inexistente ou ineficaz
+                          <br>
+                          5 = Bloqueio fácil e eficaz
                         </p>
                       </div>
 
@@ -871,6 +1269,10 @@
 
                         <p class="hint-content" id="hint-filter" popover>
                           Recursos para filtrar, ocultar ou impedir mensagens e conteúdos inadequados.
+                          <br><br>
+                          1 = Filtros inexistentes ou ineficazes
+                          <br>
+                          5 = Filtros intuitivos e eficazes
                         </p>
                       </div>
 
@@ -915,6 +1317,10 @@
 
                         <p class="hint-content" id="hint-parental" popover>
                           Recursos para limitar, supervisionar ou controlar o acesso ao jogo.
+                          <br><br>
+                          1 = Pouco ou nenhum controle
+                          <br>
+                          5 = Controle parental amplo e eficaz
                         </p>
                       </div>
 
@@ -965,6 +1371,10 @@
 
                         <p class="hint-content" id="hint-microtransaction" popover>
                           Venda de itens virtuais, roupas (skins) ou moedas do jogo com dinheiro real.
+                          <br><br>
+                          1 = Muitas compras e estímulos ao consumo
+                          <br>
+                          5 = Poucas ou nenhuma compra
                         </p>
                       </div>
                       <legend class="clr-main">Microtransações</legend>
@@ -1008,6 +1418,10 @@
 
                         <p class="hint-content" id="hint-pressure" popover>
                           Avisos insistentes ou desvantagens no jogo para quem não gasta dinheiro
+                          <br><br>
+                          1 = Forte pressão para realizar compras
+                          <br>
+                          5 = Nenhuma pressão para realizar compras
                         </p>
                       </div>
 
@@ -1052,6 +1466,10 @@
 
                         <p class="hint-content" id="hint-lootboxes" popover>
                           Caixas ou pacotes pagos que oferecem recompensas de conteúdo aleatório.
+                          <br><br>
+                          1 = Lootboxes frequentes e incentivadas
+                          <br>
+                          5 = Não contém lootboxes
                         </p>
                       </div>
 
@@ -1096,6 +1514,10 @@
 
                         <p class="hint-content" id="hint-ads" popover>
                           Anúncios de vídeo obrigatórios, pop-ups invasivos ou promoções constantes.
+                          <br><br>
+                          1 = Publicidade frequente e intrusiva
+                          <br>
+                          5 = Não contém publicidade
                         </p>
                       </div>
 

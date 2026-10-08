@@ -5,7 +5,7 @@ main {
 
 @media (min-width: 960px) {
   main {
-    width: clamp(700px, 60vw, 1024px);
+    width: clamp(700px, 65vw, 1024px);
     border-left: 1px solid var(--clr-shadow);
     border-right: 1px solid var(--clr-shadow);
   }
