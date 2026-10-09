@@ -2,6 +2,7 @@ header.page-band {
   position: sticky;
   display: flex;
   flex-direction: column;
+  z-index: 50;
 }
 
 #search-bar {
