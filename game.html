@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
+  <title>Nome do Jogo | KeeperCtrl</title>
+  <meta name="description" content="Conheça a avaliação de segurança, conteúdo, interações e moderação de jogos na KeeperCtrl.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="KeeperCtrl">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="KeeperCtrl">
+  <meta property="og:title" content="Nome do Jogo | KeeperCtrl">
+  <meta property="og:description" content="Avaliação de segurança, conteúdo e interações do jogo na KeeperCtrl.">
+  
 
   <!-- Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,39 +33,39 @@
     <a href="index.html" class="logo__link">
       <h1 class="font-display logo"><span class="clr-main">keeper</span><span class="hl-text emph">Ctrl</span></h1>
     </a>
-    <form action="" id="search-bar">
+    <form action="" id="search-bar" role="search" aria-label="Pesquisa de jogos">
       <textarea name="pesquisa" id="searchbox" class="clr-text" rows="1"
-        placeholder="Pesquise pelo nome do jogo..."></textarea>
+        placeholder="Pesquise pelo nome do jogo..." aria-label="Pesquisar pelo nome do jogo"></textarea>
       <button id="search-btn" type="submit">
-        <svg viewBox="0 0 640 640">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
           <use href="assets/icons.svg#search"></use>
         </svg>
       </button>
     </form>
   </header>
 
-  <main>
-    <section class="game-hero">
-      <div class="game-cover">
-        <img src="" alt="">
-      </div>
+  <main id="main-content">
+    <section class="game-hero" id="game-overview" aria-labelledby="game-title" itemscope itemtype="https://schema.org/VideoGame">
+      <figure class="game-cover" id="game-cover">
+        <img src="" alt="" id="game-cover-image" aria-label="Capa do jogo">
+      </figure>
 
-      <div class="game-id">
-        <h2 class="game-name font-display">NOME DO JOGO</h2>
+      <header class="game-id">
+        <h2 class="game-name font-display" id="game-title" itemprop="name">NOME DO JOGO</h2>
 
-        <ul class="game-platforms">
+        <ul class="game-platforms" itemprop="gamePlatform">
           <li>PC</li>
           <li>MOBILE</li>
           <li>CONSOLE</li>
         </ul>
-        <p class="game-release">
+        <p class="game-release" itemprop="datePublished">
           <span class="year">YYYY</span> • <span class="studio">Empresa</span>
         </p>
-      </div>
+      </header>
     </section>
 
-    <section class="game-info">
-      <article class="description">
+    <section class="game-info" id="game-information" aria-label="Informações do jogo">
+      <article class="description" itemprop="description">
         <h3 class="font-display hl-text">DESCRIÇÃO</h3>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -66,60 +75,60 @@
       </article>
 
       <article class="gen-stat">
-        <div class="gen-stat-id">
+        <header class="gen-stat-id">
           <p class="gen-stat-label clr-main">Nota geral</p>
 
-          <svg viewBox="0 0 640 640">
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
             <use href="assets/icons.svg#star"></use>
           </svg>
-        </div>
+        </header>
 
-        <span class="gen-stat-num font-display hl-text">4.0</span>
+        <span class="gen-stat-num font-display hl-text" aria-live="polite" aria-atomic="true">4.0</span>
       </article>
 
       <article class="gen-stat">
-        <div class="gen-stat-id">
+        <header class="gen-stat-id">
           <p class="gen-stat-label clr-main">Avaliações</p>
 
-          <svg viewBox="0 0 640 640">
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
             <use href="assets/icons.svg#check-circle"></use>
           </svg>
-        </div>
+        </header>
 
-        <span class="gen-stat-num font-display hl-text">1.6K</span>
+        <span class="gen-stat-num font-display hl-text" aria-live="polite" aria-atomic="true">1.6K</span>
       </article>
 
       <article class="stats">
         <ul class="stats__list">
           <li id="stat-content">
-            <div class="stat-header">
+            <header class="stat-header">
               <p class="stat-label font-display">Conteúdo</p>
-              <p class="stat-score"><span class="stat-average">3.8</span> / 5</p>
-            </div>
+              <p class="stat-score"><span class="stat-average" aria-live="polite" aria-atomic="true">3.8</span> / 5</p>
+            </header>
             <div class="stat-bar"></div>
           </li>
 
           <li id="stat-interact">
-            <div class="stat-header">
+            <header class="stat-header">
               <p class="stat-label font-display">Interação entre Jogadores</p>
-              <p class="stat-score"><span class="stat-average">4.2</span> / 5</p>
-            </div>
+              <p class="stat-score"><span class="stat-average" aria-live="polite" aria-atomic="true">4.2</span> / 5</p>
+            </header>
             <div class="stat-bar"></div>
           </li>
 
           <li id="stat-mod">
-            <div class="stat-header">
+            <header class="stat-header">
               <p class="stat-label font-display">Moderação</p>
-              <p class="stat-score"><span class="stat-average">4.5</span> / 5</p>
-            </div>
+              <p class="stat-score"><span class="stat-average" aria-live="polite" aria-atomic="true">4.5</span> / 5</p>
+            </header>
             <div class="stat-bar"></div>
           </li>
 
           <li id="stat-transact">
-            <div class="stat-header">
+            <header class="stat-header">
               <p class="stat-label font-display">Estímulos ao Consumo</p>
-              <p class="stat-score"><span class="stat-average">2.1</span> / 5</p>
-            </div>
+              <p class="stat-score"><span class="stat-average" aria-live="polite" aria-atomic="true">2.1</span> / 5</p>
+            </header>
             <div class="stat-bar"></div>
           </li>
 
@@ -127,47 +136,47 @@
       </article>
     </section>
 
-    <section class="badges font-display">
-      <h3 class="clr-text">SELOS DE APROVAÇÃO KEEPERCTRL</h3>
+    <section class="badges font-display" id="approval-badges" aria-labelledby="approval-badges-title">
+      <h3 class="clr-text" id="approval-badges-title">SELOS DE APROVAÇÃO KEEPERCTRL</h3>
 
-      <article class="badge__items">
-        <div class="badge badge-neutral">
-          <svg class="badge-icon" viewBox="0 0 640 640">
+      <ul class="badge__items">
+        <li class="badge badge-neutral">
+          <svg aria-hidden="true" focusable="false" class="badge-icon" viewBox="0 0 640 640">
             <use href="assets/icons.svg#wand"></use>
           </svg>
           <p class="badge-name">VIOLÊNCIA FANTÁSTICA</p>
-        </div>
+        </li>
 
-        <div class="badge badge-negative">
-          <svg class="badge-icon" viewBox="0 0 640 640">
+        <li class="badge badge-negative">
+          <svg aria-hidden="true" focusable="false" class="badge-icon" viewBox="0 0 640 640">
             <use href="assets/icons.svg#rectangle-ad"></use>
           </svg>
           <p class="badge-name">OFERTAS FREQUENTES</p>
-        </div>
+        </li>
 
-        <div class="badge badge-positive">
-          <svg class="badge-icon" viewBox="0 0 640 640">
+        <li class="badge badge-positive">
+          <svg aria-hidden="true" focusable="false" class="badge-icon" viewBox="0 0 640 640">
             <use href="assets/icons.svg#filter"></use>
           </svg>
           <p class="badge-name">FILTROS DE COMUNICAÇÃO</p>
-        </div>
-      </article>
+        </li>
+      </ul>
     </section>
 
-    <section class="discussion">
-      <h3 class="font-display clr-text">DISCUSSÃO <span id="discussion-num">(2)</span></h3>
+    <section class="discussion" id="discussion-section" aria-labelledby="discussion-title">
+      <h3 class="font-display clr-text" id="discussion-title">DISCUSSÃO <span id="discussion-num" aria-live="polite" aria-atomic="true">(2)</span></h3>
       <article class="discussion-cta">
-        <div class="discussion-cta__p">
+        <header class="discussion-cta__p">
           <h3 class="font-display">SUA OPINIÃO <span class="hl-text">IMPORTA</span></h3>
           <p>
             Sem contas. Sem spam. Deixe sua avaliação anônima para ajudar outros responsáveis.
           </p>
-        </div>
-        <button id="rate-btn" class="font-display">DEIXAR AVALIAÇÃO ANÔNIMA</button>
+        </header>
+        <button id="rate-btn" class="font-display" aria-controls="overlay" aria-haspopup="dialog">DEIXAR AVALIAÇÃO ANÔNIMA</button>
       </article>
 
-      <div class="posts__wrapper">
-        <article id="posts">
+      <section class="posts__wrapper" id="community-posts" aria-label="Comentários da comunidade">
+        <section id="posts" aria-label="Comentários da comunidade" aria-live="polite" aria-relevant="additions">
           <article class="post">
             <p class="post__comment">
               A moderação de chat funciona muito bem. Meu filho joga há 3 meses e nunca vi interações ofensivas
@@ -184,70 +193,70 @@
             </p>
             <span class="post__time">Ontem</span>
           </article>
-        </article>
+        </section>
 
-        <button id="show-more-btn" class="font-display" disabled>VER MAIS</button>
-      </div>
+        <button id="show-more-btn" class="font-display" disabled aria-controls="posts">VER MAIS</button>
+      </section>
     </section>
   </main>
 
-  <section id="overlay" class="hidden">
-    <article class="modal">
+  <section id="overlay" class="hidden" aria-label="Avaliação do jogo">
+    <article class="modal" id="rating-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <header class="modal__header font-display">
-        <h2>AVALIAR JOGO</h2>
-        <button id="close-btn" class="font-display"><span>X</span></button>
+        <h2 id="modal-title">AVALIAR JOGO</h2>
+        <button id="close-btn" class="font-display" aria-label="Fechar avaliação"><span>X</span></button>
       </header>
 
-      <div class="modal__game-id">
+      <div class="modal__game-id" id="modal-game-info" aria-label="Identificação do jogo">
         <div class="modal__game-name">
           <h3 class="font-display">NOME DO JOGO</h3>
           <div class="modal__game-thumb">
-            <img src="" alt="">
+            <img src="" alt="" id="modal-game-image" aria-label="Capa do jogo">
           </div>
         </div>
         <p class="modal__game-studio">Empresa</p>
       </div>
 
-      <form action="">
-        <div class="modal__body">
-          <nav>
-            <fieldset class="font-display">
-              <input type="radio" name="category" id="category-content" checked>
+      <form action="" id="rating-form" aria-label="Formulário de avaliação do jogo">
+        <section class="modal__body">
+          <nav id="rating-steps" aria-label="Etapas da avaliação">
+            <fieldset class="font-display" id="rating-categories" aria-label="Categorias da avaliação">
+              <input type="radio" name="category" id="category-content" checked aria-controls="criteria-content">
 
               <label for="category-content">
                 <span>1.</span> CONTEÚDO
               </label>
 
 
-              <input type="radio" name="category" id="category-interaction">
+              <input type="radio" name="category" id="category-interaction" aria-controls="criteria-interaction">
 
               <label for="category-interaction">
                 <span>2.</span> INTERAÇÃO
               </label>
 
 
-              <input type="radio" name="category" id="category-moderation">
+              <input type="radio" name="category" id="category-moderation" aria-controls="criteria-moderation">
 
               <label for="category-moderation">
                 <span>3.</span> MODERAÇÃO
               </label>
 
 
-              <input type="radio" name="category" id="category-purchase">
+              <input type="radio" name="category" id="category-purchase" aria-controls="criteria-purchase">
 
               <label for="category-purchase" aria-current="step">
                 <span>4.</span> CONSUMO
               </label>
 
 
-              <input type="radio" name="category" id="category-badges">
+              <input type="radio" name="category" id="category-badges" aria-controls="badge-selection">
 
               <label for="category-badges">
                 <span>5.</span> SELOS
               </label>
 
 
-              <input type="radio" name="category" id="category-comment">
+              <input type="radio" name="category" id="category-comment" aria-controls="comment">
 
               <label for="category-comment">
                 <span>6.</span> COMENTÁRIO
@@ -255,12 +264,12 @@
             </fieldset>
           </nav>
 
-          <div class="rating__wrapper">
-            <article class="rating-info rating">
-              <div class="rating-info-header">
-                <h3 class="font-display hl-text">PONTUAÇÃO</h3>
+          <section class="rating__wrapper" id="rating-content" aria-label="Conteúdo da avaliação">
+            <article class="rating-info rating" id="scoring-guide" aria-labelledby="scoring-guide-title">
+              <header class="rating-info-header">
+                <h3 class="font-display hl-text" id="scoring-guide-title">PONTUAÇÃO</h3>
                 <p><b>Como avaliar?</b> Dê uma nota de 1 a 5 para a adequação:</p>
-              </div>
+              </header>
 
               <div class="rating-info-system">
                 <div class="rating-info-item rating-info__low">
@@ -283,12 +292,12 @@
             <article id="criteria-content" class="criteria rating">
               <p>Adequação dos conteúdos apresentados no jogo</p>
               <div class="criterion__wrapper">
-                <fieldset class="criterion">
-                  <div class="criterion-header">
+                <fieldset class="criterion" aria-labelledby="criterion-violence-label">
+                  <header class="criterion-header">
                     <div class="criterion-id">
                       <div class="hint">
                         <button type="button" aria-label="Ajuda sobre violência" popovertarget="hint-violence">
-                          <svg viewBox="0 0 640 640">
+                          <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                             <use href="assets/icons.svg#hint"></use>
                           </svg>
                         </button>
@@ -297,15 +306,15 @@
                           Exposição a atos violentos, lutas, armas ou agressões corporais.
                         </p>
                       </div>
-                      <legend class="clr-main">Violência</legend>
+                      <legend class="clr-main" id="criterion-violence-label">Violência</legend>
 
                     </div>
                     <label for="violence-empty" title="Limpar" class="clear-btn">
-                      <svg viewBox="0 0 640 640">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                         <use href="assets/icons.svg#eraser"></use>
                       </svg>
                     </label>
-                  </div>
+                  </header>
 
                   <div class="rate font-display">
                     <input type="radio" name="violence-score" id="violence-empty" value="">
@@ -326,12 +335,12 @@
                     <label for="violence-score-1" title="1">1</label>
                   </div>
                 </fieldset>
-                <fieldset class="criterion">
-                  <div class="criterion-header">
+                <fieldset class="criterion" aria-labelledby="criterion-sex-label">
+                  <header class="criterion-header">
                     <div class="criterion-id">
                       <div class="hint">
                         <button type="button" aria-label="Ajuda sobre conteúdo sexual" popovertarget="hint-sex">
-                          <svg viewBox="0 0 640 640">
+                          <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                             <use href="assets/icons.svg#hint"></use>
                           </svg>
                         </button>
@@ -341,15 +350,15 @@
                         </p>
                       </div>
 
-                      <legend class="clr-main">Conteúdo sexual</legend>
+                      <legend class="clr-main" id="criterion-sex-label">Conteúdo sexual</legend>
                     </div>
 
                     <label for="sex-empty" title="Limpar" class="clear-btn">
-                      <svg viewBox="0 0 640 640">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                         <use href="assets/icons.svg#eraser"></use>
                       </svg>
                     </label>
-                  </div>
+                  </header>
 
                   <div class="rate font-display">
                     <input type="radio" name="sex-score" id="sex-empty" value="">
@@ -370,12 +379,12 @@
                     <label for="sex-score-1" title="1">1</label>
                   </div>
                 </fieldset>
-                <fieldset class="criterion">
-                  <div class="criterion-header">
+                <fieldset class="criterion" aria-labelledby="criterion-language-label">
+                  <header class="criterion-header">
                     <div class="criterion-id">
                       <div class="hint">
                         <button type="button" aria-label="Ajuda sobre linguagem" popovertarget="hint-language">
-                          <svg viewBox="0 0 640 640">
+                          <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                             <use href="assets/icons.svg#hint"></use>
                           </svg>
                         </button>
@@ -385,15 +394,15 @@
                         </p>
                       </div>
 
-                      <legend class="clr-main">Linguagem</legend>
+                      <legend class="clr-main" id="criterion-language-label">Linguagem</legend>
                     </div>
 
                     <label for="language-empty" title="Limpar" class="clear-btn">
-                      <svg viewBox="0 0 640 640">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                         <use href="assets/icons.svg#eraser"></use>
                       </svg>
                     </label>
-                  </div>
+                  </header>
 
                   <div class="rate font-display">
                     <input type="radio" name="language-score" id="language-empty" value="">
@@ -414,12 +423,12 @@
                     <label for="language-score-1" title="1">1</label>
                   </div>
                 </fieldset>
-                <fieldset class="criterion">
-                  <div class="criterion-header">
+                <fieldset class="criterion" aria-labelledby="criterion-sensitive-label">
+                  <header class="criterion-header">
                     <div class="criterion-id">
                       <div class="hint">
                         <button type="button" aria-label="Ajuda sobre temas sensíveis" popovertarget="hint-sensitive">
-                          <svg viewBox="0 0 640 640">
+                          <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                             <use href="assets/icons.svg#hint"></use>
                           </svg>
                         </button>
@@ -429,14 +438,14 @@
                         </p>
                       </div>
 
-                      <legend class="clr-main">Temas sensíveis</legend>
+                      <legend class="clr-main" id="criterion-sensitive-label">Temas sensíveis</legend>
                     </div>
                     <label for="sensitive-empty" title="Limpar" class="clear-btn">
-                      <svg viewBox="0 0 640 640">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                         <use href="assets/icons.svg#eraser"></use>
                       </svg>
                     </label>
-                  </div>
+                  </header>
 
                   <div class="rate font-display">
                     <input type="radio" name="sensitive-score" id="sensitive-empty" value="">
@@ -463,12 +472,12 @@
             <article id="criteria-interaction" class="criteria rating">
               <p>Segurança das interações sociais e multiplayer online.</p>
               <div class="criterion__wrapper">
-                <fieldset class="criterion">
-                  <div class="criterion-header">
+                <fieldset class="criterion" aria-labelledby="criterion-communication-label">
+                  <header class="criterion-header">
                     <div class="criterion-id">
                       <div class="hint">
                         <button type="button" aria-label="Ajuda sobre comunicação" popovertarget="hint-communication">
-                          <svg viewBox="0 0 640 640">
+                          <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                             <use href="assets/icons.svg#hint"></use>
                           </svg>
                         </button>
@@ -477,15 +486,15 @@
                           Conversas, mensagens e compartilhamento de conteúdo com outros jogadores.
                         </p>
                       </div>
-                      <legend class="clr-main">Comunicação</legend>
+                      <legend class="clr-main" id="criterion-communication-label">Comunicação</legend>
 
                     </div>
                     <label for="communication-empty" title="Limpar" class="clear-btn">
-                      <svg viewBox="0 0 640 640">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                         <use href="assets/icons.svg#eraser"></use>
                       </svg>
                     </label>
-                  </div>
+                  </header>
 
                   <div class="rate font-display">
                     <input type="radio" name="communication-score" id="communication-empty" value="">
@@ -506,12 +515,12 @@
                     <label for="communication-score-1" title="1">1</label>
                   </div>
                 </fieldset>
-                <fieldset class="criterion">
-                  <div class="criterion-header">
+                <fieldset class="criterion" aria-labelledby="criterion-stranger-label">
+                  <header class="criterion-header">
                     <div class="criterion-id">
                       <div class="hint">
                         <button type="button" aria-label="Ajuda sobre desconhecidos" popovertarget="hint-stranger">
-                          <svg viewBox="0 0 640 640">
+                          <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                             <use href="assets/icons.svg#hint"></use>
                           </svg>
                         </button>
@@ -521,15 +530,15 @@
                         </p>
                       </div>
 
-                      <legend class="clr-main">Desconhecidos</legend>
+                      <legend class="clr-main" id="criterion-stranger-label">Desconhecidos</legend>
                     </div>
 
                     <label for="stranger-empty" title="Limpar" class="clear-btn">
-                      <svg viewBox="0 0 640 640">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                         <use href="assets/icons.svg#eraser"></use>
                       </svg>
                     </label>
-                  </div>
+                  </header>
 
                   <div class="rate font-display">
                     <input type="radio" name="stranger-score" id="stranger-empty" value="">
@@ -550,12 +559,12 @@
                     <label for="stranger-score-1" title="1">1</label>
                   </div>
                 </fieldset>
-                <fieldset class="criterion">
-                  <div class="criterion-header">
+                <fieldset class="criterion" aria-labelledby="criterion-community-label">
+                  <header class="criterion-header">
                     <div class="criterion-id">
                       <div class="hint">
                         <button type="button" aria-label="Ajuda sobre comunidade" popovertarget="hint-community">
-                          <svg viewBox="0 0 640 640">
+                          <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                             <use href="assets/icons.svg#hint"></use>
                           </svg>
                         </button>
@@ -566,15 +575,15 @@
                         </p>
                       </div>
 
-                      <legend class="clr-main">Comunidade</legend>
+                      <legend class="clr-main" id="criterion-community-label">Comunidade</legend>
                     </div>
 
                     <label for="community-empty" title="Limpar" class="clear-btn">
-                      <svg viewBox="0 0 640 640">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                         <use href="assets/icons.svg#eraser"></use>
                       </svg>
                     </label>
-                  </div>
+                  </header>
 
                   <div class="rate font-display">
                     <input type="radio" name="community-score" id="community-empty" value="">
@@ -595,12 +604,12 @@
                     <label for="community-score-1" title="1">1</label>
                   </div>
                 </fieldset>
-                <fieldset class="criterion">
-                  <div class="criterion-header">
+                <fieldset class="criterion" aria-labelledby="criterion-competition-label">
+                  <header class="criterion-header">
                     <div class="criterion-id">
                       <div class="hint">
                         <button type="button" aria-label="Ajuda sobre competição" popovertarget="hint-competition">
-                          <svg viewBox="0 0 640 640">
+                          <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                             <use href="assets/icons.svg#hint"></use>
                           </svg>
                         </button>
@@ -610,14 +619,14 @@
                         </p>
                       </div>
 
-                      <legend class="clr-main">Temas sensíveis</legend>
+                      <legend class="clr-main" id="criterion-competition-label">Temas sensíveis</legend>
                     </div>
                     <label for="competition-empty" title="Limpar" class="clear-btn">
-                      <svg viewBox="0 0 640 640">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                         <use href="assets/icons.svg#eraser"></use>
                       </svg>
                     </label>
-                  </div>
+                  </header>
 
                   <div class="rate font-display">
                     <input type="radio" name="competition-score" id="competition-empty" value="">
@@ -644,12 +653,12 @@
             <article id="criteria-moderation" class="criteria rating">
               <p>Recursos para lidar com comportamentos inadequados.</p>
               <div class="criterion__wrapper">
-                <fieldset class="criterion">
-                  <div class="criterion-header">
+                <fieldset class="criterion" aria-labelledby="criterion-report-label">
+                  <header class="criterion-header">
                     <div class="criterion-id">
                       <div class="hint">
                         <button type="button" aria-label="Ajuda sobre denúncias" popovertarget="hint-report">
-                          <svg viewBox="0 0 640 640">
+                          <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                             <use href="assets/icons.svg#hint"></use>
                           </svg>
                         </button>
@@ -658,15 +667,15 @@
                           Facilidade de denunciar jogadores infratores ou conteúdos impróprios.
                         </p>
                       </div>
-                      <legend class="clr-main">Denúncias</legend>
+                      <legend class="clr-main" id="criterion-report-label">Denúncias</legend>
 
                     </div>
                     <label for="report-empty" title="Limpar" class="clear-btn">
-                      <svg viewBox="0 0 640 640">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                         <use href="assets/icons.svg#eraser"></use>
                       </svg>
                     </label>
-                  </div>
+                  </header>
 
                   <div class="rate font-display">
                     <input type="radio" name="report-score" id="report-empty" value="">
@@ -687,12 +696,12 @@
                     <label for="report-score-1" title="1">1</label>
                   </div>
                 </fieldset>
-                <fieldset class="criterion">
-                  <div class="criterion-header">
+                <fieldset class="criterion" aria-labelledby="criterion-block-label">
+                  <header class="criterion-header">
                     <div class="criterion-id">
                       <div class="hint">
                         <button type="button" aria-label="Ajuda sobre bloqueios" popovertarget="hint-block">
-                          <svg viewBox="0 0 640 640">
+                          <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                             <use href="assets/icons.svg#hint"></use>
                           </svg>
                         </button>
@@ -702,15 +711,15 @@
                         </p>
                       </div>
 
-                      <legend class="clr-main">Bloqueios</legend>
+                      <legend class="clr-main" id="criterion-block-label">Bloqueios</legend>
                     </div>
 
                     <label for="block-empty" title="Limpar" class="clear-btn">
-                      <svg viewBox="0 0 640 640">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                         <use href="assets/icons.svg#eraser"></use>
                       </svg>
                     </label>
-                  </div>
+                  </header>
 
                   <div class="rate font-display">
                     <input type="radio" name="block-score" id="block-empty" value="">
@@ -731,12 +740,12 @@
                     <label for="block-score-1" title="1">1</label>
                   </div>
                 </fieldset>
-                <fieldset class="criterion">
-                  <div class="criterion-header">
+                <fieldset class="criterion" aria-labelledby="criterion-filter-label">
+                  <header class="criterion-header">
                     <div class="criterion-id">
                       <div class="hint">
                         <button type="button" aria-label="Ajuda sobre filtros" popovertarget="hint-filter">
-                          <svg viewBox="0 0 640 640">
+                          <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                             <use href="assets/icons.svg#hint"></use>
                           </svg>
                         </button>
@@ -746,15 +755,15 @@
                         </p>
                       </div>
 
-                      <legend class="clr-main">Filtros</legend>
+                      <legend class="clr-main" id="criterion-filter-label">Filtros</legend>
                     </div>
 
                     <label for="filter-empty" title="Limpar" class="clear-btn">
-                      <svg viewBox="0 0 640 640">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                         <use href="assets/icons.svg#eraser"></use>
                       </svg>
                     </label>
-                  </div>
+                  </header>
 
                   <div class="rate font-display">
                     <input type="radio" name="filter-score" id="filter-empty" value="">
@@ -775,12 +784,12 @@
                     <label for="filter-score-1" title="1">1</label>
                   </div>
                 </fieldset>
-                <fieldset class="criterion">
-                  <div class="criterion-header">
+                <fieldset class="criterion" aria-labelledby="criterion-parental-label">
+                  <header class="criterion-header">
                     <div class="criterion-id">
                       <div class="hint">
                         <button type="button" aria-label="Ajuda sobre controle parental" popovertarget="hint-parental">
-                          <svg viewBox="0 0 640 640">
+                          <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                             <use href="assets/icons.svg#hint"></use>
                           </svg>
                         </button>
@@ -790,14 +799,14 @@
                         </p>
                       </div>
 
-                      <legend class="clr-main">Controle parental</legend>
+                      <legend class="clr-main" id="criterion-parental-label">Controle parental</legend>
                     </div>
                     <label for="parental-empty" title="Limpar" class="clear-btn">
-                      <svg viewBox="0 0 640 640">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                         <use href="assets/icons.svg#eraser"></use>
                       </svg>
                     </label>
-                  </div>
+                  </header>
 
                   <div class="rate font-display">
                     <input type="radio" name="parental-score" id="parental-empty" value="">
@@ -824,13 +833,13 @@
             <article id="criteria-purchase" class="criteria rating">
               <p>Controle de anúncios e compras no jogo.</p>
               <div class="criterion__wrapper">
-                <fieldset class="criterion">
-                  <div class="criterion-header">
+                <fieldset class="criterion" aria-labelledby="criterion-microtransaction-label">
+                  <header class="criterion-header">
                     <div class="criterion-id">
                       <div class="hint">
                         <button type="button" aria-label="Ajuda sobre microtransações"
                           popovertarget="hint-microtransaction">
-                          <svg viewBox="0 0 640 640">
+                          <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                             <use href="assets/icons.svg#hint"></use>
                           </svg>
                         </button>
@@ -839,15 +848,15 @@
                           Venda de itens virtuais, roupas (skins) ou moedas do jogo com dinheiro real.
                         </p>
                       </div>
-                      <legend class="clr-main">Microtransações</legend>
+                      <legend class="clr-main" id="criterion-microtransaction-label">Microtransações</legend>
 
                     </div>
                     <label for="microtransaction-empty" title="Limpar" class="clear-btn">
-                      <svg viewBox="0 0 640 640">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                         <use href="assets/icons.svg#eraser"></use>
                       </svg>
                     </label>
-                  </div>
+                  </header>
 
                   <div class="rate font-display">
                     <input type="radio" name="microtransaction-score" id="microtransaction-empty" value="">
@@ -868,12 +877,12 @@
                     <label for="microtransaction-score-1" title="1">1</label>
                   </div>
                 </fieldset>
-                <fieldset class="criterion">
-                  <div class="criterion-header">
+                <fieldset class="criterion" aria-labelledby="criterion-pressure-label">
+                  <header class="criterion-header">
                     <div class="criterion-id">
                       <div class="hint">
                         <button type="button" aria-label="Ajuda sobre pressão" popovertarget="hint-pressure">
-                          <svg viewBox="0 0 640 640">
+                          <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                             <use href="assets/icons.svg#hint"></use>
                           </svg>
                         </button>
@@ -883,15 +892,15 @@
                         </p>
                       </div>
 
-                      <legend class="clr-main">Pressão</legend>
+                      <legend class="clr-main" id="criterion-pressure-label">Pressão</legend>
                     </div>
 
                     <label for="pressure-empty" title="Limpar" class="clear-btn">
-                      <svg viewBox="0 0 640 640">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                         <use href="assets/icons.svg#eraser"></use>
                       </svg>
                     </label>
-                  </div>
+                  </header>
 
                   <div class="rate font-display">
                     <input type="radio" name="pressure-score" id="pressure-empty" value="">
@@ -912,12 +921,12 @@
                     <label for="pressure-score-1" title="1">1</label>
                   </div>
                 </fieldset>
-                <fieldset class="criterion">
-                  <div class="criterion-header">
+                <fieldset class="criterion" aria-labelledby="criterion-lootboxes-label">
+                  <header class="criterion-header">
                     <div class="criterion-id">
                       <div class="hint">
                         <button type="button" aria-label="Ajuda sobre lootboxes" popovertarget="hint-lootboxes">
-                          <svg viewBox="0 0 640 640">
+                          <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                             <use href="assets/icons.svg#hint"></use>
                           </svg>
                         </button>
@@ -927,15 +936,15 @@
                         </p>
                       </div>
 
-                      <legend class="clr-main">Lootboxes</legend>
+                      <legend class="clr-main" id="criterion-lootboxes-label">Lootboxes</legend>
                     </div>
 
                     <label for="lootboxes-empty" title="Limpar" class="clear-btn">
-                      <svg viewBox="0 0 640 640">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                         <use href="assets/icons.svg#eraser"></use>
                       </svg>
                     </label>
-                  </div>
+                  </header>
 
                   <div class="rate font-display">
                     <input type="radio" name="lootboxes-score" id="lootboxes-empty" value="">
@@ -956,12 +965,12 @@
                     <label for="lootboxes-score-1" title="1">1</label>
                   </div>
                 </fieldset>
-                <fieldset class="criterion">
-                  <div class="criterion-header">
+                <fieldset class="criterion" aria-labelledby="criterion-ads-label">
+                  <header class="criterion-header">
                     <div class="criterion-id">
                       <div class="hint">
                         <button type="button" aria-label="Ajuda sobre anúncios" popovertarget="hint-ads">
-                          <svg viewBox="0 0 640 640">
+                          <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                             <use href="assets/icons.svg#hint"></use>
                           </svg>
                         </button>
@@ -971,14 +980,14 @@
                         </p>
                       </div>
 
-                      <legend class="clr-main">Anúncios</legend>
+                      <legend class="clr-main" id="criterion-ads-label">Anúncios</legend>
                     </div>
                     <label for="ads-empty" title="Limpar" class="clear-btn">
-                      <svg viewBox="0 0 640 640">
+                      <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                         <use href="assets/icons.svg#eraser"></use>
                       </svg>
                     </label>
-                  </div>
+                  </header>
 
                   <div class="rate font-display">
                     <input type="radio" name="ads-score" id="ads-empty" value="">
@@ -1001,15 +1010,15 @@
                 </fieldset>
               </div>
             </article>
-          </div>
+          </section>
 
           <article id="badge-selection">
             <p class="clr-text">Selecione os selos que descrevem características marcantes encontradas neste jogo.</p>
-            <fieldset>
+            <fieldset id="badge-options" aria-label="Selos disponíveis">
               <label class="modal-badge">
                 <div class="modal-badge__id">
                   <div class="modal-badge__icon" aria-hidden="true">
-                    <svg viewBox="0 0 640 640">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                       <use href="assets/icons.svg#wand"></use>
                     </svg>
                   </div>
@@ -1022,13 +1031,13 @@
                   </div>
                 </div>
 
-                <input type="checkbox" name="badges" value="fantasy-violence">
+                <input type="checkbox" name="badges" value="fantasy-violence" id="badge-fantasy-violence">
               </label>
 
               <label class="modal-badge">
                 <div class="modal-badge__id">
                   <div class="modal-badge__icon" aria-hidden="true">
-                    <svg viewBox="0 0 640 640">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                       <use href="assets/icons.svg#gun"></use>
                     </svg>
                   </div>
@@ -1041,13 +1050,13 @@
                   </div>
                 </div>
 
-                <input type="checkbox" name="badges" value="realistic-violence">
+                <input type="checkbox" name="badges" value="realistic-violence" id="badge-realistic-violence">
               </label>
 
               <label class="modal-badge">
                 <div class="modal-badge__id">
                   <div class="modal-badge__icon" aria-hidden="true">
-                    <svg viewBox="0 0 640 640">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                       <use href="assets/icons.svg#skull"></use>
                     </svg>
                   </div>
@@ -1060,13 +1069,13 @@
                   </div>
                 </div>
 
-                <input type="checkbox" name="badges" value="graphic-violence">
+                <input type="checkbox" name="badges" value="graphic-violence" id="badge-graphic-violence">
               </label>
 
               <label class="modal-badge">
                 <div class="modal-badge__id">
                   <div class="modal-badge__icon" aria-hidden="true">
-                    <svg viewBox="0 0 640 640">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                       <use href="assets/icons.svg#slash"></use>
                     </svg>
                   </div>
@@ -1079,13 +1088,13 @@
                   </div>
                 </div>
 
-                <input type="checkbox" name="badges" value="inappropriate-language">
+                <input type="checkbox" name="badges" value="inappropriate-language" id="badge-inappropriate-language">
               </label>
 
               <label class="modal-badge">
                 <div class="modal-badge__id">
                   <div class="modal-badge__icon" aria-hidden="true">
-                    <svg viewBox="0 0 640 640">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                       <use href="assets/icons.svg#globe"></use>
                     </svg>
                   </div>
@@ -1098,13 +1107,13 @@
                   </div>
                 </div>
 
-                <input type="checkbox" name="badges" value="multiplayer-online">
+                <input type="checkbox" name="badges" value="multiplayer-online" id="badge-multiplayer-online">
               </label>
 
               <label class="modal-badge">
                 <div class="modal-badge__id">
                   <div class="modal-badge__icon" aria-hidden="true">
-                    <svg viewBox="0 0 640 640">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                       <use href="assets/icons.svg#users-slash"></use>
                     </svg>
                   </div>
@@ -1117,13 +1126,13 @@
                   </div>
                 </div>
 
-                <input type="checkbox" name="badges" value="unknown-players">
+                <input type="checkbox" name="badges" value="unknown-players" id="badge-unknown-players">
               </label>
 
               <label class="modal-badge">
                 <div class="modal-badge__id">
                   <div class="modal-badge__icon" aria-hidden="true">
-                    <svg viewBox="0 0 640 640">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                       <use href="assets/icons.svg#chat"></use>
                     </svg>
                   </div>
@@ -1136,13 +1145,13 @@
                   </div>
                 </div>
 
-                <input type="checkbox" name="badges" value="text-chat">
+                <input type="checkbox" name="badges" value="text-chat" id="badge-text-chat">
               </label>
 
               <label class="modal-badge">
                 <div class="modal-badge__id">
                   <div class="modal-badge__icon" aria-hidden="true">
-                    <svg viewBox="0 0 640 640">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                       <use href="assets/icons.svg#microphone"></use>
                     </svg>
                   </div>
@@ -1155,13 +1164,13 @@
                   </div>
                 </div>
 
-                <input type="checkbox" name="badges" value="voice-chat">
+                <input type="checkbox" name="badges" value="voice-chat" id="badge-voice-chat">
               </label>
 
               <label class="modal-badge">
                 <div class="modal-badge__id">
                   <div class="modal-badge__icon" aria-hidden="true">
-                    <svg viewBox="0 0 640 640">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                       <use href="assets/icons.svg#flag"></use>
                     </svg>
                   </div>
@@ -1174,13 +1183,13 @@
                   </div>
                 </div>
 
-                <input type="checkbox" name="badges" value="report-system">
+                <input type="checkbox" name="badges" value="report-system" id="badge-report-system">
               </label>
 
               <label class="modal-badge">
                 <div class="modal-badge__id">
                   <div class="modal-badge__icon" aria-hidden="true">
-                    <svg viewBox="0 0 640 640">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                       <use href="assets/icons.svg#user-lock"></use>
                     </svg>
                   </div>
@@ -1193,13 +1202,13 @@
                   </div>
                 </div>
 
-                <input type="checkbox" name="badges" value="player-block">
+                <input type="checkbox" name="badges" value="player-block" id="badge-player-block">
               </label>
 
               <label class="modal-badge">
                 <div class="modal-badge__id">
                   <div class="modal-badge__icon" aria-hidden="true">
-                    <svg viewBox="0 0 640 640">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                       <use href="assets/icons.svg#filter"></use>
                     </svg>
                   </div>
@@ -1212,13 +1221,13 @@
                   </div>
                 </div>
 
-                <input type="checkbox" name="badges" value="communication-filters">
+                <input type="checkbox" name="badges" value="communication-filters" id="badge-communication-filters">
               </label>
 
               <label class="modal-badge">
                 <div class="modal-badge__id">
                   <div class="modal-badge__icon" aria-hidden="true">
-                    <svg viewBox="0 0 640 640">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                       <use href="assets/icons.svg#sliders"></use>
                     </svg>
                   </div>
@@ -1231,13 +1240,13 @@
                   </div>
                 </div>
 
-                <input type="checkbox" name="badges" value="parental-control">
+                <input type="checkbox" name="badges" value="parental-control" id="badge-parental-control">
               </label>
 
               <label class="modal-badge">
                 <div class="modal-badge__id">
                   <div class="modal-badge__icon" aria-hidden="true">
-                    <svg viewBox="0 0 640 640">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                       <use href="assets/icons.svg#trophy"></use>
                     </svg>
                   </div>
@@ -1250,13 +1259,13 @@
                   </div>
                 </div>
 
-                <input type="checkbox" name="badges" value="pay2win">
+                <input type="checkbox" name="badges" value="pay2win" id="badge-pay2win">
               </label>
 
               <label class="modal-badge">
                 <div class="modal-badge__id">
                   <div class="modal-badge__icon" aria-hidden="true">
-                    <svg viewBox="0 0 640 640">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                       <use href="assets/icons.svg#rectangle-ad"></use>
                     </svg>
                   </div>
@@ -1269,7 +1278,7 @@
                   </div>
                 </div>
 
-                <input type="checkbox" name="badges" value="frequent-ads">
+                <input type="checkbox" name="badges" value="frequent-ads" id="badge-frequent-ads">
               </label>
             </fieldset>
           </article>
@@ -1278,43 +1287,43 @@
             <p>
               Deixe conselhos valiosos, alertas de atenção ou aspectos positivos para ajudar a comunidade de pais.
             </p>
-            <textarea name="comment" id="comment-text" placeholder="Deixe seu comentário..."></textarea>
+            <textarea name="comment" id="comment-text" placeholder="Deixe seu comentário..." aria-label="Comentário da avaliação"></textarea>
           </article>
 
-          <article class="rating-info t-rating">
-            <div class="rating-info-header">
-              <h3 class="font-display hl-text">NOTA GERAL</h3>
+          <article class="rating-info t-rating" id="overall-rating" aria-labelledby="overall-rating-title">
+            <header class="rating-info-header">
+              <h3 class="font-display hl-text" id="overall-rating-title">NOTA GERAL</h3>
               <p>Gerada automaticamente com base nos critérios avaliados</p>
-            </div>
+            </header>
             <div class="t-score">
               <div class="t-score-stars">
                 <div class="t-score-stars__items t-score-stars-empty">
                   <div class="t-score-star">
-                    <svg viewBox="0 0 640 640">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                       <use href="assets/icons.svg#star"></use>
                     </svg>
                   </div>
 
                   <div class="t-score-star">
-                    <svg viewBox="0 0 640 640">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                       <use href="assets/icons.svg#star"></use>
                     </svg>
                   </div>
 
                   <div class="t-score-star">
-                    <svg viewBox="0 0 640 640">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                       <use href="assets/icons.svg#star"></use>
                     </svg>
                   </div>
 
                   <div class="t-score-star">
-                    <svg viewBox="0 0 640 640">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                       <use href="assets/icons.svg#star"></use>
                     </svg>
                   </div>
 
                   <div class="t-score-star">
-                    <svg viewBox="0 0 640 640">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                       <use href="assets/icons.svg#star"></use>
                     </svg>
                   </div>
@@ -1322,31 +1331,31 @@
 
                 <div data-lvl="low" class="t-score-stars__items t-score-stars-fill">
                   <div class="t-score-star">
-                    <svg viewBox="0 0 640 640">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                       <use href="assets/icons.svg#star"></use>
                     </svg>
                   </div>
 
                   <div class="t-score-star">
-                    <svg viewBox="0 0 640 640">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                       <use href="assets/icons.svg#star"></use>
                     </svg>
                   </div>
 
                   <div class="t-score-star">
-                    <svg viewBox="0 0 640 640">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                       <use href="assets/icons.svg#star"></use>
                     </svg>
                   </div>
 
                   <div class="t-score-star">
-                    <svg viewBox="0 0 640 640">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                       <use href="assets/icons.svg#star"></use>
                     </svg>
                   </div>
 
                   <div class="t-score-star">
-                    <svg viewBox="0 0 640 640">
+                    <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
                       <use href="assets/icons.svg#star"></use>
                     </svg>
                   </div>
@@ -1357,23 +1366,23 @@
           </article>
 
           <nav class="step-navigation" aria-label="Navegação da avaliação">
-            <button type="button" class="btn-previous font-display">
+            <button type="button" class="btn-previous font-display" id="previous-step" aria-label="Voltar para a etapa anterior">
               ANTERIOR
             </button>
 
-            <button type="button" class="btn-next font-display">
+            <button type="button" class="btn-next font-display" id="next-step" aria-label="Avançar para a próxima etapa">
               PRÓXIMO
             </button>
           </nav>
-        </div>
+        </section>
       </form>
       <footer>
-        <div class="disclaimer">
-          <svg viewBox="0 0 640 640">
+        <aside class="disclaimer">
+          <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
             <use href="assets/icons.svg#safety"></use>
           </svg>
           <p>Sua avaliação será publicada de forma 100% anônima.</p>
-        </div>
+        </aside>
       </footer>
     </article>
   </section>
