@@ -515,7 +515,7 @@ article.stats {
   }
 
   .stats__list {
-    --max: 500px;
+    --max: 450px;
     grid-template-columns: repeat(auto-fit,
         minmax(clamp(300px, 28vw, var(--max)), max-content));
     justify-content: space-between;
