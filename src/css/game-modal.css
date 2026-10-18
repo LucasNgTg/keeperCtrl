@@ -114,7 +114,7 @@ label:hover {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 0.5rem;
-  padding-top: 0.5rem;
+  padding: 0.5rem;
 }
 
 .rating__wrapper {
@@ -653,4 +653,122 @@ label:hover {
 }
 
 @media (min-width: 960px) {
+
+.modal {
+  width: clamp(250px, 95vw, 960px);
+}
+
+.modal__body {
+  flex-direction: row;
+}
+
+.modal nav fieldset label,
+.rating-info,
+#badge-selection,
+#comment,
+.criteria {
+  padding: 0.7rem;
+}
+
+.modal nav fieldset {
+  margin-left: -0.7rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.2rem;
+  padding: 2.5rem 7.0rem 0 2.5rem;
+}
+
+.modal nav fieldset label {
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  padding-block: 0.5rem;
+  padding-left: 0.8rem;
+  padding-right: 14rem;
+}
+
+.rating__wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: 
+  "upper-left upper-right"
+  "middle middle"
+  "lower lower";
+  padding: 2rem 0;
+  gap: 1rem;
+  margin-right: 2rem;
+}
+
+.upper-left{
+  grid-area: upper-left;
+}
+
+.upper-right{
+  grid-area: upper-right;
+}
+
+.middle{
+  grid-area: middle;
+}
+
+.lower{
+  grid-area: lower;
+}
+
+.rating-info.rating.upper-left {
+  width: 19rem;
+  height: 13rem;
+  padding: 0.8rem;
+  gap: 1.2rem;
+}
+
+.rating-info p {
+  font-size: 0.9rem;
+}
+
+.rating-info h3 {
+  font-size: 1.1rem;
+}
+
+.rating-info.t-rating.upper-right{
+  width: 17.5rem;
+  height: 13rem;
+  padding: 0.8rem;
+  gap: 1.2rem;
+}
+
+.t-score-stars__items{
+  gap: 0.8rem;
+}
+
+.t-score-star {
+  width: 2.5rem;
+}
+
+.criteria.rating.middle{
+  height: 14rem; 
+  width: auto;
+  padding: 1.2rem;
+  gap: 1.2rem;
+}
+
+.criteria p{
+  font-size: 0.9rem;
+}
+
+.criterion__wrapper{
+  grid-template-columns: repeat(auto-fit, minmax(200px, max-content));
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.criterion legend{
+  font-size: 0.9rem;
+}
+
+.rate > label{
+  width: 2.15rem;
+  height: 1.65rem;
+  font-size: 0.9rem;
+  line-height: 1.4rem;
+}
 }
