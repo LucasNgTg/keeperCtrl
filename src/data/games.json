@@ -1,0 +1,21 @@
+[
+  {
+    "id": "test",
+    "name": "Minecraft",
+    "release": 2011,
+    "studio": "Mojang Studios",
+    "platforms": [
+      "PC",
+      "PlayStation",
+      "Xbox",
+      "Nintendo Switch",
+      "Android",
+      "iOS"
+    ],
+    "desc": "Jogo de mundo aberto em que os jogadores exploram ambientes, coletam recursos, constroem estruturas e enfrentam desafios em um mundo gerado proceduralmente.",
+    "img": {
+      "banner": "assets/games/test/banner.jpg",
+      "cover": "assets/games/test/cover.jpg"
+    }
+  }
+]

@@ -52,13 +52,9 @@
       <header class="game-id">
         <h2 class="game-name font-display" id="game-title" itemprop="name">NOME DO JOGO</h2>
 
-        <ul class="game-platforms" itemprop="gamePlatform">
-          <li>PC</li>
-          <li>MOBILE</li>
-          <li>CONSOLE</li>
-        </ul>
+        <ul class="game-platforms" id="game-platforms" itemprop="gamePlatform"></ul>
         <p class="game-release" itemprop="datePublished">
-          <span class="year">YYYY</span> • <span class="studio">Empresa</span>
+          <span class="year" id="release-year">YYYY</span> • <span class="studio" id="studio">Empresa</span>
         </p>
       </header>
     </section>
@@ -66,7 +62,7 @@
     <section class="game-info" id="game-information" aria-label="Informações do jogo">
       <article class="description" itemprop="description">
         <h3 class="font-display hl-text">DESCRIÇÃO</h3>
-        <p>
+        <p id="game-description">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
           magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
           consequat.
@@ -693,12 +689,12 @@
 
       <div class="modal__game-id" aria-label="Identificação do jogo">
         <div class="modal__game-name">
-          <h3 class="font-display">NOME DO JOGO</h3>
+          <h3 class="font-display" id="modal__game-title">NOME DO JOGO</h3>
           <div class="modal__game-thumb">
-            <img src="" alt="" id="modal-game-image" aria-label="Capa do jogo">
+            <img src="" alt="" id="modal__game-image" aria-label="Capa do jogo">
           </div>
         </div>
-        <p class="modal__game-studio">Empresa</p>
+        <p class="modal__game-studio" id="modal__game-studio">Empresa</p>
       </div>
 
       <form action="" id="rating-form" aria-label="Formulário de avaliação do jogo">
@@ -1871,6 +1867,7 @@
   </section>
 
   <script src="src/js/game.js" defer></script>
+  <script src="src/js/game_modal.js" defer></script>
 </body>
 
 </html>

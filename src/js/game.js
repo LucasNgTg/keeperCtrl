@@ -1,19 +1,58 @@
-const btn_modal_open = document.getElementById("rate-btn");
-const btn_modal_close = document.getElementById("close-btn");
-const overlay = document.getElementById("overlay");
+const cover = document.getElementById("game-cover-image");
+const banner = document.getElementById("game-overview");
+const title = document.getElementById("game-title");
+const platforms = document.getElementById("game-platforms");
+const release = document.getElementById("release-year");
+const studio = document.getElementById("studio");
+const desc = document.getElementById("game-description");
+const modalTitle = document.getElementById("modal__game-title");
+const modalCover = document.getElementById("modal__game-image");
+const modalStudio = document.getElementById("modal__game-studio");
 
-btn_modal_open.addEventListener("click", () => {
-  open_modal();
-})
+const gameData = "src/data/games.json";
 
-btn_modal_close.addEventListener("click", () => {
-  close_modal();
-})
+getData("test");
 
-function open_modal() {
-  overlay.classList.remove("hidden");
+async function getData(game) {
+  try {
+    const response = await fetch(gameData);
+    const gameInfo = await response.json();
+    loadPage(gameInfo, game);
+  } catch (e) {
+    console.log(e.message);
+  }
 }
 
-function close_modal() {
-  overlay.classList.add("hidden");
+function loadPage(gameInfo, gameId) {
+  const game = gameInfo.find(item => item.id === gameId);
+
+  if (!game) {
+    console.error("Jogo não encontrado.");
+    return;
+  }
+
+  title.textContent = game.name;
+  modalTitle.textContent = game.name;
+
+  cover.src = game.img.cover;
+  modalCover.src = game.img.cover;
+
+  banner.style.backgroundImage = `url("${game.img.banner}")`;
+
+  desc.textContent = game.desc;
+
+  release.textContent = game.release;
+
+  studio.textContent = game.studio;
+  modalStudio.textContent = game.studio;
+
+  platforms.replaceChildren();
+
+  game.platforms.forEach(platform => {
+    const item = document.createElement("li");
+
+    item.textContent = platform.toUpperCase();
+
+    platforms.appendChild(item);
+  });
 }
