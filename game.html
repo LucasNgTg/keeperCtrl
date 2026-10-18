@@ -4,7 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
+  <title>Nome do Jogo | KeeperCtrl</title>
+  <meta name="description" content="Conheça a avaliação de segurança, conteúdo, interações e moderação de jogos na KeeperCtrl.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="KeeperCtrl">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="KeeperCtrl">
+  <meta property="og:title" content="Nome do Jogo | KeeperCtrl">
+  <meta property="og:description" content="Avaliação de segurança, conteúdo e interações do jogo na KeeperCtrl.">
 
   <!-- Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,11 +32,11 @@
     <a href="index.html" class="logo__link">
       <h1 class="font-display logo"><span class="clr-main">keeper</span><span class="hl-text emph">Ctrl</span></h1>
     </a>
-    <form action="" id="search-bar">
+    <form action="" id="search-bar" role="search" aria-label="Pesquisa de jogos">
       <textarea name="pesquisa" id="searchbox" class="clr-text" rows="1"
-        placeholder="Pesquise pelo nome do jogo..."></textarea>
+        placeholder="Pesquise pelo nome do jogo..." aria-label="Pesquisar pelo nome do jogo"></textarea>
       <button id="search-btn" type="submit">
-        <svg viewBox="0 0 640 640">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 640 640">
           <use href="assets/icons.svg#search"></use>
         </svg>
       </button>
@@ -37,23 +44,23 @@
   </header>
 
   <main>
-    <section class="game-hero">
-      <div class="game-cover">
-        <img src="" alt="">
-      </div>
+    <section class="game-hero" id="game-overview" aria-labelledby="game-title" itemscope itemtype="https://schema.org/VideoGame">
+      <figure class="game-cover" id="game-cover">
+        <img src="" alt="" id="game-cover-image" aria-label="Capa do jogo">
+      </figure>
 
-      <div class="game-id">
-        <h2 class="game-name font-display">NOME DO JOGO</h2>
+      <header class="game-id">
+        <h2 class="game-name font-display" id="game-title" itemprop="name">NOME DO JOGO</h2>
 
-        <ul class="game-platforms">
+        <ul class="game-platforms" itemprop="gamePlatform">
           <li>PC</li>
           <li>MOBILE</li>
           <li>CONSOLE</li>
         </ul>
-        <p class="game-release">
+        <p class="game-release" itemprop="datePublished">
           <span class="year">YYYY</span> • <span class="studio">Empresa</span>
         </p>
-      </div>
+      </header>
     </section>
 
     <section class="game-info">
@@ -67,27 +74,27 @@
       </article>
 
       <article class="gen-stat">
-        <div class="gen-stat-id">
+        <header class="gen-stat-id">
           <p class="gen-stat-label clr-main">Nota geral</p>
 
           <svg viewBox="0 0 640 640">
             <use href="assets/icons.svg#star"></use>
           </svg>
-        </div>
+        </header>
 
-        <span class="gen-stat-num font-display hl-text">4.0</span>
+        <span class="gen-stat-num font-display hl-text" aria-live="polite" aria-atomic="true">4.0</span>
       </article>
 
       <article class="gen-stat">
-        <div class="gen-stat-id">
+        <header class="gen-stat-id">
           <p class="gen-stat-label clr-main">Avaliações</p>
 
-          <svg viewBox="0 0 640 640">
+          <svg viewBox="0 0 640 640" aria-hidden="true" focusable="false">
             <use href="assets/icons.svg#check-circle"></use>
           </svg>
-        </div>
+        </header>
 
-        <span class="gen-stat-num font-display hl-text">1.6K</span>
+        <span class="gen-stat-num font-display hl-text" aria-live="polite" aria-atomic="true">1.6K</span>
       </article>
 
       <article class="stats">
@@ -103,7 +110,7 @@
               <div class="stat-inner">
                 <div class="stat-header">
                   <p class="stat-label font-display">Conteúdo</p>
-                  <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                  <p class="stat-score"><span class="stat-average" aria-live="polite" aria-atomic="true"></span> / 5</p>
                 </div>
                 <div class="stat-bar"></div>
               </div>
@@ -131,7 +138,7 @@
 
                       <p class="stat-label font-display hl-text">Violência</p>
                     </div>
-                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                    <p class="stat-score"><span class="stat-average" aria-live="polite" aria-atomic="true"></span> / 5</p>
                   </div>
                   <div class="stat-bar"></div>
                 </article>
@@ -158,7 +165,7 @@
 
                       <p class="stat-label font-display hl-text">Conteúdo Sexual</p>
                     </div>
-                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                    <p class="stat-score"><span class="stat-average" aria-live="polite" aria-atomic="true"></span> / 5</p>
                   </div>
                   <div class="stat-bar"></div>
                 </article>
@@ -185,7 +192,7 @@
 
                       <p class="stat-label font-display hl-text">Linguagem</p>
                     </div>
-                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                    <p class="stat-score"><span class="stat-average" aria-live="polite" aria-atomic="true"></span> / 5</p>
                   </div>
                   <div class="stat-bar"></div>
                 </article>
@@ -213,7 +220,7 @@
 
                       <p class="stat-label font-display hl-text">Temas Sensíveis</p>
                     </div>
-                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                    <p class="stat-score"><span class="stat-average" aria-live="polite" aria-atomic="true"></span> / 5</p>
                   </div>
                   <div class="stat-bar"></div>
                 </article>
@@ -232,7 +239,7 @@
               <div class="stat-inner">
                 <div class="stat-header">
                   <p class="stat-label font-display">Interação entre Jogadores</p>
-                  <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                  <p class="stat-score"><span class="stat-average" aria-live="polite" aria-atomic="true"></span> / 5</p>
                 </div>
                 <div class="stat-bar"></div>
               </div>
@@ -261,7 +268,7 @@
 
                       <p class="stat-label font-display hl-text">Comunicação</p>
                     </div>
-                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                    <p class="stat-score"><span class="stat-average" aria-live="polite" aria-atomic="true"></span> / 5</p>
                   </div>
                   <div class="stat-bar"></div>
                 </article>
@@ -288,7 +295,7 @@
 
                       <p class="stat-label font-display hl-text">Desconhecidos</p>
                     </div>
-                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                    <p class="stat-score"><span class="stat-average" aria-live="polite" aria-atomic="true"></span> / 5</p>
                   </div>
                   <div class="stat-bar"></div>
                 </article>
@@ -316,7 +323,7 @@
 
                       <p class="stat-label font-display hl-text">Comunidade</p>
                     </div>
-                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                    <p class="stat-score"><span class="stat-average" aria-live="polite" aria-atomic="true"></span> / 5</p>
                   </div>
                   <div class="stat-bar"></div>
                 </article>
@@ -343,7 +350,7 @@
 
                       <p class="stat-label font-display hl-text">Competição</p>
                     </div>
-                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                    <p class="stat-score"><span class="stat-average" aria-live="polite" aria-atomic="true"></span> / 5</p>
                   </div>
                   <div class="stat-bar"></div>
                 </article>
@@ -362,7 +369,7 @@
               <div class="stat-inner">
                 <div class="stat-header">
                   <p class="stat-label font-display">Moderação</p>
-                  <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                  <p class="stat-score"><span class="stat-average" aria-live="polite" aria-atomic="true"></span> / 5</p>
                 </div>
                 <div class="stat-bar"></div>
               </div>
@@ -390,7 +397,7 @@
 
                       <p class="stat-label font-display hl-text">Denúncias</p>
                     </div>
-                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                    <p class="stat-score"><span class="stat-average" aria-live="polite" aria-atomic="true"></span> / 5</p>
                   </div>
                   <div class="stat-bar"></div>
                 </article>
@@ -417,7 +424,7 @@
 
                       <p class="stat-label font-display hl-text">Bloqueios</p>
                     </div>
-                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                    <p class="stat-score"><span class="stat-average" aria-live="polite" aria-atomic="true"></span> / 5</p>
                   </div>
                   <div class="stat-bar"></div>
                 </article>
@@ -444,7 +451,7 @@
 
                       <p class="stat-label font-display hl-text">Filtros</p>
                     </div>
-                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                    <p class="stat-score"><span class="stat-average" aria-live="polite" aria-atomic="true"></span> / 5</p>
                   </div>
                   <div class="stat-bar"></div>
                 </article>
@@ -472,7 +479,7 @@
 
                       <p class="stat-label font-display hl-text">Controle Parental</p>
                     </div>
-                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                    <p class="stat-score"><span class="stat-average" aria-live="polite" aria-atomic="true"></span> / 5</p>
                   </div>
                   <div class="stat-bar"></div>
                 </article>
@@ -491,7 +498,7 @@
               <div class="stat-inner">
                 <div class="stat-header">
                   <p class="stat-label font-display">Estímulos ao Consumo</p>
-                  <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                  <p class="stat-score"><span class="stat-average" aria-live="polite" aria-atomic="true"></span> / 5</p>
                 </div>
                 <div class="stat-bar"></div>
               </div>
@@ -520,7 +527,7 @@
 
                       <p class="stat-label font-display hl-text">Microtransações</p>
                     </div>
-                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                    <p class="stat-score"><span class="stat-average" aria-live="polite" aria-atomic="true"></span> / 5</p>
                   </div>
                   <div class="stat-bar"></div>
                 </article>
@@ -547,7 +554,7 @@
 
                       <p class="stat-label font-display hl-text">Pressão</p>
                     </div>
-                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                    <p class="stat-score"><span class="stat-average" aria-live="polite" aria-atomic="true"></span> / 5</p>
                   </div>
                   <div class="stat-bar"></div>
                 </article>
@@ -574,7 +581,7 @@
 
                       <p class="stat-label font-display hl-text">Lootboxes</p>
                     </div>
-                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                    <p class="stat-score"><span class="stat-average" aria-live="polite" aria-atomic="true"></span> / 5</p>
                   </div>
                   <div class="stat-bar"></div>
                 </article>
@@ -601,7 +608,7 @@
 
                       <p class="stat-label font-display hl-text">Publicidade</p>
                     </div>
-                    <p class="stat-score"><span class="stat-average"></span> / 5</p>
+                    <p class="stat-score"><span class="stat-average" aria-live="polite" aria-atomic="true"></span> / 5</p>
                   </div>
                   <div class="stat-bar"></div>
                 </article>
@@ -613,47 +620,47 @@
       </article>
     </section>
 
-    <section class="badges font-display">
+    <section class="badges font-display" id="approval-badges" aria-labelledby="approval-badges-title">
       <h3 class="clr-text">SELOS DE APROVAÇÃO KEEPERCTRL</h3>
 
-      <article class="badge__items">
-        <div class="badge badge-neutral">
-          <svg class="badge-icon" viewBox="0 0 640 640">
+      <ul class="badge__items">
+        <li class="badge badge-neutral">
+          <svg class="badge-icon" viewBox="0 0 640 640" aria-hidden="true" focusable="false">
             <use href="assets/icons.svg#wand"></use>
           </svg>
           <p class="badge-name">VIOLÊNCIA FANTÁSTICA</p>
-        </div>
+        </li>
 
-        <div class="badge badge-negative">
-          <svg class="badge-icon" viewBox="0 0 640 640">
+        <li class="badge badge-negative">
+          <svg class="badge-icon" viewBox="0 0 640 640" aria-hidden="true" focusable="false">
             <use href="assets/icons.svg#rectangle-ad"></use>
           </svg>
           <p class="badge-name">OFERTAS FREQUENTES</p>
-        </div>
+        </li>
 
-        <div class="badge badge-positive">
-          <svg class="badge-icon" viewBox="0 0 640 640">
+        <li class="badge badge-positive">
+          <svg class="badge-icon" viewBox="0 0 640 640" aria-hidden="true" focusable="false">
             <use href="assets/icons.svg#filter"></use>
           </svg>
           <p class="badge-name">FILTROS DE COMUNICAÇÃO</p>
-        </div>
-      </article>
+        </li>
+      </ul>
     </section>
 
-    <section class="discussion">
-      <h3 class="font-display clr-text">DISCUSSÃO <span id="discussion-num">(2)</span></h3>
+    <section class="discussion" id="discussion-section" aria-labelledby="discussion-title">
+      <h3 class="font-display clr-text">DISCUSSÃO <span id="discussion-num" aria-live="polite" aria-atomic="true">(2)</span></h3>
       <article class="discussion-cta">
-        <div class="discussion-cta__p">
+        <header class="discussion-cta__p">
           <h3 class="font-display">SUA OPINIÃO <span class="hl-text">IMPORTA</span></h3>
           <p>
             Sem contas. Sem spam. Deixe sua avaliação anônima para ajudar outros responsáveis.
           </p>
-        </div>
-        <button id="rate-btn" class="font-display">DEIXAR AVALIAÇÃO ANÔNIMA</button>
+        </header>
+        <button id="rate-btn" class="font-display" aria-controls="overlay" aria-haspopup="dialog">DEIXAR AVALIAÇÃO ANÔNIMA</button>
       </article>
 
-      <div class="posts__wrapper">
-        <article id="posts">
+      <section class="posts__wrapper" id="community-posts" aria-label="Comentários da comunidade">
+        <section id="posts" aria-label="Comentários da comunidade" aria-live="polite" aria-relevant="additions">
           <article class="post">
             <p class="post__comment">
               A moderação de chat funciona muito bem. Meu filho joga há 3 meses e nunca vi interações ofensivas
@@ -670,70 +677,70 @@
             </p>
             <span class="post__time">Ontem</span>
           </article>
-        </article>
+        </section>
 
-        <button id="show-more-btn" class="font-display" disabled>VER MAIS</button>
-      </div>
+        <button id="show-more-btn" class="font-display" disabled aria-controls="posts">VER MAIS</button>
+      </section>
     </section>
   </main>
 
-  <section id="overlay" class="hidden">
-    <article class="modal">
+  <section id="overlay" class="hidden" aria-label="Avaliação do jogo">
+    <article class="modal" id="rating-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
       <header class="modal__header font-display">
         <h2>AVALIAR JOGO</h2>
-        <button id="close-btn" class="font-display"><span>X</span></button>
+        <button id="close-btn" class="font-display" aria-label="Fechar avaliação"><span>X</span></button>
       </header>
 
-      <div class="modal__game-id">
+      <div class="modal__game-id" aria-label="Identificação do jogo">
         <div class="modal__game-name">
           <h3 class="font-display">NOME DO JOGO</h3>
           <div class="modal__game-thumb">
-            <img src="" alt="">
+            <img src="" alt="" id="modal-game-image" aria-label="Capa do jogo">
           </div>
         </div>
         <p class="modal__game-studio">Empresa</p>
       </div>
 
-      <form action="">
+      <form action="" id="rating-form" aria-label="Formulário de avaliação do jogo">
         <div class="modal__body">
-          <nav>
-            <fieldset class="font-display">
-              <input type="radio" name="category" id="category-content" checked>
+          <nav id="rating-steps" aria-label="Etapas da avaliação">
+            <fieldset class="font-display" id="rating-categories" aria-label="Categorias da avaliação">
+              <input type="radio" name="category" id="category-content" checked aria-controls="criteria-content">
 
               <label for="category-content">
                 <span>1.</span> CONTEÚDO
               </label>
 
 
-              <input type="radio" name="category" id="category-interaction">
+              <input type="radio" name="category" id="category-interaction" aria-controls="criteria-interaction">
 
               <label for="category-interaction">
                 <span>2.</span> INTERAÇÃO
               </label>
 
 
-              <input type="radio" name="category" id="category-moderation">
+              <input type="radio" name="category" id="category-moderation" aria-controls="criteria-moderation">
 
               <label for="category-moderation">
                 <span>3.</span> MODERAÇÃO
               </label>
 
 
-              <input type="radio" name="category" id="category-purchase">
+              <input type="radio" name="category" id="category-purchase" aria-controls="criteria-purchase">
 
               <label for="category-purchase" aria-current="step">
                 <span>4.</span> CONSUMO
               </label>
 
 
-              <input type="radio" name="category" id="category-badges">
+              <input type="radio" name="category" id="category-badges" aria-controls="badge-selection">
 
               <label for="category-badges">
                 <span>5.</span> SELOS
               </label>
 
 
-              <input type="radio" name="category" id="category-comment">
+              <input type="radio" name="category" id="category-comment" aria-controls="comment">
 
               <label for="category-comment">
                 <span>6.</span> COMENTÁRIO
@@ -1853,12 +1860,12 @@
         </div>
       </form>
       <footer>
-        <div class="disclaimer">
-          <svg viewBox="0 0 640 640">
+        <aside class="disclaimer">
+          <svg viewBox="0 0 640 640" aria-hidden="true" focusable="false">
             <use href="assets/icons.svg#safety"></use>
           </svg>
           <p>Sua avaliação será publicada de forma 100% anônima.</p>
-        </div>
+        </aside>
       </footer>
     </article>
   </section>
