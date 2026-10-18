@@ -4,7 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
+  <meta name="description" content="Pesquise jogos no KeeperCtrl e confira informações, avaliações e comentários da comunidade.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="KeeperCtrl">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="KeeperCtrl">
+  <meta property="og:title" content="Pesquisar jogos | KeeperCtrl">
+  <meta property="og:description" content="Pesquise jogos no KeeperCtrl e confira informações, avaliações e comentários da comunidade.">
+  <title>Pesquisar jogos | KeeperCtrl</title>
 
   <!-- Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,15 +26,15 @@
 </head>
 
 <body>
-  <header id="main-header" class="page-band">
+  <header id="main-header" class="page-band" role="banner">
     <a href="index.html" class="logo__link">
       <h1 class="font-display logo"><span class="clr-main">keeper</span><span class="hl-text emph">Ctrl</span></h1>
     </a>
-    <form action="" id="search-bar">
-      <textarea name="pesquisa" id="searchbox" class="clr-text" rows="1"
+    <form action="" id="search-bar" role="search" aria-label="Pesquisa de jogos">
+      <textarea name="pesquisa" id="searchbox" class="clr-text" rows="1" aria-label="Nome do jogo para pesquisa"
         placeholder="Pesquise pelo nome do jogo..."></textarea>
-      <button id="search-btn" type="submit">
-        <svg viewBox="0 0 640 640">
+      <button id="search-btn" type="submit" aria-label="Pesquisar jogo">
+        <svg viewBox="0 0 640 640" aria-hidden="true" focusable="false">
           <use href="assets/icons.svg#search"></use>
         </svg>
       </button>
@@ -35,21 +42,21 @@
   </header>
 
   <main>
-    <div class="results-wrapper">
+    <section class="results-wrapper" aria-label="Resumo e listagem dos resultados">
       <p class="results-txt clr-text">
-        <strong class="clr-main"><span id="num-results">7</span> resultados</strong>
-        encontrados para "<span id="query">query</span>"
+        <strong class="clr-main"><span id="num-results" aria-live="polite" aria-atomic="true">7</span> resultados</strong>
+        encontrados para "<span id="query" aria-live="polite">query</span>"
       </p>
 
-      <section id="results">
-        <a href="game.html" class="game-result">
-          <header>
+      <section id="results" aria-label="Resultados da pesquisa">
+        <a href="game.html" class="game-result" id="game-result-1" aria-labelledby="game-title-1">
+          <header aria-label="Informações do jogo">
             <div class="game-info">
-              <div class="game-thumb">
+              <figure class="game-thumb">
                 <img src="" alt="">
-              </div>
+              </figure>
               <div class="game-id">
-                <h2 class="font-display">NOME DO JOGO</h2>
+                <h2 id="game-title-1" class="font-display">NOME DO JOGO</h2>
                 <p class="game-release clr-text">
                   <span class="year">YYYY</span> • <span class="studio">Empresa</span>
                 </p>
@@ -57,7 +64,7 @@
             </div>
 
             <div class="game-score font-display score-high">
-              <svg viewBox="0 0 640 640">
+              <svg viewBox="0 0 640 640" aria-hidden="true" focusable="false">
                 <use href="assets/icons.svg#star"></use>
               </svg>
               <p>4.5</p>
@@ -67,30 +74,30 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sollicitudin fermentum tellus vel convallis.
             Vestibulum porta libero nec sapien lacinia molestie.
           </p>
-          <footer>
-            <div class="game-comments clr-text">
-              <svg viewBox="0 0 640 640">
+          <footer aria-label="Informações adicionais do jogo">
+            <div class="game-comments clr-text" id="game-comments-1" aria-live="polite" aria-atomic="true">
+              <svg viewBox="0 0 640 640" aria-hidden="true" focusable="false">
                 <use href="assets/icons.svg#chat"></use>
               </svg>
               <p>310</p>
             </div>
             <div class="see-game hl-text">
               <p>Ver jogo</p>
-              <svg viewBox="0 0 640 640">
+              <svg viewBox="0 0 640 640" aria-hidden="true" focusable="false">
                 <use href="assets/icons.svg#caret"></use>
               </svg>
             </div>
           </footer>
         </a>
 
-        <a href="game.html" class="game-result">
-          <header>
+        <a href="game.html" class="game-result" id="game-result-2" aria-labelledby="game-title-2">
+          <header aria-label="Informações do jogo">
             <div class="game-info">
-              <div class="game-thumb">
+              <figure class="game-thumb">
                 <img src="" alt="">
-              </div>
+              </figure>
               <div class="game-id">
-                <h2 class="font-display">NOME DO JOGO</h2>
+                <h2 id="game-title-2" class="font-display">NOME DO JOGO</h2>
                 <p class="game-release clr-text">
                   <span class="year">YYYY</span> • <span class="studio">Empresa</span>
                 </p>
@@ -98,7 +105,7 @@
             </div>
 
             <div class="game-score font-display score-medium">
-              <svg viewBox="0 0 640 640">
+              <svg viewBox="0 0 640 640" aria-hidden="true" focusable="false">
                 <use href="assets/icons.svg#star"></use>
               </svg>
               <p>2.9</p>
@@ -108,30 +115,30 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sollicitudin fermentum tellus vel convallis.
             Vestibulum porta libero nec sapien lacinia molestie.
           </p>
-          <footer>
-            <div class="game-comments clr-text">
-              <svg viewBox="0 0 640 640">
+          <footer aria-label="Informações adicionais do jogo">
+            <div class="game-comments clr-text" id="game-comments-2" aria-live="polite" aria-atomic="true">
+              <svg viewBox="0 0 640 640" aria-hidden="true" focusable="false">
                 <use href="assets/icons.svg#chat"></use>
               </svg>
               <p>310</p>
             </div>
             <div class="see-game hl-text">
               <p>Ver jogo</p>
-              <svg viewBox="0 0 640 640">
+              <svg viewBox="0 0 640 640" aria-hidden="true" focusable="false">
                 <use href="assets/icons.svg#caret"></use>
               </svg>
             </div>
           </footer>
         </a>
 
-        <a href="game.html" class="game-result">
-          <header>
+        <a href="game.html" class="game-result" id="game-result-3" aria-labelledby="game-title-3">
+          <header aria-label="Informações do jogo">
             <div class="game-info">
-              <div class="game-thumb">
+              <figure class="game-thumb">
                 <img src="" alt="">
-              </div>
+              </figure>
               <div class="game-id">
-                <h2 class="font-display">NOME DO JOGO</h2>
+                <h2 id="game-title-3" class="font-display">NOME DO JOGO</h2>
                 <p class="game-release clr-text">
                   <span class="year">YYYY</span> • <span class="studio">Empresa</span>
                 </p>
@@ -139,7 +146,7 @@
             </div>
 
             <div class="game-score font-display score-low">
-              <svg viewBox="0 0 640 640">
+              <svg viewBox="0 0 640 640" aria-hidden="true" focusable="false">
                 <use href="assets/icons.svg#star"></use>
               </svg>
               <p>1.4</p>
@@ -149,47 +156,49 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sollicitudin fermentum tellus vel convallis.
             Vestibulum porta libero nec sapien lacinia molestie.
           </p>
-          <footer>
-            <div class="game-comments clr-text">
-              <svg viewBox="0 0 640 640">
+          <footer aria-label="Informações adicionais do jogo">
+            <div class="game-comments clr-text" id="game-comments-3" aria-live="polite" aria-atomic="true">
+              <svg viewBox="0 0 640 640" aria-hidden="true" focusable="false">
                 <use href="assets/icons.svg#chat"></use>
               </svg>
               <p>310</p>
             </div>
             <div class="see-game hl-text">
               <p>Ver jogo</p>
-              <svg viewBox="0 0 640 640">
+              <svg viewBox="0 0 640 640" aria-hidden="true" focusable="false">
                 <use href="assets/icons.svg#caret"></use>
               </svg>
             </div>
           </footer>
         </a>
       </section>
-    </div>
+    </section>
 
-    <footer class="pagination-wrapper">
-      <ul id="pagination">
+    <footer class="pagination-wrapper" aria-label="Paginação dos resultados">
+      <nav id="pagination-nav" aria-label="Navegação entre páginas">
+        <ul id="pagination">
         <li>
-          <button id="page-back" disabled>
-            <svg viewBox="0 0 640 640">
+          <button id="page-back" type="button" aria-label="Página anterior" disabled>
+            <svg viewBox="0 0 640 640" aria-hidden="true" focusable="false">
               <use href="assets/icons.svg#caret"></use>
             </svg>
           </button>
         </li>
         <li>
-          <button class="page-num font-display current-page">1</button>
+          <button class="page-num font-display current-page" type="button" aria-label="Página 1" aria-current="page">1</button>
         </li>
         <li>
-          <button class="page-num font-display">2</button>
+          <button class="page-num font-display" type="button" aria-label="Página 2">2</button>
         </li>
         <li>
-          <button id="page-forward">
-            <svg viewBox="0 0 640 640">
+          <button id="page-forward" type="button" aria-label="Próxima página">
+            <svg viewBox="0 0 640 640" aria-hidden="true" focusable="false">
               <use href="assets/icons.svg#caret"></use>
             </svg>
           </button>
         </li>
-      </ul>
+        </ul>
+      </nav>
     </footer>
   </main>
 </body>
