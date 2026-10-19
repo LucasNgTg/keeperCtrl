@@ -11,11 +11,19 @@ const modalStudio = document.getElementById("modal__game-studio");
 
 const gameData = "src/data/games.json";
 
-getData("test");
+const params = new URLSearchParams(window.location.search);
+const gameId = params.get("id");
+
+getData(gameId);
 
 async function getData(game) {
   try {
     const response = await fetch(gameData);
+
+    if (!response.ok) {
+      throw new Error(`Erro HTTP: ${response.status}`);
+    }
+
     const gameInfo = await response.json();
     loadPage(gameInfo, game);
   } catch (e) {
@@ -24,7 +32,7 @@ async function getData(game) {
 }
 
 function loadPage(gameInfo, gameId) {
-  const game = gameInfo.find(item => item.id === gameId);
+  const game = gameInfo.find((item) => item.id === gameId);
 
   if (!game) {
     console.error("Jogo não encontrado.");
@@ -48,7 +56,7 @@ function loadPage(gameInfo, gameId) {
 
   platforms.replaceChildren();
 
-  game.platforms.forEach(platform => {
+  game.platforms.forEach((platform) => {
     const item = document.createElement("li");
 
     item.textContent = platform.toUpperCase();

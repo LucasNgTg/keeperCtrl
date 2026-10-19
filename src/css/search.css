@@ -53,6 +53,14 @@ main {
   background-color: red;
   width: clamp(40px, 3rem, 50px);
   aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+.game-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .game-id h2 {

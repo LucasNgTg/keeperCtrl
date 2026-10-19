@@ -1,21 +1,165 @@
 [
   {
-    "id": "test",
-    "name": "Minecraft",
-    "release": 2011,
-    "studio": "Mojang Studios",
+    "id": "genshin-impact",
+    "name": "Genshin Impact",
+    "release": 2020,
+    "studio": "miHoYo / HoYoverse",
     "platforms": [
       "PC",
-      "PlayStation",
-      "Xbox",
-      "Nintendo Switch",
+      "PlayStation 4",
+      "PlayStation 5",
+      "iOS",
       "Android",
-      "iOS"
+      "Xbox Series X/S"
     ],
-    "desc": "Jogo de mundo aberto em que os jogadores exploram ambientes, coletam recursos, constroem estruturas e enfrentam desafios em um mundo gerado proceduralmente.",
+    "desc": "Um RPG de ação em mundo aberto no estilo anime e gratuito (free-to-play). O jogador controla o \"Viajante\" em busca de seu irmão/irmã perdido pelo mundo de Teyvat, explorando regiões, realizando missões e alternando entre personagens com habilidades elementais únicas em combate.",
     "img": {
-      "banner": "assets/games/test/banner.jpg",
-      "cover": "assets/games/test/cover.jpg"
+      "banner": "assets/games/genshin-impact/banner.png",
+      "cover": "assets/games/genshin-impact/cover.png"
+    }
+  },
+  {
+    "id": "roblox",
+    "name": "Roblox",
+    "release": 2006,
+    "studio": "Roblox Corporation",
+    "platforms": [
+      "PC",
+      "macOS",
+      "iOS",
+      "Android",
+      "Xbox One",
+      "Xbox Series X/S",
+      "PlayStation 4",
+      "PlayStation 5",
+      "Meta Quest"
+    ],
+    "desc": "Uma plataforma de criação de jogos e universo virtual onde os próprios usuários podem programar e jogar milhões de experiências criadas pela comunidade, variando entre RPGs, simuladores, jogos de sobrevivência e desafios sociais.",
+    "img": {
+      "banner": "assets/games/roblox/banner.png",
+      "cover": "assets/games/roblox/cover.png"
+    }
+  },
+  {
+    "id": "habbo-hotel",
+    "name": "Habbo Hotel (Habbo)",
+    "release": 2000,
+    "studio": "Sulake",
+    "platforms": [
+      "Navegadores Web (PC/macOS)",
+      "iOS",
+      "Android"
+    ],
+    "desc": "Um jogo de comunidade virtual e rede social focado na criação de avatares com visual pixel art, personalização de quartos, trocas de itens e interação entre jogadores através de chat e eventos da comunidade.",
+    "img": {
+      "banner": "assets/games/habbo-hotel/banner.png",
+      "cover": "assets/games/habbo-hotel/cover.png"
+    }
+  },
+  {
+    "id": "counter-strike-2",
+    "name": "Counter-Strike 2 (CS2)",
+    "release": 2023,
+    "studio": "Valve Corporation",
+    "platforms": [
+      "PC (Windows e Linux)"
+    ],
+    "desc": "Um jogo de tiro em primeira pessoa (FPS) tático e competitivo focado no confronto entre Terroristas e Contraterroristas. Desenvolvido na engine Source 2, sucedeu o lendário Counter-Strike: Global Offensive (CS:GO) trazendo melhorias visuais, física de fumaça dinâmica e servidores atualizados.",
+    "img": {
+      "banner": "assets/games/counter-strike-2/banner.png",
+      "cover": "assets/games/counter-strike-2/cover.png"
+    }
+  },
+  {
+    "id": "league-of-legends",
+    "name": "League of Legends (LoL)",
+    "release": 2009,
+    "studio": "Riot Games",
+    "platforms": [
+      "PC (Windows)",
+      "macOS"
+    ],
+    "desc": "Um dos MOBAS (Multiplayer Online Battle Arena) mais populares do mundo. Duas equipes de 5 jogadores escolhem \"Campeões\" com habilidades específicas e se enfrentam em um mapa tático para destruir a base adversária (o Nexus).",
+    "img": {
+      "banner": "assets/games/league-of-legends/banner.png",
+      "cover": "assets/games/league-of-legends/cover.png"
+    }
+  },
+  {
+    "id": "valorant",
+    "name": "Valorant",
+    "release": 2020,
+    "studio": "Riot Games",
+    "platforms": [
+      "PC",
+      "PlayStation 5",
+      "Xbox Series X/S"
+    ],
+    "desc": "Um jogo de tiro em primeira pessoa (FPS) tático focado na precisão do tiro e no uso estratégico de habilidades especiais dos \"Agentes\". O objetivo das equipes varia entre plantar/desarmar a \"Spike\" ou eliminar todos os adversários em partidas por rodadas.",
+    "img": {
+      "banner": "assets/games/valorant/banner.png",
+      "cover": "assets/games/valorant/cover.png"
+    }
+  },
+  {
+    "id": "marvel-rivals",
+    "name": "Marvel Rivals",
+    "release": 2024,
+    "studio": "NetEase Games",
+    "platforms": [
+      "PC",
+      "PlayStation 5",
+      "Xbox Series X/S"
+    ],
+    "desc": "Um jogo de tiro de heróis em terceira pessoa (6v6) em que os jogadores assumem o papel de super-heróis e vilões clássicos do universo Marvel. Apresenta cenários destrutíveis e mecânicas de habilidades combinadas entre personagens.",
+    "img": {
+      "banner": "assets/games/marvel-rivals/banner.png",
+      "cover": "assets/games/marvel-rivals/cover.png"
+    }
+  },
+  {
+    "id": "ragnarok-online",
+    "name": "Ragnarok Online (RO)",
+    "release": 2002,
+    "studio": "Gravity",
+    "platforms": [
+      "PC (Windows)"
+    ],
+    "desc": "Um clássico MMORPG com visão isométrica baseado no manhwa sul-coreano Ragnarök. O jogo combina cenários 3D com sprites de personagens em 2D, onde os jogadores exploram o mundo de Midgard, progridem em uma vasta árvore de classes e participam de batalhas em grupo como a \"Guerra do Empério\" (GvG).",
+    "img": {
+      "banner": "assets/games/ragnarok-online/banner.png",
+      "cover": "assets/games/ragnarok-online/cover.png"
+    }
+  },
+  {
+    "id": "repo",
+    "name": "R.E.P.O.",
+    "release": 2025,
+    "studio": "Semiwork",
+    "platforms": [
+      "PC (Windows via Steam)"
+    ],
+    "desc": "Um jogo cooperativo de horror e sobrevivência em primeira pessoa orientado por física. Até 6 jogadores assumem o papel de unidades robóticas (Semibots) enviadas em missões para coletar itens valiosos em instalações perigosas enquanto evitam criaturas assustadoras.",
+    "img": {
+      "banner": "assets/games/repo/banner.png",
+      "cover": "assets/games/repo/cover.png"
+    }
+  },
+  {
+    "id": "peak",
+    "name": "PEAK",
+    "release": 2025,
+    "studio": "Aggro Crab / Landfall (Team PEAK)",
+    "platforms": [
+      "PC (Windows via Steam)",
+      "PlayStation 5",
+      "Xbox Series X/S",
+      "Nintendo Switch 2"
+    ],
+    "desc": "Um jogo cooperativo de escalada e sobrevivência. Sozinho ou em grupo de até 4 jogadores, o objetivo é escalar uma montanha desafiadora localizada em uma ilha misteriosa para conseguir resgate, exigindo gerenciamento de recursos, física e trabalho em equipe.",
+    "img": {
+      "banner": "assets/games/peak/banner.png",
+      "cover": "assets/games/peak/cover.png"
     }
   }
 ]
