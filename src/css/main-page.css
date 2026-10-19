@@ -17,7 +17,6 @@ body {
 
 .stat__desc {
   font-size: 0.85rem;
-  font-family: "Montserrat";
   font-weight: 600;
   transform: translateY(27%);
   color: var(--clr-darker);
