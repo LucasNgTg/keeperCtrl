@@ -145,6 +145,12 @@ function createGameResult(game, index) {
   description.classList.add("game-description", "clr-text");
   description.textContent = game.desc;
 
+  const charLim = 196;
+  if (description.textContent.length > charLim) {
+    description.textContent = description.textContent.slice(0, charLim);
+    description.textContent += "...";
+  }
+
   // Footer
   const footer = document.createElement("footer");
   footer.setAttribute("aria-label", "Informações adicionais do jogo");

@@ -17,3 +17,4 @@ function open_modal() {
 function close_modal() {
   overlay.classList.add("hidden");
 }
+

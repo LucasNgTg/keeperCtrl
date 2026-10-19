@@ -113,6 +113,7 @@ input[type="checkbox"]:checked::before {
 
 .logo__link {
   text-decoration: none;
+  width: min-content;
 }
 
 .logo {
