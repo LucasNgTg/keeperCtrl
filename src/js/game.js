@@ -16,6 +16,7 @@ const gameId = params.get("id");
 
 getData(gameId);
 
+
 async function getData(game) {
   try {
     const response = await fetch(gameData);
@@ -38,6 +39,8 @@ function loadPage(gameInfo, gameId) {
     console.error("Jogo não encontrado.");
     return;
   }
+
+  document.title = `${game.name} | keeperCtrl`;
 
   title.textContent = game.name;
   modalTitle.textContent = game.name;
