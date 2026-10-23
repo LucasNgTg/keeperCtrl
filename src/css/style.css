@@ -35,6 +35,7 @@ html,
 body {
   height: 100%;
   width: 100%;
+  font-family: "Montserrat", system-ui, sans-serif;
 }
 
 body {
@@ -44,7 +45,6 @@ body {
   background-image: url("../../assets/pattern.png");
 }
 
-body,
 ::placeholder {
   font-family: "Montserrat", system-ui, sans-serif;
 }

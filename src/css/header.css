@@ -29,10 +29,6 @@ header.page-band {
   outline: none;
 }
 
-::placeholder {
-  color: var(--clr-shadow);
-}
-
 #search-btn {
   background-color: var(--clr-hl);
   border: none;

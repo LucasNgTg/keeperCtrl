@@ -1,8 +1,9 @@
-footer {
+footer.page-band {
   display: flex;
   gap: 2rem;
   border-top: 2px solid var(--clr-shadow);
   bottom: 0;
+  padding-block: 14px;
 }
 
 body {
@@ -75,10 +76,6 @@ h2 {
 
 #searchbox:focus {
   outline: none;
-}
-
-::placeholder {
-  color: var(--clr-shadow);
 }
 
 #search-btn {
