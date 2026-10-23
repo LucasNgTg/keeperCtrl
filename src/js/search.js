@@ -123,6 +123,8 @@ function createGameResult(game, index) {
     } else {
       score.classList.add("score-low");
     }
+  } else {
+    score.classList.add("no-score");
   }
 
   const star = document.createElementNS("http://www.w3.org/2000/svg", "svg");
