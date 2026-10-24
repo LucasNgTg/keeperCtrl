@@ -30,10 +30,12 @@ async function getData() {
 
 function loadPage(games, query) {
   searchTerm.textContent = query;
+  document.title = `${query} - Pesquisa keeperCtrl`;
 
   const normalizedQuery = query.toLocaleLowerCase("pt-BR");
 
   const results = games.filter((game) => {
+    // spread syntax
     const searchableText = [game.name, game.studio, game.desc, ...game.platforms]
       .join(" ")
       .toLocaleLowerCase("pt-BR");
