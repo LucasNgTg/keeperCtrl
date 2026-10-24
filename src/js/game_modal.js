@@ -1,17 +1,27 @@
+const overlay = document.getElementById("overlay");
+const modal = document.getElementById("rating-modal");
+
 const btnModalOpen = document.getElementById("rate-btn");
 const btnModalClose = document.getElementById("close-btn");
-const overlay = document.getElementById("overlay");
 
 const ratingForm = document.getElementById("rating-form");
 
 const badgeFieldset = document.getElementById("badges");
 
+overlay.addEventListener("click", (e) => {
+  if (!modal.contains(e.target)) {
+    closeModal();
+  }
+});
+
 btnModalOpen.addEventListener("click", () => {
   openModal();
+  document.body.classList.add("modal-open");
 });
 
 btnModalClose.addEventListener("click", () => {
   closeModal();
+  document.body.classList.remove("modal-open");
 });
 
 ratingForm.addEventListener("submit", (e) => {
