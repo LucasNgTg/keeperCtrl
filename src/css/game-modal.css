@@ -1,9 +1,8 @@
 #overlay:not(.hidden) {
   background-color: rgba(0, 0, 0, 50%);
   position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
+  /* top: 0; */
+  /* left: 0; */
   width: 100%;
   height: 100%;
   display: flex;
@@ -17,30 +16,26 @@ label:hover {
   cursor: pointer;
 }
 
-#overlay:not(.hidden) {
-  transition: 0.2s;
-}
-
 .modal {
   background-color: var(--clr-surface);
   width: clamp(250px, 95vw, 800px);
-  position: relative;
-  /* height: 51rem; */
-  height: clamp(800px, 90vh, 850px);
+  /* position: relative; */
+  height: clamp(600px, 97vh, 850px);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .modal h2,
 .modal h3 {
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
 
 .modal__header {
   display: flex;
   background-color: var(--clr-main);
   color: var(--clr-contrast);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   align-items: center;
   justify-content: space-between;
 }
@@ -50,7 +45,7 @@ label:hover {
   width: 2.5rem;
   flex: 0 0 auto;
   aspect-ratio: 1 / 1;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
 }
 
 #close-btn span {
@@ -59,9 +54,15 @@ label:hover {
 }
 
 .modal form {
+  /* flex: 1; */
+  /* flex-basis: 100%; */
+  /* justify-items: end; */
+  display: flex;
+  flex-direction: column;
   flex: 1;
-  flex-basis: 100%;
-  justify-items: end;
+  min-height: 0;
+  /* Essencial para o flexbox gerenciar o scroll interno corretamente */
+  overflow: hidden;
 }
 
 .modal__body {
@@ -70,6 +71,8 @@ label:hover {
   flex-direction: column;
   gap: 0.5rem;
   height: 100%;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .modal__game-id {
@@ -78,13 +81,13 @@ label:hover {
   justify-content: space-between;
   background-color: var(--clr-surface);
   border-bottom: 1px solid var(--clr-shadow);
-  padding: 0.6rem 1rem;
+  padding: 0.5rem;
 }
 
 .modal__game-name {
   display: flex;
   gap: 0.5rem;
-  align-items: start;
+  align-items: center;
 }
 
 .modal__game-thumb {
@@ -103,7 +106,6 @@ label:hover {
 .modal__game-name h3 {
   order: 1;
   margin: 0;
-  align-self: end;
 }
 
 .modal__game-studio {
@@ -129,7 +131,9 @@ label:hover {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  height: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .modal nav fieldset label,
@@ -150,6 +154,11 @@ label:hover {
   gap: 0.5rem;
   font-size: 0.8rem;
   padding-block: 0.3rem;
+  transition: 0.1s;
+}
+
+.modal nav fieldset input:not(:checked)+label:hover {
+  background-color: var(--clr-fill);
 }
 
 .modal nav fieldset label span {
@@ -232,22 +241,27 @@ label:hover {
 .t-score {
   display: flex;
   justify-content: space-between;
+  gap: 12px;
   align-items: center;
 }
 
 p.t-score__display {
+  flex-shrink: 0;
   text-align: right;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .criteria {
   flex-direction: column;
+  height: 100%;
+  max-height: 300px;
   gap: 0.5rem;
 }
 
 .criterion__wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, max-content));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 100%));
+  margin-block: auto;
   justify-content: space-between;
   gap: 0.75rem;
 }
@@ -256,11 +270,16 @@ p.t-score__display {
   font-size: 0.8rem;
 }
 
+.criteria>p {
+  height: 2lh;
+}
+
 .criterion {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  width: min-content;
+  /* width: min-content; */
+  width: 100%;
 }
 
 .criterion-header {
@@ -320,7 +339,7 @@ p.t-score__display {
 }
 
 .rate>label {
-  width: 1.75rem;
+  width: 100%;
   height: 1.4rem;
   font-size: 0.85rem;
   position: relative;
@@ -419,9 +438,13 @@ p.t-score__display {
   border-color: var(--clr-warning);
 }
 
+.t-score-stars {
+  position: relative;
+}
+
 .t-score-stars__items {
   display: flex;
-  gap: 0.5rem;
+  gap: 12px;
   color: var(--clr-shadow);
 }
 
@@ -438,10 +461,6 @@ p.t-score__display {
 
 .t-score-star svg {
   max-width: 1.75rem;
-}
-
-.t-score-stars {
-  position: relative;
 }
 
 .t-score-stars-fill {
@@ -476,10 +495,12 @@ p.t-score__display {
 .step-navigation {
   display: flex;
   justify-content: space-between;
+  padding-top: 0.25rem;
 }
 
 .step-navigation button {
   padding: 0.5rem;
+  transition: 0.1s;
 }
 
 .btn-previous {
@@ -539,6 +560,14 @@ p.t-score__display {
   display: none;
 }
 
+.modal__body:has(#category-badges:checked) .rating__wrapper {
+  grid-template-columns: 1fr;
+}
+
+.modal__body:has(#category-badges:checked) .rating-info {
+  display: none;
+}
+
 #badge-selection {
   display: none;
 }
@@ -553,13 +582,15 @@ p.t-score__display {
 
 .modal__body:has(#category-comment:checked) #comment {
   display: flex;
+  height: 100%;
 }
 
 #badge-selection {
   font-size: 0.8rem;
   flex-direction: column;
   gap: 0.5rem;
-  height: clamp(300px, 25vh, 500px);
+  /* height: clamp(300px, 25vh, 500px); */
+  height: 100%;
   min-height: 0;
   flex-grow: 1;
   overflow-y: auto;
@@ -623,8 +654,7 @@ p.t-score__display {
   padding: 0.5rem;
   background-color: var(--clr-surface);
   color: var(--clr-text);
-  min-height: 10rem;
-  max-height: 15rem;
+  height: 100%;
 }
 
 #comment-text::placeholder {
@@ -664,16 +694,31 @@ p.t-score__display {
   font-size: 0.7rem;
 }
 
+@media (min-width: 400px) {
+  .criterion__wrapper {
+    grid-template-columns: repeat(auto-fit, minmax(150px, max-content));
+  }
+}
+
 @media (min-width: 960px) {
+  .modal__header {
+    padding: 12px 12px 12px 24px;
+  }
+
+  .modal__game-id {
+    padding: 12px 24px;
+  }
+
   .modal {
     width: clamp(250px, 95vw, 960px);
-    max-height: 90vh;
+    height: clamp(600px, 95vh, 800px);
   }
 
   .modal__body {
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr min(650px, 75%);
+    grid-template-rows: auto min-content;
     padding: 1rem;
-    gap: 64px;
   }
 
   .modal nav fieldset label,
@@ -686,7 +731,8 @@ p.t-score__display {
 
   #rating-steps {
     flex-grow: 0;
-    width: clamp(250px, 20%, 300px);
+    width: clamp(200px, 20vw, 250px);
+    justify-self: center;
   }
 
   .modal nav fieldset {
@@ -705,8 +751,7 @@ p.t-score__display {
     grid-template-rows: auto 1fr;
     grid-template-areas:
       "upper-left upper-right"
-      "middle middle"
-      "lower lower";
+      "middle middle";
     gap: 1rem;
   }
 
@@ -720,10 +765,11 @@ p.t-score__display {
 
   .middle {
     grid-area: middle;
+    margin-top: auto;
   }
 
-  .lower {
-    grid-area: lower;
+  .rating-info {
+    margin: 0;
   }
 
   .rating-info.rating.upper-left {
@@ -742,10 +788,6 @@ p.t-score__display {
   .rating-info.t-rating.upper-right {
     padding: 0.8rem;
     gap: 1.2rem;
-  }
-
-  .t-score-stars__items {
-    gap: 0.8rem;
   }
 
   .t-score-star {
@@ -777,5 +819,50 @@ p.t-score__display {
     height: 1.65rem;
     font-size: 0.9rem;
     line-height: 1.4rem;
+  }
+
+  .step-navigation {
+    grid-column: 2;
+  }
+
+  .t-score {
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: auto;
+    gap: 12px;
+  }
+
+  p.t-score__display {
+    font-size: 1.5rem;
+  }
+
+  .modal__body:has(#category-badges:checked) .rating__wrapper {
+    display: block;
+  }
+
+  .modal__body:not(:has(#category-comment:checked)) .t-score-stars {
+    width: 100%;
+    container-type: inline-size;
+  }
+
+  .modal__body:not(:has(#category-comment:checked)) .t-score-stars__items {
+    width: 100cqw;
+    justify-content: space-between;
+  }
+
+  .modal__body:has(#category-comment:checked) .rating__wrapper {
+    grid-template-areas:
+      "upper"
+      "lower";
+    grid-template-columns: auto;
+    grid-template-rows: 1fr auto;
+  }
+
+  .modal__body:has(#category-comment:checked) .t-rating {
+    grid-area: lower;
+  }
+
+  .modal__body:has(#category-comment:checked) .t-score {
+    flex-direction: row;
   }
 }

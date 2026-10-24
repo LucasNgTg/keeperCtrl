@@ -63,7 +63,6 @@ hr {
   justify-content: flex-start;
   padding: 2rem 1rem;
   gap: 1rem;
-  /* background-color: blue; */
   background-image: none;
   background-position: center;
   background-size: cover;
@@ -84,7 +83,7 @@ hr {
 }
 
 .game-cover {
-  width: clamp(100px, 15vw, 200px);
+  width: clamp(80px, 15vw, 200px);
   flex-shrink: 0;
   aspect-ratio: 3 / 4;
   overflow: hidden;
