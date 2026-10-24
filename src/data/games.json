@@ -118,7 +118,7 @@
     }
   },
   {
-    "id": "ragnarok-online",
+    "id": "ragnarok",
     "name": "Ragnarok Online (RO)",
     "release": 2002,
     "studio": "Gravity",
@@ -127,8 +127,8 @@
     ],
     "desc": "Um clássico MMORPG com visão isométrica baseado no manhwa sul-coreano Ragnarök. O jogo combina cenários 3D com sprites de personagens em 2D, onde os jogadores exploram o mundo de Midgard, progridem em uma vasta árvore de classes e participam de batalhas em grupo como a \"Guerra do Empério\" (GvG).",
     "img": {
-      "banner": "assets/games/ragnarok-online/banner.png",
-      "cover": "assets/games/ragnarok-online/cover.png"
+      "banner": "assets/games/ragnarok/banner.png",
+      "cover": "assets/games/ragnarok/cover.png"
     }
   },
   {
@@ -160,6 +160,176 @@
     "img": {
       "banner": "assets/games/peak/banner.png",
       "cover": "assets/games/peak/cover.png"
+    }
+  },
+  {
+    "id": "fortnite",
+    "name": "Fortnite",
+    "release": 2017,
+    "studio": "Epic Games",
+    "platforms": [
+      "PC",
+      "PlayStation 4",
+      "PlayStation 5",
+      "Xbox One",
+      "Xbox Series X/S",
+      "Nintendo Switch",
+      "Nintendo Switch 2",
+      "Android",
+      "iOS"
+    ],
+    "desc": "Battle Royale em que 100 jogadores caem numa ilha, coletam armas e constroem estruturas até restar um vencedor, além de modos criativos feitos pela comunidade.",
+    "img": {
+      "banner": "assets/games/fortnite/banner.png",
+      "cover": "assets/games/fortnite/cover.png"
+    }
+  },
+  {
+    "id": "minecraft",
+    "name": "Minecraft",
+    "release": 2011,
+    "studio": "Mojang Studios",
+    "platforms": [
+      "PC",
+      "macOS",
+      "Linux",
+      "Chromebook",
+      "PlayStation 4",
+      "PlayStation 5",
+      "Xbox One",
+      "Xbox Series X/S",
+      "Nintendo Switch",
+      "Android",
+      "iOS",
+      "Amazon Fire"
+    ],
+    "desc": "Jogo de construção e sobrevivência em mundo aberto feito de blocos, em que o jogador coleta recursos, cria ferramentas e constrói o que imaginar.",
+    "img": {
+      "banner": "assets/games/minecraft/banner.png",
+      "cover": "assets/games/minecraft/cover.png"
+    }
+  },
+  {
+    "id": "free-fire",
+    "name": "Free Fire",
+    "release": 2017,
+    "studio": "111dots Studio / Garena",
+    "platforms": ["Android", "iOS"],
+    "desc": "Battle Royale para celular com partidas rápidas de cerca de dez minutos, em que 50 jogadores disputam para ser o último sobrevivente.",
+    "img": {
+      "banner": "assets/games/free-fire/banner.png",
+      "cover": "assets/games/free-fire/cover.png"
+    }
+  },
+  {
+    "id": "gta-v",
+    "name": "Grand Theft Auto V",
+    "release": 2013,
+    "studio": "Rockstar North / Rockstar Games",
+    "platforms": [
+      "PC",
+      "PlayStation 3",
+      "PlayStation 4",
+      "PlayStation 5",
+      "Xbox 360",
+      "Xbox One",
+      "Xbox Series X/S"
+    ],
+    "desc": "Jogo de ação em mundo aberto na cidade fictícia de Los Santos, que acompanha a história de três criminosos e tem o modo multijogador GTA Online.",
+    "img": {
+      "banner": "assets/games/gta-v/banner.png",
+      "cover": "assets/games/gta-v/cover.png"
+    }
+  },
+  {
+    "id": "cod-warzone",
+    "name": "Call of Duty: Warzone",
+    "release": 2020,
+    "studio": "Infinity Ward e Raven Software / Activision",
+    "platforms": ["PC", "PlayStation 5", "Xbox Series X/S"],
+    "desc": "Battle Royale gratuito da série Call of Duty com combate militar realista em mapas grandes.",
+    "img": {
+      "banner": "assets/games/cod-warzone/banner.png",
+      "cover": "assets/games/cod-warzone/cover.png"
+    }
+  },
+  {
+    "id": "stumble-guys",
+    "name": "Stumble Guys",
+    "release": 2021,
+    "studio": "Kitka Games / Scopely",
+    "platforms": [
+      "PC",
+      "Web",
+      "PlayStation 4",
+      "PlayStation 5",
+      "Xbox One",
+      "Xbox Series X/S",
+      "Nintendo Switch",
+      "Android",
+      "iOS"
+    ],
+    "desc": "Jogo de festa multijogador em que até 32 jogadores competem em rodadas de corridas de obstáculos e desafios eliminatórios até restar um vencedor.",
+    "img": {
+      "banner": "assets/games/stumble-guys/banner.png",
+      "cover": "assets/games/stumble-guys/cover.png"
+    }
+  },
+  {
+    "id": "pubg-mobile",
+    "name": "PUBG Mobile",
+    "release": 2018,
+    "studio": "LightSpeed & Quantum Studio / Tencent Games",
+    "platforms": ["Android", "iOS"],
+    "desc": "Battle Royale para celular em que até 100 jogadores saltam de paraquedas em uma ilha, coletam armas e equipamentos e lutam até restar um sobrevivente ou uma equipe.",
+    "img": {
+      "banner": "assets/games/pubg-mobile/banner.png",
+      "cover": "assets/games/pubg-mobile/cover.png"
+    }
+  },
+  {
+    "id": "among-us",
+    "name": "Among Us",
+    "release": 2018,
+    "studio": "Innersloth",
+    "platforms": [
+      "PC",
+      "PlayStation 4",
+      "PlayStation 5",
+      "Xbox One",
+      "Xbox Series X/S",
+      "Nintendo Switch",
+      "Android",
+      "iOS"
+    ],
+    "desc": "Jogo de dedução social em que tripulantes de uma nave cumprem tarefas enquanto tentam descobrir quem são os impostores.",
+    "img": {
+      "banner": "assets/games/among-us/banner.png",
+      "cover": "assets/games/among-us/cover.png"
+    }
+  },
+  {
+    "id": "brawl-stars",
+    "name": "Brawl Stars",
+    "release": 2018,
+    "studio": "Supercell",
+    "platforms": ["Android", "iOS"],
+    "desc": "Jogo de ação para celular com modos de jogo variados, sendo o principal as partidas de 3 contra 3 com personagens chamados brawlers, cada um com habilidades próprias.",
+    "img": {
+      "banner": "assets/games/brawl-stars/banner.png",
+      "cover": "assets/games/brawl-stars/cover.png"
+    }
+  },
+  {
+    "id": "pokemon-go",
+    "name": "Pokémon GO",
+    "release": 2016,
+    "studio": "Niantic / Scopely",
+    "platforms": ["Android", "iOS"],
+    "desc": "Jogo de realidade aumentada para celular em que o jogador caminha pelo mundo real para capturar Pokémon, batalhar em ginásios e participar de raids.",
+    "img": {
+      "banner": "assets/games/pokemon-go/banner.png",
+      "cover": "assets/games/pokemon-go/cover.png"
     }
   }
 ]
