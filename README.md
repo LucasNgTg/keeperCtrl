@@ -29,6 +29,13 @@ keeperCtrl é uma plataforma para pais e responsáveis discutirem e avaliarem jo
 
 [![Figma][Figma]][Figma-url]
 
+![Main Page - Desktop](demo/main-page-desktop.png)
+![Main Page - Mobile](demo/main-page-mobile.png)
+![Search Page - Desktop](demo/search-page-desktop.png)
+![Search Page - Mobile](demo/search-page-mobile.png)
+![Game Page - Desktop](demo/game-page-desktop.png)
+![Game Page - Mobile](demo/game-page-mobile.png)
+
 ## Equipe
 
 - Cauan Kazuhiro Matsuse — Controle de Relatórios
