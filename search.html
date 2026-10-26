@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pesquise jogos no KeeperCtrl e confira informações, avaliações e comentários da comunidade.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="KeeperCtrl">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="KeeperCtrl">
+  <meta property="og:title" content="Pesquisar jogos | KeeperCtrl">
+  <meta property="og:description" content="Pesquise jogos no KeeperCtrl e confira informações, avaliações e comentários da comunidade.">
+  <title> | keeperCtrl</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.png">
+
+  <!-- Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="src/css/style.css">
+  <link rel="stylesheet" href="src/css/template.css">
+  <link rel="stylesheet" href="src/css/header.css">
+  <link rel="stylesheet" href="src/css/search.css">
+</head>
+
+<body>
+  <header id="main-header" class="page-band" role="banner">
+    <a href="index.html" class="logo__link">
+      <h1 class="font-display logo"><span class="clr-main">keeper</span><span class="hl-text emph">Ctrl</span></h1>
+    </a>
+    <form action="search.html" id="search-bar" role="search" aria-label="Pesquisa de jogos">
+      <input type="search" name="q" id="searchbox" class="clr-text" rows="1" aria-label="Nome do jogo para pesquisa"
+        placeholder="Pesquise pelo nome do jogo..."></input>
+      <button id="search-btn" type="submit" aria-label="Pesquisar jogo">
+        <svg viewBox="0 0 640 640" aria-hidden="true" focusable="false">
+          <use href="assets/icons.svg#search"></use>
+        </svg>
+      </button>
+    </form>
+  </header>
+
+  <main>
+    <section class="results-wrapper" aria-label="Resumo e listagem dos resultados">
+      <p class="results-txt clr-text">
+        <strong class="clr-main"><span id="num-results" aria-live="polite" aria-atomic="true"></span> resultados</strong>
+        encontrados para "<span id="query" aria-live="polite"></span>"
+      </p>
+
+      <section id="results" aria-label="Resultados da pesquisa"></section>
+    </section>
+
+    <footer class="pagination-wrapper" aria-label="Paginação dos resultados">
+      <nav id="pagination-nav" aria-label="Navegação entre páginas">
+        <ul id="pagination">
+        <li>
+          <button id="page-back" type="button" aria-label="Página anterior" disabled>
+            <svg viewBox="0 0 640 640" aria-hidden="true" focusable="false">
+              <use href="assets/icons.svg#caret"></use>
+            </svg>
+          </button>
+        </li>
+        <li>
+          <button class="page-num font-display current-page" type="button" aria-label="Página 1" aria-current="page">1</button>
+        </li>
+        <li>
+          <button class="page-num font-display" type="button" aria-label="Página 2">2</button>
+        </li>
+        <li>
+          <button id="page-forward" type="button" aria-label="Próxima página">
+            <svg viewBox="0 0 640 640" aria-hidden="true" focusable="false">
+              <use href="assets/icons.svg#caret"></use>
+            </svg>
+          </button>
+        </li>
+        </ul>
+      </nav>
+    </footer>
+  </main>
+
+  <script src="src/js/search.js"></script>
+</body>
+
+</html>

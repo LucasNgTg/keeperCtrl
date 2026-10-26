@@ -1,0 +1,100 @@
+[
+  {
+    "id": "fantasy-violence",
+    "name": "Violência Fantástica",
+    "description": "Lutas irrealistas com monstros ou magias",
+    "icon": "wand",
+    "nature": "feature"
+  },
+  {
+    "id": "realistic-violence",
+    "name": "Violência Realista",
+    "description": "Cenas violentas próximas da vida real",
+    "icon": "gun",
+    "nature": "negative"
+  },
+  {
+    "id": "graphic-violence",
+    "name": "Violência Gráfica",
+    "description": "Sangue, cortes ou visões chocantes",
+    "icon": "skull",
+    "nature": "negative"
+  },
+  {
+    "id": "inappropriate-language",
+    "name": "Linguagem Imprópria",
+    "description": "Frequência de palavrões ou ofensas",
+    "icon": "slash",
+    "nature": "negative"
+  },
+  {
+    "id": "multiplayer-online",
+    "name": "Multiplayer Online",
+    "description": "Conectado em rede com outros participantes",
+    "icon": "globe",
+    "nature": "feature"
+  },
+  {
+    "id": "unknown-players",
+    "name": "Jogadores Desconhecidos",
+    "description": "Contato com estranhos sem restrição",
+    "icon": "users-slash",
+    "nature": "negative"
+  },
+  {
+    "id": "text-chat",
+    "name": "Chat de Texto",
+    "description": "Opção para mandar mensagens digitadas",
+    "icon": "chat",
+    "nature": "feature"
+  },
+  {
+    "id": "voice-chat",
+    "name": "Chat de Voz",
+    "description": "Comunicação ao vivo por microfone",
+    "icon": "microphone",
+    "nature": "feature"
+  },
+  {
+    "id": "report-system",
+    "name": "Sistema de Denúncias",
+    "description": "Permite denunciar maus comportamentos",
+    "icon": "flag",
+    "nature": "positive"
+  },
+  {
+    "id": "player-block",
+    "name": "Bloqueio de Jogadores",
+    "description": "Possibilidade de bloquear/silenciar pessoas",
+    "icon": "user-lock",
+    "nature": "positive"
+  },
+  {
+    "id": "communication-filters",
+    "name": "Filtros de Comunicação",
+    "description": "Esconde palavras ofensivas automaticamente",
+    "icon": "filter",
+    "nature": "positive"
+  },
+  {
+    "id": "parental-control",
+    "name": "Controle parental",
+    "description": "Ferramentas para pais gerenciarem limites",
+    "icon": "sliders",
+    "nature": "positive"
+  },
+  {
+    "id": "pay2win",
+    "name": "Pay to Win",
+    "description": "Quem paga mais tem muito mais vantagem",
+    "icon": "trophy",
+    "nature": "negative"
+  },
+  {
+    "id": "frequent-ads",
+    "name": "Ofertas Frequentes",
+    "description": "Avisos e promoções constantes de compra",
+    "icon": "rectangle-ad",
+    "nature": "negative"
+  }
+]

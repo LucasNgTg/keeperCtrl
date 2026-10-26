@@ -1,0 +1,81 @@
+.stat-display {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+  padding: 8px;
+  border-bottom: 1px solid transparent;
+  border: 1px solid transparent;
+  transition: 0.2s;
+}
+
+input.stat-check {
+  display: none;
+}
+
+.stat-caret {
+  width: 1.5rem;
+  aspect-ratio: 1 / 1;
+  background: none;
+  border: 1px solid var(--clr-shadow);
+  display: flex;
+  justify-content: center;
+  transition: 0.2s;
+}
+
+.stat-display:hover {
+  background-color: var(--clr-surface);
+  border-color: var(--clr-shadow);
+}
+
+.stat-display:hover .stat-caret {
+  background-color: var(--clr-fill);
+}
+
+.stat-caret svg {
+  width: 0.5rem;
+  margin: 0 auto;
+  color: var(--clr-text);
+  transform: rotate(-90deg);
+  transition: 0.2s ease-in-out;
+}
+
+.stat-accordion {
+  overflow: hidden;
+  max-height: 0;
+  transition: 0.3s ease-in-out;
+  background-color: var(--clr-surface);
+}
+
+.stat-accordion__item {
+  padding: 8px;
+}
+
+.stat-accordion__item__title {
+  display: flex;
+  gap: 4px;
+}
+
+.stat-accordion__item .hint button:hover svg {
+  color: var(--clr-hl-hover);
+}
+
+.stat-display:has(.stat-check:checked):not(:hover) {
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: var(--clr-shadow);
+}
+
+.stat-display:has(.stat-check:checked) .stat-caret svg {
+  transform: rotate(90deg);
+}
+
+.stat-display:has(.stat-check:checked) ~ .stat-accordion {
+  max-height: 20rem;
+}
+
+.stat-inner {
+  flex: 1 0 auto;
+}
+
