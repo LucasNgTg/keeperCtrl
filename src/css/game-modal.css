@@ -12,6 +12,10 @@
   transition: 0.2s;
 }
 
+.hidden{
+  display: none;
+}
+
 label:hover {
   cursor: pointer;
 }
@@ -546,7 +550,9 @@ label:hover {
 }
 
 .modal__body:has(#category-badges:checked) .rating,
-.modal__body:has(#category-comment:checked) .rating {
+.modal__body:has(#category-badges:checked) .rating-info,
+.modal__body:has(#category-comment:checked) .rating,
+.modal__body:has(#category-comment:checked) .rating-info{
   display: none;
 }
 
@@ -683,6 +689,8 @@ label:hover {
 
 .modal {
   width: clamp(250px, 95vw, 960px);
+  height: clamp(600px, 95vh, 47rem);
+  overflow: hidden;
 }
 
 .modal__body {
