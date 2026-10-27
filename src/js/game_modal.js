@@ -30,6 +30,7 @@ ratingForm.addEventListener("submit", (e) => {
   closeModal();
   submitRating();
   ratingForm.reset();
+  loadStats(gameId);
 });
 
 function openModal() {

@@ -279,42 +279,35 @@ article.stats {
 
 /* Teste stat-bar */
 #stats {
-  --scr-content__violence: 4.3;
-  --scr-content__sex: 4.8;
-  --scr-content__language: 3.9;
-  --scr-content__sensitive: 4.6;
-  --scr-content: calc((var(--scr-content__violence) + var(--scr-content__sex) + var(--scr-content__language) + var(--scr-content__sensitive)) / 4);
+  --scr-content__violence: 0;
+  --scr-content__sex: 0;
+  --scr-content__language: 0;
+  --scr-content__sensitive: 0;
+  --scr-content: 0;
 
-  --scr-interaction__communication: 3.8;
-  --scr-interaction__stranger: 4.7;
-  --scr-interaction__community: 4.5;
-  --scr-interaction__competition: 3.8;
-  --scr-interaction: calc((var(--scr-interaction__communication) + var(--scr-interaction__stranger) + var(--scr-interaction__community) + var(--scr-interaction__competition)) / 4);
+  --scr-interaction__communication: 0;
+  --scr-interaction__stranger: 0;
+  --scr-interaction__community: 0;
+  --scr-interaction__competition: 0;
+  --scr-interaction: 0;
 
-  --scr-moderation__report: 3.8;
-  --scr-moderation__block: 4.8;
-  --scr-moderation__filter: 4.1;
-  --scr-moderation__parental: 4.2;
-  --scr-moderation: calc((var(--scr-moderation__report) + var(--scr-moderation__block) + var(--scr-moderation__filter) + var(--scr-moderation__parental)) / 4);
+  --scr-moderation__report: 0;
+  --scr-moderation__block: 0;
+  --scr-moderation__filter: 0;
+  --scr-moderation__parental: 0;
+  --scr-moderation: 0;
 
-  --scr-purchase__microtransaction: 2.9;
-  --scr-purchase__pressure: 1.7;
-  --scr-purchase__lootboxes: 2.6;
-  --scr-purchase__ads: 1.3;
-  --scr-purchase: calc((var(--scr-purchase__microtransaction) + var(--scr-purchase__pressure) + var(--scr-purchase__lootboxes) + var(--scr-purchase__ads)) / 4);
+  --scr-purchase__microtransaction: 0;
+  --scr-purchase__pressure: 0;
+  --scr-purchase__lootboxes: 0;
+  --scr-purchase__ads: 0;
+  --scr-purchase: 0;
 
   --scr: 0;
 }
 
 .stat-bar::after {
   width: calc(100% * (var(--scr) / 5));
-}
-
-.stat-average::before {
-  --scr-int: round(down, var(--scr));
-  --scr-dec: round((var(--scr) * 10 - var(--scr-int) * 10));
-  counter-reset: int var(--scr-int) dec var(--scr-dec);
-  content: counter(int) "." counter(dec);
 }
 
 #stat-content {

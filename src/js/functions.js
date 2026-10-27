@@ -1,7 +1,4 @@
-console.log(shortenNum(1452445));
-
 function shortenNum(num) {
-  const closestPowTen = Math.pow(10, Math.floor(Math.log10(num) - 1));
   let result;
 
   if (num >= 1000000) {

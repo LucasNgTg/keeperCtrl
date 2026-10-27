@@ -56,14 +56,8 @@ function loadPage(games, query) {
   });
 }
 
-function getGameStats(gameId) {
-  const data = localStorage.getItem(`game-${gameId}`);
-
-  return data ? JSON.parse(data) : { score: null, comments: 0 };
-}
-
 function createGameResult(game, index) {
-  const stats = getGameStats(game.id);
+  const stats = JSON.parse(localStorage.getItem(game.id));
 
   const result = document.createElement("a");
   result.href = `game.html?id=${encodeURIComponent(game.id)}`;
@@ -88,7 +82,7 @@ function createGameResult(game, index) {
 
   figure.appendChild(img);
 
-  // Game identification
+  // Identificação do jogo
   const gameId = document.createElement("div");
   gameId.classList.add("game-id");
 
@@ -113,14 +107,16 @@ function createGameResult(game, index) {
 
   gameInfo.append(figure, gameId);
 
-  // Score
+  // Nota
   const score = document.createElement("div");
   score.classList.add("game-score", "font-display");
 
-  if (stats.score !== null) {
-    if (stats.score >= 4) {
+  const gameScr = getScore(stats);
+
+  if (gameScr) {
+    if (gameScr >= 4) {
       score.classList.add("score-high");
-    } else if (stats.score >= 2.5) {
+    } else if (gameScr >= 2.5) {
       score.classList.add("score-medium");
     } else {
       score.classList.add("score-low");
@@ -138,13 +134,14 @@ function createGameResult(game, index) {
   starUse.setAttribute("href", "assets/icons.svg#star");
   star.appendChild(starUse);
 
+  // Número da nota
   const scoreValue = document.createElement("p");
-  scoreValue.textContent = stats.score ?? "-.-";
+  scoreValue.textContent = gameScr ?? "-.-";
 
   score.append(star, scoreValue);
   header.append(gameInfo, score);
 
-  // Description
+  // Descrição
   const description = document.createElement("p");
   description.classList.add("game-description", "clr-text");
   description.textContent = game.desc;
@@ -175,11 +172,11 @@ function createGameResult(game, index) {
   chat.appendChild(chatUse);
 
   const commentCount = document.createElement("p");
-  commentCount.textContent = stats.comments ?? 0;
+  commentCount.textContent = stats?.numComments ?? 0
 
   comments.append(chat, commentCount);
 
-  // See game
+  // Ver jogo
   const seeGame = document.createElement("div");
   seeGame.classList.add("see-game", "hl-text");
 
@@ -202,4 +199,34 @@ function createGameResult(game, index) {
   result.append(header, description, footer);
 
   return result;
+}
+
+function getScore(gameStats) {
+  let total = 0;
+  let ratedCat = 0;
+
+  if (!gameStats) {
+    return null;
+  }
+
+  for (const criteria of Object.values(gameStats.criteria)) {
+    let rated = 0;
+    let catSum = 0;
+
+    for (const stats of Object.values(criteria)) {
+      const statAverage = stats.sum / stats.count;
+
+      if (stats.count > 0) {
+        catSum += statAverage;
+        rated++;
+      }
+    }
+
+    if (rated > 0) {
+      total += catSum / rated;
+      ratedCat++;
+    }
+  }
+
+  return (total / ratedCat).toFixed(1);
 }
