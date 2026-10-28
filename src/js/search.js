@@ -2,6 +2,8 @@ const numResults = document.getElementById("num-results");
 const gameList = document.getElementById("results");
 const searchTerm = document.getElementById("query");
 
+const searchBox = document.getElementById("searchbox");
+
 const gameData = "src/data/games.json";
 
 getData();
@@ -21,6 +23,7 @@ async function getData() {
     // optional chaining
     // nullish coalescing
     const query = params.get("q")?.trim() ?? "";
+    searchBox.value = query;
 
     loadPage(games, query);
   } catch (e) {

@@ -16,12 +16,10 @@ overlay.addEventListener("click", (e) => {
 
 btnModalOpen.addEventListener("click", () => {
   openModal();
-  document.body.classList.add("modal-open");
 });
 
 btnModalClose.addEventListener("click", () => {
   closeModal();
-  document.body.classList.remove("modal-open");
 });
 
 ratingForm.addEventListener("submit", (e) => {
@@ -35,10 +33,12 @@ ratingForm.addEventListener("submit", (e) => {
 
 function openModal() {
   overlay.classList.remove("hidden");
+  document.body.classList.add("modal-open");
 }
 
 function closeModal() {
   overlay.classList.add("hidden");
+  document.body.classList.remove("modal-open");
 }
 
 loadBadges();
