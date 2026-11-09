@@ -21,9 +21,7 @@ function shortenNum(num) {
 }
 
 function tempoRelativo(dataComentario) {
-  const timestamp = typeof dataComentario === 'number'
-    ? dataComentario
-    : new Date(dataComentario).getTime();
+  const timestamp = Number(dataComentario);
 
   const segundos = Math.floor((Date.now() - timestamp) / 1000);
 
