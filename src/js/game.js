@@ -118,3 +118,24 @@ function loadStats(game) {
 
   numComments.textContent = shortenNum(gameStats.numComments);
 }
+
+function atualizarTemposDosPosts() {
+  const tempos = document.querySelectorAll('.post__time[data-timestamp]');
+
+  tempos.forEach((span) => {
+    const data = span.dataset.timestamp;
+    const tempo = tempoRelativo(data);
+
+    if (tempo === 'agora') {
+      span.textContent = 'Agora';
+    } else if (tempo === '1 dia') {
+      span.textContent = 'Ontem';
+    } else {
+      span.textContent = `Há ${tempo}`;
+    }
+    span.title = new Date(data).toLocaleString('pt-BR');
+  });
+}
+
+atualizarTemposDosPosts();
+setInterval(atualizarTemposDosPosts, 60000);
