@@ -13,14 +13,19 @@ const statsList = document.getElementById("stats");
 const totalScore = document.getElementById("total-score");
 const numRatings = document.getElementById("num-ratings");
 const numComments = document.getElementById("num-comments");
+const posts = document.getElementById("posts");
 
 const gameData = "src/data/games.json";
 
 const params = new URLSearchParams(window.location.search);
 const gameId = params.get("id");
+const gameItem = JSON.parse(localStorage.getItem(gameId));
 
 getData(gameId);
-loadStats(gameId);
+if (gameItem) {
+  loadStats(gameItem);
+  loadComments(gameItem);
+}
 
 async function getData(game) {
   try {
@@ -73,16 +78,15 @@ function loadPage(gameInfo, gameId) {
   });
 }
 
-function loadStats(game) {
-  const gameStats = JSON.parse(localStorage.getItem(game));
+function loadStats(gameItem) {
   let total = 0;
   let ratedCat = 0;
 
-  if (!gameStats) {
+  if (!gameItem) {
     return;
   }
 
-  for (const [key, criteria] of Object.entries(gameStats.criteria)) {
+  for (const [key, criteria] of Object.entries(gameItem.criteria)) {
     let rated = 0;
     let catSum = 0;
 
@@ -114,13 +118,35 @@ function loadStats(game) {
     totalScore.textContent = (total / ratedCat).toFixed(1);
   }
 
-  numRatings.textContent = shortenNum(gameStats.numRatings);
+  numRatings.textContent = shortenNum(gameItem.numRatings);
 
-  numComments.textContent = shortenNum(gameStats.numComments);
+  numComments.textContent = shortenNum(gameItem.numComments);
+}
+
+function loadComments(gameItem) {
+  gameItem.comments.forEach((comment) => {
+    const commentPost = document.createElement("article");
+
+    commentPost.classList.add("post");
+
+    const commentContent = document.createElement("p");
+
+    commentContent.classList.add("post__comment");
+    commentContent.textContent = comment.text;
+
+    const commentTime = document.createElement("span");
+    commentTime.classList.add("post__time");
+    commentTime.dataset.timestamp = comment.timestamp;
+
+    commentPost.appendChild(commentContent);
+    commentPost.appendChild(commentTime);
+
+    posts.appendChild(commentPost);
+  })
 }
 
 function atualizarTemposDosPosts() {
-  const tempos = document.querySelectorAll('.post__time[data-timestamp]');
+  const tempos = document.querySelectorAll('.post__time');
 
   tempos.forEach((span) => {
     const data = span.dataset.timestamp;
@@ -133,7 +159,6 @@ function atualizarTemposDosPosts() {
     } else {
       span.textContent = `Há ${tempo}`;
     }
-    span.title = new Date(data).toLocaleString('pt-BR');
   });
 }
 
