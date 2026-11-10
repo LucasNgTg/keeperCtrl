@@ -221,3 +221,101 @@ function generateStats(vals) {
 
   return object;
 }
+const categoryRadios = document.querySelectorAll('input[name="category"]');
+const btnPrevious = document.getElementById("previous-step");
+const btnNext = document.getElementById("next-step");
+
+
+const stepElements = [
+  
+  [document.getElementById("scoring-guide"), document.getElementById("criteria-content")],
+  
+  [document.getElementById("criteria-interaction")],
+  
+  [document.getElementById("criteria-moderation")],
+
+  [document.getElementById("criteria-purchase")],
+
+  [document.getElementById("badge-selection")],
+  
+  [document.getElementById("comment"), document.getElementById("overall-rating")]
+];
+
+let currentStep = 0;
+
+function updateSteps() {
+  
+  if (categoryRadios[currentStep]) {
+    categoryRadios[currentStep].checked = true;
+  }
+
+  
+  stepElements.forEach((elements, index) => {
+    elements.forEach(el => {
+      if (el) {
+        if (index === currentStep) {
+          el.classList.remove("hidden");
+          el.style.display = ""; // Reseta para o padrão do CSS
+        } else {
+          el.classList.add("hidden");
+          el.style.display = "none";
+        }
+      }
+    });
+  });
+
+ 
+  if (btnPrevious) {
+    btnPrevious.disabled = currentStep === 0;
+    btnPrevious.style.opacity = currentStep === 0 ? "0.5" : "1";
+  }
+
+  if (btnNext) {
+    if (currentStep === stepElements.length - 1) {
+      btnNext.textContent = "ENVIAR";
+    } else {
+      btnNext.textContent = "PRÓXIMO";
+    }
+  }
+}
+
+
+if (btnNext) {
+  btnNext.addEventListener("click", () => {
+    if (currentStep < stepElements.length - 1) {
+      currentStep++;
+      updateSteps();
+    } else {
+      
+      ratingForm.requestSubmit();
+    }
+  });
+}
+
+
+if (btnPrevious) {
+  btnPrevious.addEventListener("click", () => {
+    if (currentStep > 0) {
+      currentStep--;
+      updateSteps();
+    }
+  });
+}
+
+categoryRadios.forEach((radio, index) => {
+  radio.addEventListener("change", () => {
+    if (radio.checked) {
+      currentStep = index;
+      updateSteps();
+    }
+  });
+});
+
+
+document.getElementById("rate-btn").addEventListener("click", () => {
+  currentStep = 0;
+  updateSteps();
+});
+
+
+updateSteps();
