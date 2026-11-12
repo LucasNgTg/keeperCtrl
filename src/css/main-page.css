@@ -1,26 +1,40 @@
-footer.page-band {
+.stats {
   display: flex;
-  gap: 2rem;
-  border-top: 2px solid var(--clr-shadow);
-  bottom: 0;
-  padding-block: 14px;
-}
-
-body {
-  margin-bottom: 4rem;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-top: 0.5rem;
 }
 
 .stat {
   display: flex;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 2px 6px;
+  border: 2px solid;
+  color: var(--clr-contrast);
+  white-space: nowrap;
+}
+
+.stat .font-display {
+  color: var(--clr-contrast);
   font-size: 1rem;
 }
 
 .stat__desc {
-  font-size: 0.85rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  transform: translateY(10%);
-  color: var(--clr-darker);
+}
+
+.stat--hl {
+  background-color: var(--clr-hl);
+  border-color: #e57f53;
+  box-shadow: 4px 4px 0 var(--clr-shadow);
+}
+
+.stat--dark {
+  background-color: var(--clr-main);
+  border-color: #0a061a;
+  box-shadow: 4px 4px 0 #676572;
 }
 
 .sec-search,
@@ -46,6 +60,46 @@ h2 {
   text-align: center;
   font-size: 0.75rem;
   padding: 0 3rem;
+  color: var(--clr-darker);
+}
+
+.sec-search {
+  position: relative;
+}
+
+.sec-search::after {
+  content: "";
+  position: absolute;
+  left: calc(50% - 24px);
+  bottom: 2.5rem;
+  width: 48px;
+  height: 48px;
+  background: url("../../assets/seta.png") center / contain no-repeat;
+  image-rendering: pixelated;
+  filter: drop-shadow(4px 4px 0 var(--clr-shadow));
+  animation: seta-wobble 1.6s ease-in-out infinite;
+}
+
+@keyframes seta-wobble {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sec-search::after {
+    animation: none;
+  }
+}
+
+.sec-search h2 {
+  font-size: min(1.875rem, 6.5vw);
+  line-height: 1.33em;
 }
 
 .sec-search__intro {
@@ -71,7 +125,12 @@ h2 {
   resize: none;
   flex-grow: 1;
   padding: 0.75rem 0;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+}
+
+#searchbox::placeholder {
+  color: #c2c1c9;
 }
 
 #searchbox:focus {
@@ -82,7 +141,8 @@ h2 {
   background-color: var(--clr-hl);
   border: none;
   border-radius: 0;
-  padding: 0.5rem;
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
   color: var(--clr-contrast);
   transition: 0.1s;
 }
@@ -105,6 +165,18 @@ h2 {
   min-height: 100vh;
 }
 
+.page-band {
+  z-index: 10;
+}
+
+main {
+  width: 100%;
+}
+
+.sec-light {
+  background-color: var(--clr-surface);
+}
+
 .sec-dark {
   background-color: var(--clr-main);
   padding-top: 3rem;
@@ -112,43 +184,210 @@ h2 {
 }
 
 .present article {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 3.5rem 2rem;
 }
 
 .present h2 {
-  padding-right: 3rem;
+  padding-right: 3.5rem;
   margin-bottom: 1rem;
+  font-size: 1.875rem;
+  line-height: 2.5rem;
+}
+
+.present article::after {
+  content: "";
+  position: absolute;
+  top: 3.5rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  background: center / contain no-repeat;
+  image-rendering: pixelated;
+  pointer-events: none;
+}
+
+.present article:nth-of-type(1)::after {
+  background-image: url("../../assets/lupa.png");
+  transform: scaleX(-1);
+}
+
+.present article:nth-of-type(2)::after {
+  background-image: url("../../assets/exclamacao.png");
+}
+
+.present article:nth-of-type(3)::after {
+  background-image: url("../../assets/olho.png");
 }
 
 .present p {
-  font-weight: 500;
+  max-width: calc(100% - 2.25rem);
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.sec-light p {
+  color: var(--clr-main);
 }
 
 @media (min-width: 960px) {
+  body {
+    background-color: var(--clr-main);
+    background-image: none;
+    margin-bottom: 0;
+  }
+
+  main {
+    width: 100%;
+    max-width: 1224px;
+    min-height: 100%;
+    flex-shrink: 0;
+    background-color: var(--clr-contrast);
+    background-image: url("../../assets/pattern.png");
+    border-inline: 2px solid var(--clr-shadow);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  #main-header {
+    display: flex;
+    align-items: center;
+    height: 81px;
+    padding-inline: 1.85rem;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  #main-header .logo {
+    font-size: 1.5rem;
+  }
+
   .sec-search {
-    padding: 1.5rem 20rem;
+    position: relative;
+    width: 100%;
+    max-width: none;
+    padding: 81px 1.5rem 1.5rem;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .sec-search__intro,
+  #search-bar,
+  .stats {
+    width: 100%;
+    max-width: 788px;
+  }
+
+  .stats {
+    gap: 1.25rem;
+  }
+
+  .stat {
+    gap: 0.375rem;
+    padding: 2px 8px;
+  }
+
+  .stat .font-display {
+    font-size: 1.5rem;
+  }
+
+  .stat__desc {
+    font-size: 1rem;
+  }
+
+  .sec-search__intro {
+    gap: 0.5rem;
   }
 
   .sec-search strong {
-    font-size: 0.85rem;
-    text-align: left;
+    font-size: 1rem;
+    text-align: center;
     padding: 0;
+    color: var(--clr-darker);
   }
 
   .sec-search h2 {
-    font-size: 3rem;
-    line-height: 3.5rem;
+    font-size: 3.585rem;
+    line-height: 4.95rem;
   }
 
-  .present p {
-    max-width: 40rem;
-    font-size: 1.5rem;
-    font-weight: 400;
+  #search-bar {
+    max-width: 712.8px;
+    align-self: flex-start;
+    margin-left: calc((100% - 788px) / 2);
+    padding: 4px;
+  }
+
+  #searchbox {
+    font-size: 1rem;
+    letter-spacing: 0.03em;
+    padding: 0.85rem 0;
+  }
+
+  #searchbox::placeholder {
+    color: #c2c1c9;
+  }
+
+  #search-btn {
+    font-size: 0.75rem;
+    padding: 0.55rem 1.25rem;
+    margin-right: 0.35rem;
+  }
+
+  .sec-search::after {
+    left: auto;
+    right: max(1.5rem, calc((100% - 1092px) / 2));
+    bottom: 2rem;
+    width: 75px;
+    height: 75px;
+  }
+
+  .present {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    padding: 2rem 2rem 6rem;
   }
 
   .present article {
-    padding: 4rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 788px;
+
+    padding: 2.5rem calc(96px + 4rem) 2.5rem 2.5rem;
+  }
+
+  .sec-light {
+    border: 2px solid var(--clr-shadow);
+    box-shadow: 4px 4px 0 var(--clr-shadow);
+  }
+
+  .sec-dark {
+    border: 1px solid #231857;
+    box-shadow: 4px 4px 0 #676572;
+  }
+
+  .present h2 {
+    padding-right: 0;
+    margin-bottom: 0.5rem;
+    font-size: 2.25rem;
+    line-height: 3.25rem;
+  }
+
+  .present p {
+    max-width: none;
+    font-size: 1.25rem;
+    line-height: 1.45;
+    font-weight: 400;
+  }
+
+  .present article::after {
+    top: 2.5rem;
+    right: 2.5rem;
+    width: 96px;
+    height: 96px;
   }
 }
