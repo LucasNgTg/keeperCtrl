@@ -1,3 +1,6 @@
+const numGames = document.getElementById("num-games");
+const numRatings = document.getElementById("num-ratings");
+
 async function carregarEstatisticas() {
   const resposta = await fetch('src/data/games.json');
   const jogos = await resposta.json();
@@ -11,8 +14,8 @@ async function carregarEstatisticas() {
     }
   });
 
-  document.querySelector('.stat__games').textContent = shortenNum(jogos.length);
-  document.querySelector('.stat__ratings').textContent = shortenNum(totalAvaliacoes);
+  numGames.textContent = shortenNum(jogos.length);
+  numRatings.textContent = shortenNum(totalAvaliacoes);
 }
 
 carregarEstatisticas();
