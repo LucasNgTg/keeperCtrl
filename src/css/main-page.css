@@ -25,16 +25,20 @@
   font-weight: 600;
 }
 
-.stat--hl {
+.stat-hl {
   background-color: var(--clr-hl);
   border-color: #e57f53;
   box-shadow: 4px 4px 0 var(--clr-shadow);
 }
 
-.stat--dark {
+.stat-dark {
   background-color: var(--clr-main);
   border-color: #0a061a;
   box-shadow: 4px 4px 0 #676572;
+}
+
+.stat__num {
+  transform: translateY(-3px);
 }
 
 .sec-search,
