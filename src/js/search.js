@@ -231,5 +231,5 @@ function getScore(gameStats) {
     }
   }
 
-  return (total / ratedCat).toFixed(1);
+  return ratedCat !== 0 ? (total / ratedCat).toFixed(1) : null;
 }
