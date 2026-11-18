@@ -13,11 +13,6 @@ hr {
   color: var(--clr-shadow);
 }
 
-:focus {
-  outline: 2px solid var(--clr-text);
-  border: 2px solid var(--clr-text);
-}
-
 .game-platforms,
 .stats__list {
   list-style: none;
@@ -61,7 +56,7 @@ hr {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  padding: 2rem 1rem;
+  padding: 2rem clamp(5px, 1vw, 1rem);
   gap: 1rem;
   background-image: none;
   background-position: center;
