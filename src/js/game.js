@@ -14,6 +14,7 @@ const totalScore = document.getElementById("total-score");
 const numRatings = document.getElementById("num-ratings");
 const numComments = document.getElementById("num-comments");
 const posts = document.getElementById("posts");
+const showMoreBtn = document.getElementById("show-more-btn");
 
 const statDetails = document.querySelectorAll(".stat-details");
 
@@ -23,6 +24,11 @@ const params = new URLSearchParams(window.location.search);
 const gameId = params.get("id");
 const gameItem = JSON.parse(localStorage.getItem(gameId));
 
+const INIT_COMMENT_COUNT = 4;
+const LOAD_COMMENT_COUNT = 4;
+
+let dispCommentCount = INIT_COMMENT_COUNT;
+
 getData(gameId);
 
 if (gameItem) {
@@ -30,7 +36,6 @@ if (gameItem) {
   loadComments(gameItem);
 }
 
-atualizarTemposDosPosts();
 setInterval(atualizarTemposDosPosts, 60000);
 
 // adiciona animação às sanfonas
@@ -60,6 +65,15 @@ statDetails.forEach(details => {
       })
     }
   })
+})
+
+showMoreBtn.addEventListener("click", function handler() {
+  dispCommentCount += LOAD_COMMENT_COUNT;
+  loadComments(gameItem);
+
+  if (dispCommentCount >= gameItem.comments.length) {
+    showMoreBtn.removeEventListener("click", handler);
+  }
 })
 
 async function getData(game) {
@@ -159,7 +173,11 @@ function loadStats(gameItem) {
 }
 
 function loadComments(gameItem) {
-  gameItem.comments.forEach((comment) => {
+  posts.replaceChildren();
+
+  const visibleComments = gameItem.comments.slice(0, dispCommentCount);
+
+  visibleComments.forEach((comment) => {
     const commentPost = document.createElement("article");
 
     commentPost.classList.add("post");
@@ -178,6 +196,9 @@ function loadComments(gameItem) {
 
     posts.appendChild(commentPost);
   })
+
+  showMoreBtn.disabled = dispCommentCount >= gameItem.comments.length;
+  atualizarTemposDosPosts();
 }
 
 function atualizarTemposDosPosts() {
