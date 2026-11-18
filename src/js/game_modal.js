@@ -11,6 +11,13 @@ const ratingForm = document.getElementById("rating-form");
 
 const badgeFieldset = document.getElementById("badges");
 
+const btnPrevious = document.getElementById("modal__btn-previous");
+const btnNext = document.getElementById("modal__btn-next");
+
+const categoryRadios = Array.from(
+  document.querySelectorAll('#rating-categories input[name="category"]')
+);
+
 overlay.addEventListener("click", (e) => {
   if (!modal.contains(e.target)) {
     overlay.close();
@@ -32,6 +39,14 @@ ratingForm.addEventListener("submit", (e) => {
   submitRating();
   ratingForm.reset();
   loadStats(gameId);
+});
+
+btnPrevious.addEventListener("click", () => {
+  moveStep(-1);
+});
+
+btnNext.addEventListener("click", () => {
+  moveStep(1);
 });
 
 loadBadges();
@@ -215,13 +230,6 @@ function generateStats(vals) {
   return object;
 }
 
-const categoryRadios = Array.from(
-  document.querySelectorAll('#rating-categories input[name="category"]')
-);
-
-const btnPrevious = document.getElementById("modal__btn-previous");
-const btnNext = document.getElementById("modal__btn-next");
-
 function moveStep(direction) {
   const currentStep = categoryRadios.findIndex((radio) => radio.checked);
   const targetRadio = categoryRadios[currentStep + direction];
@@ -230,15 +238,3 @@ function moveStep(direction) {
     targetRadio.checked = true;
   }
 }
-
-btnPrevious.addEventListener("click", () => {
-  moveStep(-1);
-});
-
-btnNext.addEventListener("click", () => {
-  moveStep(1);
-});
-
-btnModalOpen.addEventListener("click", () => {
-  categoryRadios[0].checked = true;
-});
