@@ -214,3 +214,31 @@ function generateStats(vals) {
 
   return object;
 }
+
+const categoryRadios = Array.from(
+  document.querySelectorAll('#rating-categories input[name="category"]')
+);
+
+const btnPrevious = document.getElementById("modal__btn-previous");
+const btnNext = document.getElementById("modal__btn-next");
+
+function moveStep(direction) {
+  const currentStep = categoryRadios.findIndex((radio) => radio.checked);
+  const targetRadio = categoryRadios[currentStep + direction];
+
+  if (targetRadio) {
+    targetRadio.checked = true;
+  }
+}
+
+btnPrevious.addEventListener("click", () => {
+  moveStep(-1);
+});
+
+btnNext.addEventListener("click", () => {
+  moveStep(1);
+});
+
+btnModalOpen.addEventListener("click", () => {
+  categoryRadios[0].checked = true;
+});
