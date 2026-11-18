@@ -63,10 +63,6 @@ input[type="checkbox"] {
   place-content: center;
 }
 
-input[type="checkbox"]:checked:focus {
-  outline-color: var(--clr-hl);
-}
-
 input[type="checkbox"]:checked {
   border-color: var(--clr-hl);
 }
@@ -92,6 +88,7 @@ input[type="checkbox"]:checked::before {
 
 .logo {
   line-height: normal;
+  padding-inline: 6px;
 }
 
 .clr-main {
@@ -120,8 +117,9 @@ input[type="checkbox"]:checked::before {
   font-size: 1.2rem;
 }
 
-:focus {
+:focus-visible {
   outline: 2px solid var(--clr-hl-hover);
+  outline-offset: 1px;
 }
 
 .emph {
@@ -131,7 +129,7 @@ input[type="checkbox"]:checked::before {
 
 .page-band {
   background-color: var(--clr-surface);
-  padding: 0.5rem 1.85rem;
+  padding: 0.5rem 1.8rem;
   position: fixed;
   width: 100%;
 }
@@ -141,6 +139,7 @@ input[type="checkbox"]:checked::before {
   top: 0;
 }
 
+details,
 button:not(:disabled):hover {
   cursor: pointer;
 }

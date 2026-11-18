@@ -15,6 +15,8 @@ const numRatings = document.getElementById("num-ratings");
 const numComments = document.getElementById("num-comments");
 const posts = document.getElementById("posts");
 
+const statDetails = document.querySelectorAll(".stat-details");
+
 const gameData = "src/data/games.json";
 
 const params = new URLSearchParams(window.location.search);
@@ -164,3 +166,32 @@ function atualizarTemposDosPosts() {
 
 atualizarTemposDosPosts();
 setInterval(atualizarTemposDosPosts, 60000);
+
+// adiciona animação às sanfonas
+statDetails.forEach(details => {
+  const summary = details.querySelector("summary");
+  const accordion = details.querySelector(".stat-accordion");
+
+  summary.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (!details.open) {
+      details.open = true;
+      accordion.inert = false;
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          details.classList.add("expanded");
+        })
+      })
+    } else {
+      details.classList.remove("expanded");
+      accordion.inert = true;
+
+      details.addEventListener("transitionend", function handler() {
+        details.open = false;
+        details.removeEventListener("transitionend", handler);
+      })
+    }
+  })
+})

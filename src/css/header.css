@@ -44,7 +44,6 @@ header.page-band {
 
 #search-btn:hover {
   background-color: var(--clr-hl-hover);
-  cursor: pointer;
 }
 
 #search-btn path {

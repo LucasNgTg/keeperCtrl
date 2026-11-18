@@ -218,8 +218,7 @@ article.stats {
 
 .hint button:hover svg,
 .hint button:focus {
-  color: var(--clr-hl);
-  outline: none;
+  color: var(--clr-hl-hover);
 }
 
 .hint-content {
@@ -235,6 +234,10 @@ article.stats {
   transform: translateY(-4px);
   font-size: 0.8rem;
   border: none;
+}
+
+.hint button:has(+ .hint-content:popover-open) svg {
+  color: var(--clr-hl-hover);
 }
 
 .stat-average {

@@ -1,3 +1,6 @@
+const main = document.querySelector("main");
+const header = document.getElementById("main-header");
+
 const overlay = document.getElementById("overlay");
 const modal = document.getElementById("rating-modal");
 
@@ -10,36 +13,26 @@ const badgeFieldset = document.getElementById("badges");
 
 overlay.addEventListener("click", (e) => {
   if (!modal.contains(e.target)) {
-    closeModal();
+    overlay.close();
   }
 });
 
 btnModalOpen.addEventListener("click", () => {
-  openModal();
+  overlay.showModal();
 });
 
 btnModalClose.addEventListener("click", () => {
-  closeModal();
+  overlay.close();
 });
 
 ratingForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  closeModal();
+  overlay.showModal();
   submitRating();
   ratingForm.reset();
   loadStats(gameId);
 });
-
-function openModal() {
-  overlay.classList.remove("hidden");
-  document.body.classList.add("modal-open");
-}
-
-function closeModal() {
-  overlay.classList.add("hidden");
-  document.body.classList.remove("modal-open");
-}
 
 loadBadges();
 

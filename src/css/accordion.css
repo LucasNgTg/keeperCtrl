@@ -41,10 +41,17 @@ input.stat-check {
 }
 
 .stat-accordion {
-  overflow: hidden;
-  max-height: 0;
-  transition: 0.3s ease-in-out;
   background-color: var(--clr-surface);
+}
+
+.stat-details .stat-accordion {
+  transition: 0.3s ease-out;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.stat-details.expanded .stat-accordion {
+  max-height: 20rem;
 }
 
 .stat-accordion__item {
@@ -60,19 +67,15 @@ input.stat-check {
   color: var(--clr-hl-hover);
 }
 
-.stat-display:has(.stat-check:checked):not(:hover) {
+.stat-details.expanded .stat-display:not(:hover) {
   border-top-color: transparent;
   border-left-color: transparent;
   border-right-color: transparent;
   border-bottom-color: var(--clr-shadow);
 }
 
-.stat-display:has(.stat-check:checked) .stat-caret svg {
+.stat-details.expanded .stat-caret svg {
   transform: rotate(90deg);
-}
-
-.stat-display:has(.stat-check:checked) ~ .stat-accordion {
-  max-height: 20rem;
 }
 
 .stat-inner {
