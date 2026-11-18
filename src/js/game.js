@@ -20,61 +20,73 @@ const statDetails = document.querySelectorAll(".stat-details");
 
 const gameData = "src/data/games.json";
 
-const params = new URLSearchParams(window.location.search);
-const gameId = params.get("id");
-const gameItem = JSON.parse(localStorage.getItem(gameId));
-
 const INIT_COMMENT_COUNT = 4;
 const LOAD_COMMENT_COUNT = 4;
 
 let dispCommentCount = INIT_COMMENT_COUNT;
 
-getData(gameId);
+initPage();
 
-if (gameItem) {
+function initPage() {
+  const params = new URLSearchParams(window.location.search);
+  const gameId = params.get("id");
+
+  if (!gameId) {
+    window.location.replace("index.html");
+    return;
+  }
+
+  if (!getData(gameId)) {
+    window.location.replace("index.html");
+    return;
+  }
+
+  const gameItem = JSON.parse(localStorage.getItem(gameId));
+
   loadStats(gameItem);
   loadComments(gameItem);
-}
 
-setInterval(atualizarTemposDosPosts, 60000);
+  setInterval(atualizarTemposDosPosts, 60000);
 
-// adiciona animação às sanfonas
-statDetails.forEach(details => {
-  const summary = details.querySelector("summary");
-  const accordion = details.querySelector(".stat-accordion");
+  // adiciona animação às sanfonas
+  statDetails.forEach(details => {
+    const summary = details.querySelector("summary");
+    const accordion = details.querySelector(".stat-accordion");
 
-  summary.addEventListener("click", (e) => {
-    e.preventDefault();
+    summary.addEventListener("click", (e) => {
+      e.preventDefault();
 
-    if (!details.open) {
-      details.open = true;
-      accordion.inert = false;
+      if (!details.open) {
+        details.open = true;
+        accordion.inert = false;
 
-      requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-          details.classList.add("expanded");
+          requestAnimationFrame(() => {
+            details.classList.add("expanded");
+          })
         })
-      })
-    } else {
-      details.classList.remove("expanded");
-      accordion.inert = true;
+      } else {
+        details.classList.remove("expanded");
+        accordion.inert = true;
 
-      details.addEventListener("transitionend", function handler() {
-        details.open = false;
-        details.removeEventListener("transitionend", handler);
-      })
+        details.addEventListener("transitionend", function handler() {
+          details.open = false;
+          details.removeEventListener("transitionend", handler);
+        })
+      }
+    })
+  })
+
+  showMoreBtn.addEventListener("click", function handler() {
+    dispCommentCount += LOAD_COMMENT_COUNT;
+    loadComments(gameItem);
+
+    if (dispCommentCount >= gameItem.comments.length) {
+      showMoreBtn.removeEventListener("click", handler);
     }
   })
-})
+}
 
-showMoreBtn.addEventListener("click", function handler() {
-  dispCommentCount += LOAD_COMMENT_COUNT;
-  loadComments(gameItem);
-
-  if (dispCommentCount >= gameItem.comments.length) {
-    showMoreBtn.removeEventListener("click", handler);
-  }
-})
 
 async function getData(game) {
   try {
@@ -85,7 +97,7 @@ async function getData(game) {
     }
 
     const gameInfo = await response.json();
-    loadPage(gameInfo, game);
+    return loadPage(gameInfo, game);
   } catch (e) {
     console.log(e.message);
   }
@@ -96,7 +108,7 @@ function loadPage(gameInfo, gameId) {
 
   if (!game) {
     console.error("Jogo não encontrado.");
-    return;
+    return false;
   }
 
   document.title = `${game.name} | keeperCtrl`;
@@ -105,7 +117,9 @@ function loadPage(gameInfo, gameId) {
   modalTitle.textContent = game.name;
 
   cover.src = game.img.cover;
+  cover.alt = `Capa de ${game.name}`;
   modalCover.src = game.img.cover;
+  modalCover.alt = `Capa de ${game.name}`;
 
   banner.style.backgroundImage = `url("${game.img.banner}")`;
 
@@ -125,6 +139,8 @@ function loadPage(gameInfo, gameId) {
 
     platforms.appendChild(item);
   });
+
+  return true;
 }
 
 function loadStats(gameItem) {

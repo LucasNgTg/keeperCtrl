@@ -23,6 +23,12 @@ async function getData() {
     // optional chaining
     // nullish coalescing
     const query = params.get("q")?.trim() ?? "";
+
+    if (!query) {
+      window.location.replace("index.html");
+      return
+    }
+
     searchBox.value = query;
 
     loadPage(games, query);
