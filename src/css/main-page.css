@@ -252,19 +252,11 @@ main {
     background-color: var(--clr-contrast);
     background-image: url("../../assets/pattern.png");
     border-inline: 2px solid var(--clr-shadow);
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   }
 
   #main-header {
     display: flex;
     align-items: center;
-    height: 81px;
-    padding-inline: 1.85rem;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-  }
-
-  #main-header .logo {
-    font-size: 1.5rem;
   }
 
   .sec-search {

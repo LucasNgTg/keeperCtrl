@@ -117,7 +117,11 @@ input[type="checkbox"]:checked::before {
 }
 
 .logo {
-  font-size: 1rem;
+  font-size: 1.2rem;
+}
+
+:focus {
+  outline: 2px solid var(--clr-hl-hover);
 }
 
 .emph {
@@ -127,7 +131,7 @@ input[type="checkbox"]:checked::before {
 
 .page-band {
   background-color: var(--clr-surface);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1.85rem;
   position: fixed;
   width: 100%;
 }
