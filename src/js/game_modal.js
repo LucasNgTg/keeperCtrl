@@ -221,101 +221,31 @@ function generateStats(vals) {
 
   return object;
 }
-const categoryRadios = document.querySelectorAll('input[name="category"]');
-const btnPrevious = document.getElementById("previous-step");
-const btnNext = document.getElementById("next-step");
 
+const categoryRadios = Array.from(
+  document.querySelectorAll('#rating-categories input[name="category"]')
+);
 
-const stepElements = [
-  
-  [document.getElementById("scoring-guide"), document.getElementById("criteria-content")],
-  
-  [document.getElementById("criteria-interaction")],
-  
-  [document.getElementById("criteria-moderation")],
+const btnPrevious = document.getElementById("modal__btn-previous");
+const btnNext = document.getElementById("modal__btn-next");
 
-  [document.getElementById("criteria-purchase")],
+function moveStep(direction) {
+  const currentStep = categoryRadios.findIndex((radio) => radio.checked);
+  const targetRadio = categoryRadios[currentStep + direction];
 
-  [document.getElementById("badge-selection")],
-  
-  [document.getElementById("comment"), document.getElementById("overall-rating")]
-];
-
-let currentStep = 0;
-
-function updateSteps() {
-  
-  if (categoryRadios[currentStep]) {
-    categoryRadios[currentStep].checked = true;
-  }
-
-  
-  stepElements.forEach((elements, index) => {
-    elements.forEach(el => {
-      if (el) {
-        if (index === currentStep) {
-          el.classList.remove("hidden");
-          el.style.display = ""; // Reseta para o padrão do CSS
-        } else {
-          el.classList.add("hidden");
-          el.style.display = "none";
-        }
-      }
-    });
-  });
-
- 
-  if (btnPrevious) {
-    btnPrevious.disabled = currentStep === 0;
-    btnPrevious.style.opacity = currentStep === 0 ? "0.5" : "1";
-  }
-
-  if (btnNext) {
-    if (currentStep === stepElements.length - 1) {
-      btnNext.textContent = "ENVIAR";
-    } else {
-      btnNext.textContent = "PRÓXIMO";
-    }
+  if (targetRadio) {
+    targetRadio.checked = true;
   }
 }
 
-
-if (btnNext) {
-  btnNext.addEventListener("click", () => {
-    if (currentStep < stepElements.length - 1) {
-      currentStep++;
-      updateSteps();
-    } else {
-      
-      ratingForm.requestSubmit();
-    }
-  });
-}
-
-
-if (btnPrevious) {
-  btnPrevious.addEventListener("click", () => {
-    if (currentStep > 0) {
-      currentStep--;
-      updateSteps();
-    }
-  });
-}
-
-categoryRadios.forEach((radio, index) => {
-  radio.addEventListener("change", () => {
-    if (radio.checked) {
-      currentStep = index;
-      updateSteps();
-    }
-  });
+btnPrevious.addEventListener("click", () => {
+  moveStep(-1);
 });
 
-
-document.getElementById("rate-btn").addEventListener("click", () => {
-  currentStep = 0;
-  updateSteps();
+btnNext.addEventListener("click", () => {
+  moveStep(1);
 });
 
-
-updateSteps();
+btnModalOpen.addEventListener("click", () => {
+  categoryRadios[0].checked = true;
+});
