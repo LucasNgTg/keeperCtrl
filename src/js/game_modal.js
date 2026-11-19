@@ -1,6 +1,3 @@
-const main = document.querySelector("main");
-const header = document.getElementById("main-header");
-
 const overlay = document.getElementById("overlay");
 const modal = document.getElementById("rating-modal");
 
@@ -35,10 +32,11 @@ btnModalClose.addEventListener("click", () => {
 ratingForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  overlay.showModal();
+  overlay.close();
   submitRating();
+  loadStats(JSON.parse(localStorage.getItem(gameId)));
+  loadComments(JSON.parse(localStorage.getItem(gameId)));
   ratingForm.reset();
-  loadStats(gameId);
 });
 
 btnPrevious.addEventListener("click", () => {
@@ -135,6 +133,17 @@ function submitRating() {
     comment: formData.get("comment"),
     timestamp: Date.now(),
   };
+
+  const isEmpty = (obj) =>
+    Object.entries(obj)
+      .filter(([key]) => key !== "timestamp")
+      .every(([, value]) => 
+        value === "" || value == null || (Array.isArray(value) && value.length === 0))
+
+  if (isEmpty(formVals)) {
+    console.log("Avaliação vazia");
+    return;
+  }
 
   if (localData) {
     localData.numRatings++;

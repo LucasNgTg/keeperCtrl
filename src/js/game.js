@@ -20,72 +20,72 @@ const statDetails = document.querySelectorAll(".stat-details");
 
 const gameData = "src/data/games.json";
 
+const params = new URLSearchParams(window.location.search);
+const gameId = params.get("id");
+const gameItem = JSON.parse(localStorage.getItem(gameId));
+
 const INIT_COMMENT_COUNT = 4;
 const LOAD_COMMENT_COUNT = 4;
 
 let dispCommentCount = INIT_COMMENT_COUNT;
 
-initPage();
+if (!gameId) {
+  window.location.replace("index.html");
+  throw new Error("ID ausente");
+}
 
-function initPage() {
-  const params = new URLSearchParams(window.location.search);
-  const gameId = params.get("id");
+if (!getData(gameId)) {
+  window.location.replace("index.html");
+  throw new Error("ID inválido");
+}
 
-  if (!gameId) {
-    window.location.replace("index.html");
-    return;
-  }
-
-  if (!getData(gameId)) {
-    window.location.replace("index.html");
-    return;
-  }
-
-  const gameItem = JSON.parse(localStorage.getItem(gameId));
-
+if (gameItem) {
   loadStats(gameItem);
   loadComments(gameItem);
+} else {
+  showMoreBtn.disabled = true;
+}
 
-  setInterval(atualizarTemposDosPosts, 60000);
+setInterval(atualizarTemposDosPosts, 60000);
 
-  // adiciona animação às sanfonas
-  statDetails.forEach(details => {
-    const summary = details.querySelector("summary");
-    const accordion = details.querySelector(".stat-accordion");
+// adiciona animação às sanfonas
+statDetails.forEach(details => {
+  const summary = details.querySelector("summary");
+  const accordion = details.querySelector(".stat-accordion");
 
-    summary.addEventListener("click", (e) => {
-      e.preventDefault();
+  summary.addEventListener("click", (e) => {
+    e.preventDefault();
 
-      if (!details.open) {
-        details.open = true;
-        accordion.inert = false;
+    if (!details.open) {
+      details.open = true;
+      accordion.inert = false;
 
+      requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-          requestAnimationFrame(() => {
-            details.classList.add("expanded");
-          })
+          details.classList.add("expanded");
         })
-      } else {
-        details.classList.remove("expanded");
-        accordion.inert = true;
+      })
+    } else {
+      details.classList.remove("expanded");
+      accordion.inert = true;
 
-        details.addEventListener("transitionend", function handler() {
-          details.open = false;
-          details.removeEventListener("transitionend", handler);
-        })
-      }
-    })
-  })
-
-  showMoreBtn.addEventListener("click", function handler() {
-    dispCommentCount += LOAD_COMMENT_COUNT;
-    loadComments(gameItem);
-
-    if (dispCommentCount >= gameItem.comments.length) {
-      showMoreBtn.removeEventListener("click", handler);
+      details.addEventListener("transitionend", function handler() {
+        details.open = false;
+        details.removeEventListener("transitionend", handler);
+      })
     }
   })
-}
+})
+
+showMoreBtn.addEventListener("click", function handler() {
+  const gameItem = JSON.parse(localStorage.getItem(gameId))
+  dispCommentCount += LOAD_COMMENT_COUNT;
+  loadComments(gameItem);
+
+  if (dispCommentCount >= gameItem.comments.length) {
+    showMoreBtn.removeEventListener("click", handler);
+  }
+})
 
 
 async function getData(game) {
@@ -146,10 +146,6 @@ function loadPage(gameInfo, gameId) {
 function loadStats(gameItem) {
   let total = 0;
   let ratedCat = 0;
-
-  if (!gameItem) {
-    return;
-  }
 
   for (const [key, criteria] of Object.entries(gameItem.criteria)) {
     let rated = 0;
