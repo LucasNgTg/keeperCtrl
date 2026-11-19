@@ -45,6 +45,7 @@ body {
   background-image: url("../../assets/pattern.png");
 }
 
+textarea,
 ::placeholder {
   font-family: "Montserrat", system-ui, sans-serif;
 }

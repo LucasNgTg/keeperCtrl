@@ -656,10 +656,6 @@ p.t-score__display {
   height: 100%;
 }
 
-#comment-text::placeholder {
-  color: var(--clr-shadow);
-}
-
 .modal footer {
   display: flex;
   flex-direction: column;
