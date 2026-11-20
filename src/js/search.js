@@ -238,4 +238,86 @@ function getScore(gameStats) {
   }
 
   return ratedCat !== 0 ? (total / ratedCat).toFixed(1) : null;
+} 
+{
+  const jogosPorPagina = 6;
+  const navegacao = document.getElementById("pagination-nav");
+  const paginacao = document.getElementById("pagination");
+  const anterior = document.getElementById("page-back");
+  const proxima = document.getElementById("page-forward");
+
+  navegacao.hidden = true;
+
+  // Espera a busca existente preencher a lista #results.
+  const observador = new MutationObserver(() => {
+    observador.disconnect();
+
+    const jogos = Array.from(gameList.querySelectorAll(".game-result"));
+    const totalPaginas = Math.ceil(jogos.length / jogosPorPagina);
+
+    if (totalPaginas <= 1) {
+      return;
+    }
+
+    const botoesDasPaginas = [];
+    let paginaAtual = 1;
+
+    function exibirPagina(pagina) {
+      if (pagina < 1 || pagina > totalPaginas) {
+        return;
+      }
+
+      paginaAtual = pagina;
+
+      const inicio = (paginaAtual - 1) * jogosPorPagina;
+      const fim = inicio + jogosPorPagina;
+
+      gameList.replaceChildren(...jogos.slice(inicio, fim));
+
+      anterior.disabled = paginaAtual === 1;
+      proxima.disabled = paginaAtual === totalPaginas;
+
+      botoesDasPaginas.forEach((botao, indice) => {
+        const paginaAtiva = indice + 1 === paginaAtual;
+
+        botao.classList.toggle("current-page", paginaAtiva);
+
+        if (paginaAtiva) {
+          botao.setAttribute("aria-current", "page");
+        } else {
+          botao.removeAttribute("aria-current");
+        }
+      });
+    }
+
+    // Troca os números fixos do HTML pelos números da pesquisa atual.
+    paginacao.querySelectorAll(".page-num").forEach((botao) => {
+      botao.closest("li").remove();
+    });
+
+    const itemProxima = proxima.closest("li");
+
+    for (let pagina = 1; pagina <= totalPaginas; pagina++) {
+      const item = document.createElement("li");
+      const botao = document.createElement("button");
+
+      botao.type = "button";
+      botao.classList.add("page-num", "font-display");
+      botao.textContent = pagina;
+      botao.setAttribute("aria-label", `Página ${pagina}`);
+      botao.addEventListener("click", () => exibirPagina(pagina));
+
+      item.appendChild(botao);
+      paginacao.insertBefore(item, itemProxima);
+      botoesDasPaginas.push(botao);
+    }
+
+    anterior.addEventListener("click", () => exibirPagina(paginaAtual - 1));
+    proxima.addEventListener("click", () => exibirPagina(paginaAtual + 1));
+
+    exibirPagina(1);
+    navegacao.hidden = false;
+  });
+
+  observador.observe(gameList, { childList: true });
 }
