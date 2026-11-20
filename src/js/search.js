@@ -320,4 +320,4 @@ function getScore(gameStats) {
   });
 
   observador.observe(gameList, { childList: true });
-}
+}  
