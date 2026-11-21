@@ -1,12 +1,31 @@
 const numResults = document.getElementById("num-results");
 const gameList = document.getElementById("results");
 const searchTerm = document.getElementById("query");
-
 const searchBox = document.getElementById("searchbox");
+
+const navigation = document.getElementById("pagination-nav");
+const pagination = document.getElementById("pagination");
+const previous = document.getElementById("page-back");
+const next = document.getElementById("page-forward");
 
 const gameData = "src/data/games.json";
 
+const GAMES_PER_PAGE = 6;
+
+let gameCards = [];
+let currentPage = 1;
+let pageTotal = 0;
+
 getData();
+
+previous.addEventListener("click", () => showPage(currentPage - 1));
+next.addEventListener("click", () => showPage(currentPage + 1));
+
+window.addEventListener("popstate", () => {
+  const page = Math.min(getPageFromURL(), pageTotal);
+
+  showPage(page, false);
+});
 
 async function getData() {
   try {
@@ -26,7 +45,7 @@ async function getData() {
 
     if (!query) {
       window.location.replace("index.html");
-      return
+      return;
     }
 
     searchBox.value = query;
@@ -55,14 +74,14 @@ function loadPage(games, query) {
   numResults.textContent = results.length;
 
   if (results.length === 0) {
+    gameCards = [];
     gameList.textContent = "Nenhum jogo encontrado.";
+    navigation.hidden = true;
     return;
   }
 
-  results.forEach((game, index) => {
-    const result = createGameResult(game, index + 1);
-    gameList.appendChild(result);
-  });
+  gameCards = results.map((game, index) => createGameResult(game, index + 1));
+  initializePagination(gameCards);
 }
 
 function createGameResult(game, index) {
@@ -134,20 +153,11 @@ function createGameResult(game, index) {
     score.classList.add("no-score");
   }
 
-  const star = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  star.setAttribute("viewBox", "0 0 640 640");
-  star.setAttribute("aria-hidden", "true");
-  star.setAttribute("focusable", "false");
-
-  const starUse = document.createElementNS("http://www.w3.org/2000/svg", "use");
-  starUse.setAttribute("href", "assets/icons.svg#star");
-  star.appendChild(starUse);
-
   // Número da nota
   const scoreValue = document.createElement("p");
   scoreValue.textContent = gameScr ?? "-.-";
 
-  score.append(star, scoreValue);
+  score.append(createIcon("star"), scoreValue);
   header.append(gameInfo, score);
 
   // Descrição
@@ -171,19 +181,10 @@ function createGameResult(game, index) {
   comments.setAttribute("aria-live", "polite");
   comments.setAttribute("aria-atomic", "true");
 
-  const chat = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  chat.setAttribute("viewBox", "0 0 640 640");
-  chat.setAttribute("aria-hidden", "true");
-  chat.setAttribute("focusable", "false");
-
-  const chatUse = document.createElementNS("http://www.w3.org/2000/svg", "use");
-  chatUse.setAttribute("href", "assets/icons.svg#chat");
-  chat.appendChild(chatUse);
-
   const commentCount = document.createElement("p");
-  commentCount.textContent = stats?.numComments ?? 0
+  commentCount.textContent = stats?.numComments ?? 0;
 
-  comments.append(chat, commentCount);
+  comments.append(createIcon("chat"), commentCount);
 
   // Ver jogo
   const seeGame = document.createElement("div");
@@ -192,22 +193,26 @@ function createGameResult(game, index) {
   const seeGameText = document.createElement("p");
   seeGameText.textContent = "Ver jogo";
 
-  const caret = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  caret.setAttribute("viewBox", "0 0 640 640");
-  caret.setAttribute("aria-hidden", "true");
-  caret.setAttribute("focusable", "false");
-
-  const caretUse = document.createElementNS("http://www.w3.org/2000/svg", "use");
-  caretUse.setAttribute("href", "assets/icons.svg#caret");
-  caret.appendChild(caretUse);
-
-  seeGame.append(seeGameText, caret);
+  seeGame.append(seeGameText, createIcon("caret"));
   footer.append(comments, seeGame);
 
   // Assemble result
   result.append(header, description, footer);
 
   return result;
+}
+
+function createIcon(name) {
+  const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  icon.setAttribute("viewBox", "0 0 640 640");
+  icon.setAttribute("aria-hidden", "true");
+  icon.setAttribute("focusable", "false");
+
+  const iconUse = document.createElementNS("http://www.w3.org/2000/svg", "use");
+  iconUse.setAttribute("href", `assets/icons.svg#${name}`);
+  icon.appendChild(iconUse);
+
+  return icon;
 }
 
 function getScore(gameStats) {
@@ -238,86 +243,89 @@ function getScore(gameStats) {
   }
 
   return ratedCat !== 0 ? (total / ratedCat).toFixed(1) : null;
-} 
-{
-  const jogosPorPagina = 6;
-  const navegacao = document.getElementById("pagination-nav");
-  const paginacao = document.getElementById("pagination");
-  const anterior = document.getElementById("page-back");
-  const proxima = document.getElementById("page-forward");
+}
 
-  navegacao.hidden = true;
+function initializePagination(results) {
+  pageTotal = Math.ceil(results.length / GAMES_PER_PAGE);
+  currentPage = 1;
 
-  // Espera a busca existente preencher a lista #results.
-  const observador = new MutationObserver(() => {
-    observador.disconnect();
+  if (pageTotal <= 1) {
+    navigation.hidden = true;
+    return;
+  }
 
-    const jogos = Array.from(gameList.querySelectorAll(".game-result"));
-    const totalPaginas = Math.ceil(jogos.length / jogosPorPagina);
+  const itemNext = next.closest("li");
 
-    if (totalPaginas <= 1) {
-      return;
+  for (let page = 1; page <= pageTotal; page++) {
+    const item = document.createElement("li");
+    const btn = document.createElement("button");
+
+    btn.type = "button";
+    btn.classList.add("page-num", "font-display");
+    btn.textContent = page;
+    btn.setAttribute("aria-label", `Página ${page}`);
+    btn.addEventListener("click", () => showPage(page));
+
+    item.appendChild(btn);
+    pagination.insertBefore(item, itemNext);
+  }
+
+  const initialPage = Math.min(getPageFromURL(), pageTotal);
+
+  showPage(initialPage, false);
+  navigation.hidden = false;
+}
+
+function showPage(page, updateURL = true) {
+  if (page < 1 || page > pageTotal) {
+    return;
+  }
+
+  currentPage = page;
+
+  const renderStart = (currentPage - 1) * GAMES_PER_PAGE;
+  const renderEnd = renderStart + GAMES_PER_PAGE;
+
+  gameList.replaceChildren(...gameCards.slice(renderStart, renderEnd));
+
+  previous.disabled = currentPage === 1;
+  next.disabled = currentPage === pageTotal;
+
+  const btns = pagination.querySelectorAll(".page-num");
+
+  btns.forEach((btn, idx) => {
+    const activePage = idx + 1 === currentPage;
+
+    btn.classList.toggle("current-page", activePage);
+
+    if (activePage) {
+      btn.setAttribute("aria-current", "page");
+    } else {
+      btn.removeAttribute("aria-current");
     }
-
-    const botoesDasPaginas = [];
-    let paginaAtual = 1;
-
-    function exibirPagina(pagina) {
-      if (pagina < 1 || pagina > totalPaginas) {
-        return;
-      }
-
-      paginaAtual = pagina;
-
-      const inicio = (paginaAtual - 1) * jogosPorPagina;
-      const fim = inicio + jogosPorPagina;
-
-      gameList.replaceChildren(...jogos.slice(inicio, fim));
-
-      anterior.disabled = paginaAtual === 1;
-      proxima.disabled = paginaAtual === totalPaginas;
-
-      botoesDasPaginas.forEach((botao, indice) => {
-        const paginaAtiva = indice + 1 === paginaAtual;
-
-        botao.classList.toggle("current-page", paginaAtiva);
-
-        if (paginaAtiva) {
-          botao.setAttribute("aria-current", "page");
-        } else {
-          botao.removeAttribute("aria-current");
-        }
-      });
-    }
-
-    // Troca os números fixos do HTML pelos números da pesquisa atual.
-    paginacao.querySelectorAll(".page-num").forEach((botao) => {
-      botao.closest("li").remove();
-    });
-
-    const itemProxima = proxima.closest("li");
-
-    for (let pagina = 1; pagina <= totalPaginas; pagina++) {
-      const item = document.createElement("li");
-      const botao = document.createElement("button");
-
-      botao.type = "button";
-      botao.classList.add("page-num", "font-display");
-      botao.textContent = pagina;
-      botao.setAttribute("aria-label", `Página ${pagina}`);
-      botao.addEventListener("click", () => exibirPagina(pagina));
-
-      item.appendChild(botao);
-      paginacao.insertBefore(item, itemProxima);
-      botoesDasPaginas.push(botao);
-    }
-
-    anterior.addEventListener("click", () => exibirPagina(paginaAtual - 1));
-    proxima.addEventListener("click", () => exibirPagina(paginaAtual + 1));
-
-    exibirPagina(1);
-    navegacao.hidden = false;
   });
 
-  observador.observe(gameList, { childList: true });
-}  
+  if (updateURL) {
+    updatePageURL(page);
+  }
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+}
+
+function getPageFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  const page = Number(params.get("page"));
+
+  return Number.isInteger(page) && page > 0 ? page : 1;
+}
+
+function updatePageURL(page) {
+  const url = new URL(window.location.href);
+
+  url.searchParams.set("page", page);
+
+  history.pushState({}, "", url);
+}
