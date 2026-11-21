@@ -11,6 +11,12 @@ const badgeFieldset = document.getElementById("badges");
 const btnPrevious = document.getElementById("modal__btn-previous");
 const btnNext = document.getElementById("modal__btn-next");
 
+const liveScore = document.getElementById("live-score");
+const liveScoreNum = document.getElementById("live-score-num");
+const liveScoreDisplay = document.getElementById("live-score-display");
+
+const ratingCategories = document.getElementById("rating-categories");
+
 const categoryRadios = Array.from(
   ratingCategories.querySelectorAll('input[name="category"]'),
 );
@@ -147,8 +153,10 @@ function submitRating() {
   const isEmpty = (obj) =>
     Object.entries(obj)
       .filter(([key]) => key !== "timestamp")
-      .every(([, value]) => 
-        value === "" || value == null || (Array.isArray(value) && value.length === 0))
+      .every(
+        ([, value]) =>
+          value === "" || value == null || (Array.isArray(value) && value.length === 0),
+      );
 
   if (isEmpty(formVals)) {
     console.log("Avaliação vazia");
@@ -262,4 +270,47 @@ function moveStep(direction) {
   }));
 }
 
+function showLiveScore() {
+  const formData = new FormData(ratingForm);
+
+  const scores = {
+    violence: formData.get("violence-score"),
+    sex: formData.get("sex-score"),
+    language: formData.get("language-score"),
+    sensitive: formData.get("sensitive-score"),
+    communication: formData.get("communication-score"),
+    stranger: formData.get("stranger-score"),
+    community: formData.get("community-score"),
+    competition: formData.get("competition-score"),
+    report: formData.get("report-score"),
+    block: formData.get("block-score"),
+    filter: formData.get("filter-score"),
+    parental: formData.get("parental-score"),
+    microtransaction: formData.get("microtransaction-score"),
+    pressure: formData.get("pressure-score"),
+    lootboxes: formData.get("lootboxes-score"),
+    ads: formData.get("ads-score"),
+  };
+
+  const values = Object.values(scores)
+    .filter((value) => value !== "" && value != null)
+    .map(Number);
+
+  const average = values.length
+    ? values.reduce((sum, v) => sum + v, 0) / values.length
+    : 0;
+
+  liveScore.style.setProperty("--score-val", average);
+  liveScoreNum.textContent = average ? Math.round(average * 10) / 10 : "-.-";
+
+  if (average >= 4) {
+    liveScore.dataset.lvl = "high";
+    liveScoreDisplay.dataset.lvl = "high";
+  } else if (average >= 2.5) {
+    liveScore.dataset.lvl = "medium";
+    liveScoreDisplay.dataset.lvl = "medium";
+  } else {
+    liveScore.dataset.lvl = "low";
+    liveScoreDisplay.dataset.lvl = average ? "low" : "none";
+  }
 }
