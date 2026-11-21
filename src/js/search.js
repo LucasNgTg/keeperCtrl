@@ -238,9 +238,10 @@ function getScore(gameStats) {
   }
 
   return ratedCat !== 0 ? (total / ratedCat).toFixed(1) : null;
-} 
+}
+// Paginação dos resultados da pesquisa
 {
-  const jogosPorPagina = 6;
+  const jogosPorPagina = 1;
   const navegacao = document.getElementById("pagination-nav");
   const paginacao = document.getElementById("pagination");
   const anterior = document.getElementById("page-back");
@@ -262,6 +263,34 @@ function getScore(gameStats) {
     const botoesDasPaginas = [];
     let paginaAtual = 1;
 
+ function abreviarPaginas(paginaAtual, totalPaginas) {
+  const primeiraVisivel = Math.max(1, paginaAtual - 2);
+  const ultimaVisivel = Math.min(totalPaginas, paginaAtual + 2);
+  const inicioDasUltimas = Math.max(1, totalPaginas - 2);
+
+  const paginas = [];
+
+  for (let pagina = primeiraVisivel; pagina <= ultimaVisivel; pagina++) {
+    paginas.push(pagina);
+  }
+
+  const proximaPagina = ultimaVisivel + 1;
+
+  if (proximaPagina < inicioDasUltimas) {
+    paginas.push("…");
+  }
+
+  for (
+    let pagina = Math.max(proximaPagina, inicioDasUltimas);
+    pagina <= totalPaginas;
+    pagina++
+  ) {
+    paginas.push(pagina);
+  }
+
+  return paginas;
+}
+
     function exibirPagina(pagina) {
       if (pagina < 1 || pagina > totalPaginas) {
         return;
@@ -277,8 +306,13 @@ function getScore(gameStats) {
       anterior.disabled = paginaAtual === 1;
       proxima.disabled = paginaAtual === totalPaginas;
 
+      const paginasVisiveis = abreviarPaginas(paginaAtual, totalPaginas);
+      reticencias.hidden = !paginasVisiveis.includes("…");
+
       botoesDasPaginas.forEach((botao, indice) => {
-        const paginaAtiva = indice + 1 === paginaAtual;
+        const numeroDaPagina = indice + 1;
+        const paginaAtiva = numeroDaPagina === paginaAtual;
+        botao.closest("li").hidden = !paginasVisiveis.includes(numeroDaPagina);
 
         botao.classList.toggle("current-page", paginaAtiva);
 
@@ -312,6 +346,12 @@ function getScore(gameStats) {
       botoesDasPaginas.push(botao);
     }
 
+    const reticencias = document.createElement("li");
+    reticencias.textContent = "…";
+
+    const primeiroDasUltimas = botoesDasPaginas.slice(-3)[0];
+    paginacao.insertBefore(reticencias, primeiroDasUltimas.closest("li"));
+
     anterior.addEventListener("click", () => exibirPagina(paginaAtual - 1));
     proxima.addEventListener("click", () => exibirPagina(paginaAtual + 1));
 
@@ -320,4 +360,7 @@ function getScore(gameStats) {
   });
 
   observador.observe(gameList, { childList: true });
-}  
+}
+
+
+
