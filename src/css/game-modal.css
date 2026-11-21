@@ -256,6 +256,22 @@ p.t-score__display {
   font-size: 1.2rem;
 }
 
+p.t-score__display[data-lvl="none"] {
+  color: var(--clr-shadow);
+}
+
+p.t-score__display[data-lvl="high"] {
+  color: var(--clr-check);
+}
+
+p.t-score__display[data-lvl="medium"] {
+  color: var(--clr-mid);
+}
+
+p.t-score__display[data-lvl="low"] {
+  color: var(--clr-warning);
+}
+
 .criteria {
   flex-direction: column;
   height: 100%;
@@ -464,7 +480,7 @@ p.t-score__display {
 }
 
 .t-score-stars-fill {
-  --score-val: 1.3;
+  --score-val: 0;
   width: calc(100% * var(--score-val) / 5);
   position: absolute;
   top: 0;
@@ -511,6 +527,11 @@ p.t-score__display {
 
 .btn-previous:not(:disabled):hover {
   background-color: var(--clr-fill);
+}
+
+.btn-previous:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 .btn-next {

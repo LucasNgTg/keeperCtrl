@@ -12,7 +12,7 @@ const btnPrevious = document.getElementById("modal__btn-previous");
 const btnNext = document.getElementById("modal__btn-next");
 
 const categoryRadios = Array.from(
-  document.querySelectorAll('#rating-categories input[name="category"]')
+  ratingCategories.querySelectorAll('input[name="category"]'),
 );
 
 overlay.addEventListener("click", (e) => {
@@ -46,6 +46,16 @@ btnPrevious.addEventListener("click", () => {
 btnNext.addEventListener("click", () => {
   moveStep(1);
 });
+
+ratingCategories.addEventListener("change", () => {
+  if (categoryRadios[0].checked) {
+    btnPrevious.disabled = true;
+  } else {
+    btnPrevious.disabled = false;
+  }
+});
+
+ratingForm.addEventListener("change", showLiveScore);
 
 loadBadges();
 
@@ -246,4 +256,10 @@ function moveStep(direction) {
   if (targetRadio) {
     targetRadio.checked = true;
   }
+
+  ratingCategories.dispatchEvent(new Event("change", {
+    bubbles: true
+  }));
+}
+
 }
