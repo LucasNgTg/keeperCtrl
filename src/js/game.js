@@ -110,6 +110,7 @@ function loadPage(gameInfo, gameId) {
 
   if (!game) {
     console.error("Jogo não encontrado.");
+    window.location.replace("index.html");
     return false;
   }
 
