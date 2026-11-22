@@ -46,7 +46,7 @@ if (gameItem) {
   showMoreBtn.disabled = true;
 }
 
-setInterval(atualizarTemposDosPosts, 60000);
+setInterval(updatePostTime, 60000);
 
 // adiciona animação às sanfonas
 statDetails.forEach(details => {
@@ -210,22 +210,22 @@ function loadComments(gameItem) {
   })
 
   showMoreBtn.disabled = dispCommentCount >= gameItem.comments.length;
-  atualizarTemposDosPosts();
+  updatePostTime();
 }
 
-function atualizarTemposDosPosts() {
-  const tempos = document.querySelectorAll('.post__time');
+function updatePostTime() {
+  const times = document.querySelectorAll('.post__time');
 
-  tempos.forEach((span) => {
-    const data = span.dataset.timestamp;
-    const tempo = tempoRelativo(data);
+  times.forEach((span) => {
+    const date = span.dataset.timestamp;
+    const time = relativeTime(date);
 
-    if (tempo === 'agora') {
+    if (time === 'agora') {
       span.textContent = 'Agora';
-    } else if (tempo === '1 dia') {
+    } else if (time === '1 dia') {
       span.textContent = 'Ontem';
     } else {
-      span.textContent = `Há ${tempo}`;
+      span.textContent = `Há ${time}`;
     }
   });
 }

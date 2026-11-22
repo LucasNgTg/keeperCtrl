@@ -1,21 +1,21 @@
 const numGames = document.getElementById("num-games");
 const numRatings = document.getElementById("num-ratings");
 
-carregarEstatisticas();
+displayStats();
 
-async function carregarEstatisticas() {
-  const resposta = await fetch('src/data/games.json');
-  const jogos = await resposta.json();
+async function displayStats() {
+  const response = await fetch('src/data/games.json');
+  const games = await response.json();
 
-  let totalAvaliacoes = 0;
+  let totalRatings = 0;
 
-  jogos.forEach((jogo) => {
+  games.forEach((jogo) => {
     const gameStats = JSON.parse(localStorage.getItem(jogo.id));
     if (gameStats) {
-      totalAvaliacoes += gameStats.numRatings || 0;
+      totalRatings += gameStats.numRatings || 0;
     }
   });
 
-  numGames.textContent = shortenNum(jogos.length);
-  numRatings.textContent = shortenNum(totalAvaliacoes);
+  numGames.textContent = shortenNum(games.length);
+  numRatings.textContent = shortenNum(totalRatings);
 }
