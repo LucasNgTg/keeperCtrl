@@ -188,6 +188,13 @@ main {
   background-color: var(--clr-fill);
 }
 
+.page-ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-text);
+}
+
 @media(min-width: 960px) {
   #results {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

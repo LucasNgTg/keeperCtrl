@@ -196,12 +196,13 @@ function createGameResult(game, index) {
   seeGame.append(seeGameText, createIcon("caret"));
   footer.append(comments, seeGame);
 
-  // Assemble result
+  // Montar card
   result.append(header, description, footer);
 
   return result;
 }
 
+// Cria svg para card de resultado
 function createIcon(name) {
   const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   icon.setAttribute("viewBox", "0 0 640 640");
@@ -215,6 +216,7 @@ function createIcon(name) {
   return icon;
 }
 
+// Calcula a pontuação total do jogo
 function getScore(gameStats) {
   let total = 0;
   let ratedCat = 0;
@@ -245,44 +247,38 @@ function getScore(gameStats) {
   return ratedCat !== 0 ? (total / ratedCat).toFixed(1) : null;
 }
 
+// Inicia a paginação dos resultados
 function initializePagination(results) {
   pageTotal = Math.ceil(results.length / GAMES_PER_PAGE);
   currentPage = 1;
 
-  if (pageTotal <= 1) {
+  // Se não houver resultados, ocultar a navegação
+  if (pageTotal === 0) {
     navigation.hidden = true;
     return;
   }
 
-  const itemNext = next.closest("li");
-
-  for (let page = 1; page <= pageTotal; page++) {
-    const item = document.createElement("li");
-    const btn = document.createElement("button");
-
-    btn.type = "button";
-    btn.classList.add("page-num", "font-display");
-    btn.textContent = page;
-    btn.setAttribute("aria-label", `Página ${page}`);
-    btn.addEventListener("click", () => showPage(page));
-
-    item.appendChild(btn);
-    pagination.insertBefore(item, itemNext);
-  }
-
+  // Garante que o número da página solicitado
+  // não ultrapasse o total disponível
   const initialPage = Math.min(getPageFromURL(), pageTotal);
 
+  // Mostra a página sem mudar a URL
   showPage(initialPage, false);
-  navigation.hidden = false;
+
+  // Se houver apenas uma página, ocultar a navegação
+  navigation.hidden = pageTotal <= 1;
 }
 
 function showPage(page, updateURL = true) {
+  // Se a página estiver fora dos limites estabelecidos, não fazer nada
   if (page < 1 || page > pageTotal) {
     return;
   }
 
+  // Atualiza a página atual
   currentPage = page;
 
+  // Estabelece o intervalo de cards exibidos na página
   const renderStart = (currentPage - 1) * GAMES_PER_PAGE;
   const renderEnd = renderStart + GAMES_PER_PAGE;
 
@@ -291,30 +287,21 @@ function showPage(page, updateURL = true) {
   previous.disabled = currentPage === 1;
   next.disabled = currentPage === pageTotal;
 
-  const btns = pagination.querySelectorAll(".page-num");
+  renderPagination();
 
-  btns.forEach((btn, idx) => {
-    const activePage = idx + 1 === currentPage;
-
-    btn.classList.toggle("current-page", activePage);
-
-    if (activePage) {
-      btn.setAttribute("aria-current", "page");
-    } else {
-      btn.removeAttribute("aria-current");
-    }
-  });
-
+  // Atualiza a URL
   if (updateURL) {
     updatePageURL(page);
   }
 
+  // Rola para o início
   window.scrollTo({
     top: 0,
     behavior: "smooth",
   });
 }
 
+// Verifica se a página na URL é válida e a retorna
 function getPageFromURL() {
   const params = new URLSearchParams(window.location.search);
   const page = Number(params.get("page"));
@@ -322,10 +309,101 @@ function getPageFromURL() {
   return Number.isInteger(page) && page > 0 ? page : 1;
 }
 
+// Atualiza o histórico e atualiza o parâmetro page na URL
 function updatePageURL(page) {
   const url = new URL(window.location.href);
 
   url.searchParams.set("page", page);
 
+  // Adiciona a URL com page no histórico
   history.pushState({}, "", url);
+}
+
+// Retorna a lista de páginas que devem ser exibidas na navegação
+function getVisiblePages(currentPage, pageTotal) {
+  // Armazena valores únicos
+  const pages = new Set();
+
+  // Três primeiras páginas
+  for (let page = 1; page <= Math.min(3, pageTotal); page++) {
+    pages.add(page);
+  }
+
+  // Duas páginas anteriores, a atual e duas posteriores
+  const firstVisible = Math.max(1, currentPage - 2);
+  const lastVisible = Math.min(pageTotal, currentPage + 2);
+
+  for (let page = firstVisible; page <= lastVisible; page++) {
+    pages.add(page);
+  }
+
+  // Três últimas páginas
+  for (let page = Math.max(1, pageTotal - 2); page <= pageTotal; page++) {
+    pages.add(page);
+  }
+
+  // Cria uma lista a partir do conjunto e
+  // a ordena numericamente
+  const sortedPages = [...pages].sort((a, b) => a - b);
+
+  const visiblePages = [];
+
+  for (let i = 0; i < sortedPages.length; i++) {
+    const page = sortedPages[i];
+    const previousPage = sortedPages[i - 1];
+
+    // Quando houver duas páginas não consecutivas,
+    // adicionar reticências
+    if (previousPage && page - previousPage > 1) {
+      visiblePages.push("…");
+    }
+
+    visiblePages.push(page);
+  }
+
+  return visiblePages;
+}
+
+// Exibe as páginas na navegação
+function renderPagination() {
+  // Seleciona a li que contém o botão next
+  const itemNext = next.closest("li");
+
+  // Remove os botões e as reticências anteriores
+  pagination.querySelectorAll(".page-num, .page-ellipsis").forEach((element) => {
+    element.closest("li").remove();
+  });
+
+  const visiblePages = getVisiblePages(currentPage, pageTotal);
+
+  for (const page of visiblePages) {
+    const item = document.createElement("li");
+
+    if (page === "…") {
+      item.classList.add("page-ellipsis");
+      item.textContent = "…";
+      item.setAttribute("aria-hidden", "true");
+    } else {
+      const btn = document.createElement("button");
+
+      btn.type = "button";
+      btn.classList.add("page-num", "font-display");
+      btn.textContent = page;
+      btn.setAttribute("aria-label", `Página ${page}`);
+
+      const activePage = page === currentPage;
+
+      btn.classList.toggle("current-page", activePage);
+
+      if (activePage) {
+        btn.setAttribute("aria-current", "page");
+      }
+
+      btn.addEventListener("click", () => showPage(page));
+
+      item.appendChild(btn);
+    }
+
+    pagination.insertBefore(item, itemNext);
+  }
 }
