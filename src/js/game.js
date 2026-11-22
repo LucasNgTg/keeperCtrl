@@ -18,6 +18,8 @@ const showMoreBtn = document.getElementById("show-more-btn");
 
 const statDetails = document.querySelectorAll(".stat-details");
 
+const badgeItems = document.getElementById("badge-items");
+
 const gameData = "src/data/games.json";
 
 const params = new URLSearchParams(window.location.search);
@@ -42,6 +44,7 @@ if (!getData(gameId)) {
 if (gameItem) {
   loadStats(gameItem);
   loadComments(gameItem);
+  showBadges();
 } else {
   showMoreBtn.disabled = true;
 }
@@ -49,7 +52,7 @@ if (gameItem) {
 setInterval(updatePostTime, 60000);
 
 // adiciona animação às sanfonas
-statDetails.forEach(details => {
+statDetails.forEach((details) => {
   const summary = details.querySelector("summary");
   const accordion = details.querySelector(".stat-accordion");
 
@@ -63,8 +66,8 @@ statDetails.forEach(details => {
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           details.classList.add("expanded");
-        })
-      })
+        });
+      });
     } else {
       details.classList.remove("expanded");
       accordion.inert = true;
@@ -72,21 +75,20 @@ statDetails.forEach(details => {
       details.addEventListener("transitionend", function handler() {
         details.open = false;
         details.removeEventListener("transitionend", handler);
-      })
+      });
     }
-  })
-})
+  });
+});
 
 showMoreBtn.addEventListener("click", function handler() {
-  const gameItem = JSON.parse(localStorage.getItem(gameId))
+  const gameItem = JSON.parse(localStorage.getItem(gameId));
   dispCommentCount += LOAD_COMMENT_COUNT;
   loadComments(gameItem);
 
   if (dispCommentCount >= gameItem.comments.length) {
     showMoreBtn.removeEventListener("click", handler);
   }
-})
-
+});
 
 async function getData(game) {
   try {
@@ -207,25 +209,83 @@ function loadComments(gameItem) {
     commentPost.appendChild(commentTime);
 
     posts.appendChild(commentPost);
-  })
+  });
 
   showMoreBtn.disabled = dispCommentCount >= gameItem.comments.length;
   updatePostTime();
 }
 
 function updatePostTime() {
-  const times = document.querySelectorAll('.post__time');
+  const times = document.querySelectorAll(".post__time");
 
   times.forEach((span) => {
     const date = span.dataset.timestamp;
     const time = relativeTime(date);
 
-    if (time === 'agora') {
-      span.textContent = 'Agora';
-    } else if (time === '1 dia') {
-      span.textContent = 'Ontem';
+    if (time === "agora") {
+      span.textContent = "Agora";
+    } else if (time === "1 dia") {
+      span.textContent = "Ontem";
     } else {
       span.textContent = `Há ${time}`;
     }
   });
+}
+
+async function showBadges() {
+  if (gameItem.numRatings < 20) {
+    return;
+  }
+
+  try {
+    const response = await fetch("src/data/badges.json");
+
+    if (!response.ok) {
+      throw new Error(`Erro HTTP: ${response.status}`);
+    }
+
+    const badges = await response.json();
+
+    const minCount = 0.75 * gameItem.numRatings;
+
+    let replaceBadges = true;
+
+    for (const [badge, count] of Object.entries(gameItem.badges)) {
+      if (count >= minCount) {
+        if (replaceBadges) {
+          badgeItems.replaceChildren();
+          replaceBadges = false;
+        }
+
+        const badgeObj = badges.find(b => b.id === badge);
+
+        const listItem = document.createElement("li");
+
+        const badgeBtn = document.createElement("button");
+        badgeBtn.className = `font-display badge badge-${badgeObj.nature}`
+        badgeBtn.type = "button";
+        badgeBtn.setAttribute("popovertarget", `hint__${badge}`)
+
+        const badgeName = document.createElement("p");
+        badgeName.textContent = badgeObj.name;
+        badgeName.className = "badge-name";
+
+        const badgeIcon = createIcon(badgeObj.icon);
+        badgeIcon.classList.add("badge-icon");
+
+        badgeBtn.append(badgeIcon, badgeName);
+
+        const badgeHint = document.createElement("p");
+        badgeHint.textContent = badgeObj.description;
+        badgeHint.id = `hint__${badge}`;
+        badgeHint.className = "hint-content";
+        badgeHint.popover = "auto";
+
+        listItem.append(badgeBtn, badgeHint);
+        badgeItems.append(listItem);
+      }
+    }
+  } catch (error) {
+    console.error("Não foi possível carregar os selos:", error);
+  }
 }

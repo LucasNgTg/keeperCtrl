@@ -102,14 +102,7 @@ async function loadBadges() {
       iconContainer.className = "modal-badge__icon";
       iconContainer.setAttribute("aria-hidden", "true");
 
-      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      svg.setAttribute("viewBox", "0 0 640 640");
-
-      const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
-      use.setAttribute("href", `assets/icons.svg#${badge.icon}`);
-
-      svg.appendChild(use);
-      iconContainer.appendChild(svg);
+      iconContainer.appendChild(createIcon(badge.icon));
 
       const badgeInfo = document.createElement("div");
       badgeInfo.className = "modal-badge__info";
