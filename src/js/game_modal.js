@@ -68,11 +68,7 @@ btnNext.addEventListener("click", () => {
 });
 
 ratingCategories.addEventListener("change", () => {
-  if (categoryRadios[0].checked) {
-    btnPrevious.disabled = true;
-  } else {
-    btnPrevious.disabled = false;
-  }
+  btnPrevious.disabled = categoryRadios[0].checked;
 });
 
 ratingForm.addEventListener("change", showLiveScore);
@@ -278,18 +274,16 @@ function generateStats(vals) {
 }
 
 function moveStep(direction) {
-  const currentStep = categoryRadios.findIndex((radio) => radio.checked);
-  const targetRadio = categoryRadios[currentStep + direction];
+    const currentStep = categoryRadios.findIndex(radio => radio.checked);
+    const targetStep = currentStep + direction;
 
-  if (targetRadio) {
-    targetRadio.checked = true;
-  }
+    if (targetStep < 0 || targetStep >= categoryRadios.length) {
+        return;
+    }
 
-  ratingCategories.dispatchEvent(
-    new Event("change", {
-      bubbles: true,
-    }),
-  );
+    categoryRadios[targetStep].checked = true;
+
+    btnPrevious.disabled = targetStep === 0;
 }
 
 function showLiveScore() {
