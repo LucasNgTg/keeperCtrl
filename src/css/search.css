@@ -149,6 +149,16 @@ main {
 #pagination {
   list-style: none;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#pages {
+  list-style: none;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
 }
 

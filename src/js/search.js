@@ -5,6 +5,7 @@ const searchBox = document.getElementById("searchbox");
 
 const navigation = document.getElementById("pagination-nav");
 const pagination = document.getElementById("pagination");
+const paginationPages = document.getElementById("pages");
 const previous = document.getElementById("page-back");
 const next = document.getElementById("page-forward");
 
@@ -352,9 +353,6 @@ function getVisiblePages(currentPage, pageTotal) {
 
 // Exibe as páginas na navegação
 function renderPagination() {
-  // Seleciona a li que contém o botão next
-  const itemNext = next.closest("li");
-
   // Remove os botões e as reticências anteriores
   pagination.querySelectorAll(".page-num, .page-ellipsis").forEach((element) => {
     element.closest("li").remove();
@@ -390,6 +388,6 @@ function renderPagination() {
       item.appendChild(btn);
     }
 
-    pagination.insertBefore(item, itemNext);
+    paginationPages.appendChild(item);
   }
 }
