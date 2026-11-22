@@ -202,20 +202,6 @@ function createGameResult(game, index) {
   return result;
 }
 
-// Cria svg para card de resultado
-function createIcon(name) {
-  const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  icon.setAttribute("viewBox", "0 0 640 640");
-  icon.setAttribute("aria-hidden", "true");
-  icon.setAttribute("focusable", "false");
-
-  const iconUse = document.createElementNS("http://www.w3.org/2000/svg", "use");
-  iconUse.setAttribute("href", `assets/icons.svg#${name}`);
-  icon.appendChild(iconUse);
-
-  return icon;
-}
-
 // Calcula a pontuação total do jogo
 function getScore(gameStats) {
   let total = 0;
