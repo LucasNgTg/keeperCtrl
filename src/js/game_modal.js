@@ -1,4 +1,3 @@
-const overlay = document.getElementById("overlay");
 const modal = document.getElementById("rating-modal");
 
 const btnModalOpen = document.getElementById("rate-btn");
@@ -17,32 +16,47 @@ const liveScoreDisplay = document.getElementById("live-score-display");
 
 const ratingCategories = document.getElementById("rating-categories");
 
+const submitMsg = document.getElementById("submit-msg");
+const submitMsgMsg = submitMsg.querySelector("p");
+const submitMsgBar = submitMsg.querySelector(".progress-bar");
+
 const categoryRadios = Array.from(
   ratingCategories.querySelectorAll('input[name="category"]'),
 );
 
-overlay.addEventListener("click", (e) => {
-  if (!modal.contains(e.target)) {
-    overlay.close();
+loadBadges();
+
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.close();
   }
 });
 
 btnModalOpen.addEventListener("click", () => {
-  overlay.showModal();
+  modal.showModal();
 });
 
 btnModalClose.addEventListener("click", () => {
-  overlay.close();
+  modal.close();
 });
 
 ratingForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  overlay.close();
-  submitRating();
+  modal.close();
+  if (submitRating()) {
+    showSubmitMsg("Avaliação enviada com sucesso!", "success");
+  } else {
+    showSubmitMsg("Avaliação não registrada. Nenhum campo foi preenchido.", "warning");
+  }
   loadStats(JSON.parse(localStorage.getItem(gameId)));
   loadComments(JSON.parse(localStorage.getItem(gameId)));
   ratingForm.reset();
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 });
 
 btnPrevious.addEventListener("click", () => {
@@ -63,7 +77,11 @@ ratingCategories.addEventListener("change", () => {
 
 ratingForm.addEventListener("change", showLiveScore);
 
-loadBadges();
+document.addEventListener("click", (e) => {
+  if (submitMsg.classList.contains("visible") && !submitMsg.contains(e.target)) {
+    hideSubmitMsg();
+  }
+});
 
 async function loadBadges() {
   try {
@@ -160,7 +178,7 @@ function submitRating() {
 
   if (isEmpty(formVals)) {
     console.log("Avaliação vazia");
-    return;
+    return false;
   }
 
   if (localData) {
@@ -193,6 +211,8 @@ function submitRating() {
   } else {
     localStorage.setItem(gameId, JSON.stringify(generateStats(formVals)));
   }
+
+  return true;
 }
 
 function generateStats(vals) {
@@ -265,9 +285,11 @@ function moveStep(direction) {
     targetRadio.checked = true;
   }
 
-  ratingCategories.dispatchEvent(new Event("change", {
-    bubbles: true
-  }));
+  ratingCategories.dispatchEvent(
+    new Event("change", {
+      bubbles: true,
+    }),
+  );
 }
 
 function showLiveScore() {
@@ -313,4 +335,37 @@ function showLiveScore() {
     liveScore.dataset.lvl = "low";
     liveScoreDisplay.dataset.lvl = average ? "low" : "none";
   }
+}
+
+function showSubmitMsg(msg, style) {
+  submitMsgMsg.textContent = msg;
+  submitMsg.classList.add("shown");
+  submitMsg.classList.add(style);
+
+  if (style === "warning") {
+    submitMsg.role = "alert";
+  } else {
+    submitMsg.role = "status";
+  }
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      submitMsg.classList.add("visible");
+    });
+  });
+
+  submitMsgBar.addEventListener("animationend", function handler() {
+    hideSubmitMsg();
+    submitMsg.removeEventListener("animationend", handler);
+  });
+}
+
+function hideSubmitMsg() {
+  submitMsg.classList.remove("visible");
+  submitMsg.addEventListener("transitionend", function handler() {
+    submitMsg.classList.remove("shown");
+    submitMsgMsg.textContent = "";
+    submitMsg.className = "";
+    submitMsg.removeEventListener("transitionend", handler);
+  });
 }

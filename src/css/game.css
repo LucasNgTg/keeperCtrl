@@ -509,6 +509,73 @@ article.stats {
   flex-shrink: 0;
 }
 
+#submit-msg {
+  background-color: var(--clr-bg);
+  border: 3px solid var(--clr-accent);
+  width: clamp(300px, 50vw, 960px);
+  z-index: 100;
+  position: fixed;
+  top: 108px;
+  margin-inline: auto;
+  opacity: 0;
+  transform: translateY(-50%);
+  display: none;
+  transition: 0.3s;
+}
+
+#submit-msg.shown {
+  display: block;
+}
+
+#submit-msg.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+#submit-msg p {
+  color: var(--clr-accent);
+  margin: 12px auto;
+  text-align: center;
+  font-weight: 700;
+}
+
+#submit-msg .progress-bar {
+  margin-top: 6px;
+  height: 4px;
+  width: 100%;
+}
+
+#submit-msg .progress-bar::after {
+  display: block;
+  opacity: 0.5;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background-color: var(--clr-accent);
+  animation: progress 5s linear forwards;
+  transform-origin: left;
+}
+
+#submit-msg.success {
+  --clr-accent: var(--clr-check);
+  --clr-bg: var(--clr-check-bg);
+}
+
+#submit-msg.warning {
+  --clr-accent: var(--clr-warning);
+  --clr-bg: var(--clr-warning-bg);
+}
+
+@keyframes progress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
 @media (min-width: 960px) {
   .game-id {
     align-self: end;
@@ -561,5 +628,9 @@ article.stats {
 
   #rate-btn {
     flex-shrink: 0;
+  }
+
+  #submit-msg {
+    top: 72px;
   }
 }
