@@ -9,6 +9,11 @@
   transition: 0.2s;
 }
 
+.stat-display {
+  outline-color: var(--clr-hl-hover);
+  outline-offset: 1px;
+}
+
 input.stat-check {
   display: none;
 }

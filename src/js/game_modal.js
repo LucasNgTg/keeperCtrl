@@ -51,6 +51,7 @@ ratingForm.addEventListener("submit", (e) => {
   }
   loadStats(JSON.parse(localStorage.getItem(gameId)));
   loadComments(JSON.parse(localStorage.getItem(gameId)));
+  showBadges();
   ratingForm.reset();
 
   window.scrollTo({
