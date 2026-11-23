@@ -82,13 +82,7 @@ document.addEventListener("click", (e) => {
 
 async function loadBadges() {
   try {
-    const response = await fetch("src/data/badges.json");
-
-    if (!response.ok) {
-      throw new Error(`Erro HTTP: ${response.status}`);
-    }
-
-    const badges = await response.json();
+    const badges = await getBadgeCatalog();
 
     badgeFieldset.replaceChildren();
 

@@ -21,6 +21,9 @@ const statDetails = document.querySelectorAll(".stat-details");
 const badgeItems = document.getElementById("badge-items");
 
 const gameData = "src/data/games.json";
+const badgeData = "src/data/badges.json";
+
+let badgeCatalog = null;
 
 const params = new URLSearchParams(window.location.search);
 const gameId = params.get("id");
@@ -144,6 +147,24 @@ function loadPage(gameInfo, gameId) {
   });
 
   return true;
+}
+
+// carrega a lista de selos
+function getBadgeCatalog() {
+  if (!badgeCatalog) {
+    badgeCatalog = fetch(badgeData).then((response) => {
+      if (!response.ok) {
+        throw new Error(`Erro HTTP: ${response.status}`);
+      }
+      return response.json();
+    });
+
+    badgeCatalog.catch(() => {
+      badgeCatalog = null;
+    });
+  }
+
+  return badgeCatalog;
 }
 
 function loadStats(gameItem) {
