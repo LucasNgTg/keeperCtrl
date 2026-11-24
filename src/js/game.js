@@ -23,16 +23,16 @@ const badgeItems = document.getElementById("badge-items");
 const gameData = "src/data/games.json";
 const badgeData = "src/data/badges.json";
 
-let badgeCatalog = null;
-
 const params = new URLSearchParams(window.location.search);
 const gameId = params.get("id");
-const gameItem = JSON.parse(localStorage.getItem(gameId));
 
 const INIT_COMMENT_COUNT = 4;
 const LOAD_COMMENT_COUNT = 4;
 
 let dispCommentCount = INIT_COMMENT_COUNT;
+
+const BADGE_MIN_RATINGS = 20;
+const BADGE_MIN_RATIO = 0.75;
 
 if (!gameId) {
   window.location.replace("index.html");
@@ -43,6 +43,9 @@ if (!getData(gameId)) {
   window.location.replace("index.html");
   throw new Error("ID inválido");
 }
+
+let gameItem = getGameItem(gameId);
+let badgeCatalog = null;
 
 if (gameItem) {
   loadStats(gameItem);
@@ -84,7 +87,6 @@ statDetails.forEach((details) => {
 });
 
 showMoreBtn.addEventListener("click", function handler() {
-  const gameItem = JSON.parse(localStorage.getItem(gameId));
   dispCommentCount += LOAD_COMMENT_COUNT;
   loadComments(gameItem);
 
@@ -255,7 +257,7 @@ function updatePostTime() {
 }
 
 async function showBadges() {
-  if (gameItem.numRatings < 20) {
+  if (gameItem.numRatings < BADGE_MIN_RATINGS) {
     return;
   }
 
@@ -268,7 +270,7 @@ async function showBadges() {
 
     const badges = await response.json();
 
-    const minCount = 0.75 * gameItem.numRatings;
+    const minCount = BADGE_MIN_RATIO * gameItem.numRatings;
 
     let replaceBadges = true;
 

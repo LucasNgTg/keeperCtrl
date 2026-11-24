@@ -87,7 +87,7 @@ function loadPage(games, query) {
 }
 
 function createGameResult(game, index) {
-  const stats = JSON.parse(localStorage.getItem(game.id));
+  const stats = getGameItem(game.id);
 
   const result = document.createElement("a");
   result.href = `game.html?id=${encodeURIComponent(game.id)}`;

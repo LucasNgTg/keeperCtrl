@@ -59,3 +59,7 @@ function createIcon(name) {
   return icon;
 }
 
+function getGameItem(gameId) {
+  return JSON.parse(localStorage.getItem(gameId));
+}
+

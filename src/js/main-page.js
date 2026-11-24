@@ -9,8 +9,8 @@ async function displayStats() {
 
   let totalRatings = 0;
 
-  games.forEach((jogo) => {
-    const gameStats = JSON.parse(localStorage.getItem(jogo.id));
+  games.forEach((game) => {
+    const gameStats = getGameItem(game.id);
     if (gameStats) {
       totalRatings += gameStats.numRatings || 0;
     }

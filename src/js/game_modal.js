@@ -49,8 +49,8 @@ ratingForm.addEventListener("submit", (e) => {
   } else {
     showSubmitMsg("Avaliação não registrada. Nenhum campo foi preenchido.", "warning");
   }
-  loadStats(JSON.parse(localStorage.getItem(gameId)));
-  loadComments(JSON.parse(localStorage.getItem(gameId)));
+  loadStats(gameItem);
+  loadComments(gameItem);
   showBadges();
   ratingForm.reset();
 
@@ -128,7 +128,7 @@ async function loadBadges() {
 
 function submitRating() {
   const formData = new FormData(ratingForm);
-  const localData = JSON.parse(localStorage.getItem(gameId));
+  gameItem = getGameItem(gameId);
 
   const formVals = {
     violence: formData.get("violence-score"),
@@ -165,18 +165,18 @@ function submitRating() {
     return false;
   }
 
-  if (localData) {
-    localData.numRatings++;
+  if (gameItem) {
+    gameItem.numRatings++;
 
     if (formVals.comment.trim() !== "") {
-      localData.numComments++;
-      localData.comments.push({
+      gameItem.numComments++;
+      gameItem.comments.push({
         text: formVals.comment,
         timestamp: formVals.timestamp,
       });
     }
 
-    for (const criteria of Object.values(localData.criteria)) {
+    for (const criteria of Object.values(gameItem.criteria)) {
       for (const [criterion, stats] of Object.entries(criteria)) {
         const value = formVals[criterion];
 
@@ -188,13 +188,14 @@ function submitRating() {
     }
 
     for (const badge of formVals.badges) {
-      localData.badges[badge] = (localData.badges[badge] ?? 0) + 1;
+      gameItem.badges[badge] = (gameItem.badges[badge] ?? 0) + 1;
     }
 
-    localStorage.setItem(gameId, JSON.stringify(localData));
+    localStorage.setItem(gameId, JSON.stringify(gameItem));
   } else {
     localStorage.setItem(gameId, JSON.stringify(generateStats(formVals)));
   }
+  gameItem = getGameItem(gameId);
 
   return true;
 }
