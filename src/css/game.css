@@ -400,6 +400,7 @@ article.stats {
 
 .no-badges {
   font-family: "Montserrat", system-ui, sans-serif;
+  font-size: 0.9rem;
   display: block;
   width: 100%;
   text-align: center;

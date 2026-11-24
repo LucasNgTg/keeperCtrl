@@ -77,6 +77,7 @@ function loadPage(games, query) {
   if (results.length === 0) {
     gameCards = [];
     gameList.textContent = "Nenhum jogo encontrado.";
+    gameList.className = "no-results clr-text";
     navigation.hidden = true;
     return;
   }
