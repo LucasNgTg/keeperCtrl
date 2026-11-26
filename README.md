@@ -43,11 +43,9 @@ Para executar a aplicação localmente, é necessário utilizar um servidor HTTP
 
 - **[http-server](https://www.npmjs.com/package/http-server):** servidor HTTP simples, instalável via npm. Após a instalação, execute o seguinte comando na raiz do projeto:
 
-
   ```bash
   npx http-server
   ```
-
 
 - **[Five Server](https://marketplace.visualstudio.com/items?itemName=yandeu.five-server):** extensão para o Visual Studio Code que disponibiliza um servidor local com atualização automática do navegador. Basta instalar a extensão, abrir o projeto no VS Code e iniciar o servidor.
 
@@ -55,30 +53,45 @@ Após iniciar o servidor, acesse o endereço local indicado pela ferramenta no n
 
 ## Estrutura do Projeto
 
-| Pasta         | Conteúdo                |
-| ------------- | ----------------------- |
-| /docs         | Documentação do projeto |
-| /docs/report  | Relatórios              |
-| /src          | Código fonte            |
-| /src/css      | Estilização             |
-| /src/data     | Dados iniciais          |
-| /src/fonts    | Fontes                  |
-| /src/js       | Scripts                 |
-| /assets       | Imagens, ícones, vídeos |
-| /assets/games | Imagens dos jogos       |
-| /demo         | Imagens ilustrativas    |
+| Pasta                   | Conteúdo                      |
+| ----------------------- | ----------------------------- |
+| /docs                   | Documentação do projeto       |
+| /docs/meetings          | Atas de reunião               |
+| /docs/report            | Relatórios                    |
+| /docs/research          | Pesquisas realizadas          |
+| /docs/research/concepts | Conceitos pesquisados         |
+| /src                    | Código fonte                  |
+| /src/css                | Estilização                   |
+| /src/data               | Dados estáticos               |
+| /src/fonts              | Fontes                        |
+| /src/js                 | Scripts                       |
+| /assets                 | Imagens e ícones              |
+| /assets/games           | Capas e banners dos jogos     |
+| /demo                   | Imagens e vídeos ilustrativos |
+| /demo/proto             | Imagens do protótipo          |
+
+
+## Aplicação em Funcionamento
+
+Página inicial e mecanismo de pesquisa:
+
+![Vídeo da Aplicação 1](/demo/test-main-search.mp4)
+
+Página de jogo e sistema de avaliação:
+
+![Vídeo da Aplicação 2](/demo/test-game-rating.mp4)
 
 ## Protótipo
 
 [![Figma][Figma]][Figma-url] Protótipo desenvolvido usando Figma.
 
-![Main Page - Desktop](demo/main-page-desktop.png)
-![Search Page - Desktop](demo/search-page-desktop.png)
-![Game Page - Desktop](demo/game-page-desktop.png)
+![Main Page - Desktop](/demo/proto/main-page-desktop.png)
+![Search Page - Desktop](/demo/proto/search-page-desktop.png)
+![Game Page - Desktop](/demo/proto/game-page-desktop.png)
 
-| Main Page - Mobile | Search Page - Mobile | Game Page - Mobile |
-| -------- | -------- | -------- |
-| ![Main Page - Mobile](demo/main-page-mobile.png) | ![Search Page - Mobile](demo/search-page-mobile.png) | ![Game Page - Mobile](demo/game-page-mobile.png) |
+| Main Page - Mobile                                      | Search Page - Mobile                                        | Game Page - Mobile                                      |
+| ------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------- |
+| ![Main Page - Mobile](/demo/proto/main-page-mobile.png) | ![Search Page - Mobile](/demo/proto/search-page-mobile.png) | ![Game Page - Mobile](/demo/proto/game-page-mobile.png) |
 
 ## Equipe
 
