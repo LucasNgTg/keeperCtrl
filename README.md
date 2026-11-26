@@ -75,15 +75,17 @@ Após iniciar o servidor, acesse o endereço local indicado pela ferramenta no n
 
 Página inicial e mecanismo de pesquisa:
 
-![Vídeo da Aplicação 1](/demo/test-main-search.mp4)
+![Vídeo da Aplicação 1](/demo/test-main-search.gif)
 
 Página de jogo e sistema de avaliação:
 
-![Vídeo da Aplicação 2](/demo/test-game-rating.mp4)
+![Vídeo da Aplicação 2](/demo/test-game-rating.gif)
 
 ## Protótipo
 
-[![Figma][Figma]][Figma-url] Protótipo desenvolvido usando Figma.
+[![Figma][Figma]][Figma-url]
+
+Protótipo desenvolvido usando Figma.
 
 ![Main Page - Desktop](/demo/proto/main-page-desktop.png)
 ![Search Page - Desktop](/demo/proto/search-page-desktop.png)
