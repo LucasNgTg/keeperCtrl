@@ -87,6 +87,9 @@ Página de jogo e sistema de avaliação:
 
 Protótipo desenvolvido usando Figma.
 
+- [Design](https://www.figma.com/design/8UCTuzI4DvvfJkzs7vIJ5K/prototipo-pi?node-id=0-1&t=q0VYm9nkLRCJ1quk-1)
+- [Protótipo](https://www.figma.com/proto/8UCTuzI4DvvfJkzs7vIJ5K/prototipo-pi?node-id=461-1121&t=XGOWYWqQ7xV1Nysw-9&scaling=contain&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=461%3A1121&show-proto-sidebar=1)
+
 ![Main Page - Desktop](/demo/proto/main-page-desktop.png)
 ![Search Page - Desktop](/demo/proto/search-page-desktop.png)
 ![Game Page - Desktop](/demo/proto/game-page-desktop.png)
